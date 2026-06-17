@@ -1,0 +1,139 @@
+# Java 代码规范检查规则
+# 请将 specRef / title / description / deduction 与你团队的「文字版规范」一一对应
+# 新增规则：复制一条并修改 id、specRef、checker、config
+
+version: "1.0"
+baseScore: 100
+minPassScore: 60
+
+rules:
+  # ── 1 命名规范 ──
+  - id: N001
+    category: 命名规范
+    specRef: "1.1"
+    title: 类名使用 UpperCamelCase
+    description: 类名必须使用大驼峰（UpperCamelCase），如 UserService、OrderController。
+    deduction: 3
+    severity: error
+    checker: naming-class
+
+  - id: N002
+    category: 命名规范
+    specRef: "1.2"
+    title: 方法名使用 lowerCamelCase
+    description: 方法名必须使用小驼峰（lowerCamelCase），如 getUserById、saveOrder。
+    deduction: 2
+    severity: error
+    checker: naming-method
+
+  - id: N003
+    category: 命名规范
+    specRef: "1.3"
+    title: 常量使用 UPPER_SNAKE_CASE
+    description: static final 常量必须使用全大写下划线分隔，如 MAX_RETRY_COUNT。
+    deduction: 2
+    severity: warning
+    checker: naming-constant
+
+  # ── 2 注释规范 ──
+  - id: C001
+    category: 注释规范
+    specRef: "2.1"
+    title: 类必须有 Javadoc
+    description: 每个 public 类或顶层类必须编写 Javadoc，说明职责与作者。
+    deduction: 5
+    severity: error
+    checker: missing-javadoc-class
+
+  - id: C002
+    category: 注释规范
+    specRef: "2.2"
+    title: public 方法必须有 Javadoc
+    description: 所有 public 方法（除 @Override）必须有 Javadoc，含 @param @return @throws。
+    deduction: 3
+    severity: warning
+    checker: missing-javadoc-public-method
+
+  - id: C003
+    category: 注释规范
+    specRef: "2.3"
+    title: TODO 必须关联工单号
+    description: TODO 注释必须关联工单，格式 TODO #1234，禁止裸 TODO。
+    deduction: 1
+    severity: info
+    checker: todo-without-issue
+
+  # ── 3 代码格式 ──
+  - id: F001
+    category: 代码格式
+    specRef: "3.1"
+    title: 单行长度不超过 120 字符
+    description: 单行代码（含注释）不得超过 120 字符，过长应换行。
+    deduction: 1
+    severity: warning
+    checker: line-length
+    config:
+      max: 120
+
+  - id: F002
+    category: 代码格式
+    specRef: "3.2"
+    title: 禁止通配符 import
+    description: 禁止使用 import com.foo.*，必须显式导入每个类。
+    deduction: 2
+    severity: error
+    checker: wildcard-import
+
+  # ── 4 异常与日志 ──
+  - id: E001
+    category: 异常处理
+    specRef: "4.1"
+    title: 禁止空 catch 块
+    description: catch 块不得为空；必须记录日志或包装后重新抛出。
+    deduction: 5
+    severity: error
+    checker: empty-catch
+
+  - id: E002
+    category: 日志规范
+    specRef: "4.2"
+    title: 禁止使用 System.out/err
+    description: 业务代码禁止使用 System.out.println，应使用 SLF4J 等日志框架。
+    deduction: 3
+    severity: error
+    checker: system-out
+
+  # ── 5 设计规范 ──
+  - id: D001
+    category: 设计规范
+    specRef: "5.1"
+    title: 禁止 public 非 final 字段
+    description: 类成员变量不得 public（除 static final 常量），应 private + getter/setter。
+    deduction: 4
+    severity: error
+    checker: public-field
+
+  - id: D002
+    category: 设计规范
+    specRef: "5.2"
+    title: 禁止魔法数字
+    description: 代码中不得出现未命名常量含义的数字字面量（0/1/-1 除外），应提取为常量。
+    deduction: 2
+    severity: warning
+    checker: magic-number
+    config:
+      allow: [0, 1, -1]
+
+  # ── 6 自定义 regex 示例（可按你的规范扩展）──
+  - id: X001
+    category: 安全规范
+    specRef: "6.1"
+    title: 禁止硬编码密码
+    description: 代码中不得出现 password = "xxx" 形式的硬编码凭证。
+    deduction: 10
+    severity: error
+    checker: regex
+    config:
+      pattern: 'password\s*=\s*"[^"]+"'
+      flags: i
+      message: 检测到硬编码 password，应使用配置中心或环境变量

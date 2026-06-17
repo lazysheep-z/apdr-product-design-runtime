@@ -1,0 +1,61 @@
+# Gitee Go 流水线 — Java 代码规范检查
+# 复制到你的 Java 项目仓库根目录: .gitee/pipelines/java-code-review.yml
+# 或在 Gitee「流水线」中新建并引用此文件
+
+name: Java 代码规范检查
+
+trigger:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - master
+      - main
+      - develop
+
+stages:
+  - name: code-review
+    jobs:
+      - name: java-review
+        runs-on: ubuntu-latest
+        steps:
+          - name: 检出代码
+            uses: actions/checkout@v4
+            with:
+              fetch-depth: 0
+
+          - name: 安装 Node.js
+            uses: actions/setup-node@v4
+            with:
+              node-version: '20'
+
+          - name: 安装检查工具
+            run: |
+              # 方式 A：作为子模块/拷贝放在 tools/java-code-reviewer
+              cd tools/java-code-reviewer && npm install && npm run build
+              # 方式 B：从 npm 私有源安装（若已发布）
+              # npm install -g @your-org/java-code-reviewer
+
+          - name: 运行规范检查（仅变更文件）
+            run: |
+              node tools/java-code-reviewer/dist/cli.js \
+                --changed-only \
+                --base origin/${GITEE_TARGET_BRANCH:-main} \
+                --rules tools/java-code-reviewer/rules/default-rules.yaml \
+                --format json,html,markdown,console \
+                --out reports \
+                --repo-root .
+
+          - name: 上传检查报告
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: java-review-report
+              path: reports/
+
+          - name: 评论 MR（可选，需配置 Gitee Token）
+            if: failure()
+            run: |
+              echo "检查未通过，请查看 reports/review-report.html"
+              # 可在此调用 Gitee API 将 review-report.md 评论到 MR

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Java 代码规范检查报告</title>
+  <style>
+    :root { --bg:#0f1419; --card:#1a2332; --text:#e6edf3; --muted:#8b949e; --pass:#3fb950; --fail:#f85149; --warn:#d29922; }
+    * { box-sizing: border-box; }
+    body { font-family: "SF Pro Text", system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 2rem; line-height: 1.5; }
+    h1 { font-size: 1.5rem; margin-bottom: .5rem; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .card { background: var(--card); border-radius: 8px; padding: 1rem 1.25rem; }
+    .card .label { color: var(--muted); font-size: .85rem; }
+    .card .value { font-size: 1.75rem; font-weight: 600; }
+    .card.pass .value { color: var(--pass); }
+    .card.fail .value { color: var(--fail); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; background: var(--card); border-radius: 8px; overflow: hidden; }
+    th, td { padding: .65rem 1rem; text-align: left; border-bottom: 1px solid #30363d; }
+    th { background: #21262d; color: var(--muted); font-size: .85rem; }
+    .violation { background: var(--card); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; border-left: 4px solid var(--warn); }
+    .violation.error { border-left-color: var(--fail); }
+    .violation header { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    .badge { font-size: .7rem; text-transform: uppercase; padding: .15rem .45rem; border-radius: 4px; background: #30363d; }
+    .badge.error { background: #490202; color: #ffa198; }
+    .deduction { margin-left: auto; color: var(--fail); font-weight: 600; }
+    dl { display: grid; grid-template-columns: 6rem 1fr; gap: .25rem .75rem; font-size: .9rem; margin: 0 0 .75rem; }
+    dt { color: var(--muted); }
+    pre.code { background: #0d1117; border-radius: 6px; padding: .75rem 1rem; overflow-x: auto; margin: 0; font-size: .85rem; line-height: 1.45; }
+    .hit { display: block; background: #490202; color: #ffa198; margin: 0 -1rem; padding: 0 1rem; }
+    .ctx { display: block; color: #8b949e; }
+    .meta { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <h1>Java 代码规范检查报告</h1>
+  <p class="meta">生成于 2026-05-25T06:13:12.596Z · 扫描 1 个文件 · 26 项违规</p>
+
+  <div class="summary">
+    <div class="card"><div class="label">基础分</div><div class="value">100</div></div>
+    <div class="card"><div class="label">总扣分</div><div class="value">-29</div></div>
+    <div class="card pass"><div class="label">最终得分</div><div class="value">71</div></div>
+    <div class="card pass"><div class="label">结果</div><div class="value">通过</div></div>
+  </div>
+
+  <h2>按类别扣分</h2>
+  <table><thead><tr><th>类别</th><th>次数</th><th>扣分</th></tr></thead><tbody><tr><td>一、核心红线</td><td>11</td><td>-22</td></tr>
+<tr><td>二、优化建议</td><td>7</td><td>-7</td></tr>
+<tr><td>三、一般合规项</td><td>8</td><td>-0</td></tr></tbody></table>
+
+  <h2>按规范条目扣分</h2>
+  <table><thead><tr><th>规范编号</th><th>规则</th><th>次数</th><th>扣分</th></tr></thead><tbody><tr><td>一-2</td><td>强依赖具体实现，未面向抽象编程</td><td>2</td><td>-4</td></tr>
+<tr><td>一-5</td><td>业务逻辑侵入 Controller 层</td><td>2</td><td>-4</td></tr>
+<tr><td>二-24</td><td>Java 未使用常量定义/魔法数字泛滥</td><td>3</td><td>-3</td></tr>
+<tr><td>一-1</td><td>违反分层单向依赖原则</td><td>1</td><td>-2</td></tr>
+<tr><td>一-6</td><td>滥用全局变量/单例/静态变量</td><td>1</td><td>-2</td></tr>
+<tr><td>一-7</td><td>实例化位置不当</td><td>1</td><td>-2</td></tr>
+<tr><td>一-8</td><td>异常处理链路缺失</td><td>1</td><td>-2</td></tr>
+<tr><td>一-10</td><td>集合访问无安全检查</td><td>1</td><td>-2</td></tr>
+<tr><td>一-12</td><td>SQL 注入风险</td><td>1</td><td>-2</td></tr>
+<tr><td>一-15</td><td>Java 禁止使用 System.out/err</td><td>1</td><td>-2</td></tr>
+<tr><td>二-4</td><td>配置硬编码</td><td>1</td><td>-1</td></tr>
+<tr><td>二-13</td><td>违规捕获异常</td><td>1</td><td>-1</td></tr>
+<tr><td>二-22</td><td>Java 日志不规范（字符串拼接）</td><td>1</td><td>-1</td></tr>
+<tr><td>二-23</td><td>Java 未使用连接池/手动创建连接</td><td>1</td><td>-1</td></tr>
+<tr><td>三-11</td><td>导包顺序混乱，无用依赖未清理</td><td>1</td><td>-0</td></tr>
+<tr><td>三-15</td><td>变量命名不规范</td><td>1</td><td>-0</td></tr>
+<tr><td>三-15</td><td>方法命名不规范</td><td>1</td><td>-0</td></tr>
+<tr><td>三-17</td><td>公共 API 无文档注释</td><td>2</td><td>-0</td></tr>
+<tr><td>三-32</td><td>异常捕获范围过大</td><td>1</td><td>-0</td></tr>
+<tr><td>三-34</td><td>未使用构造器注入/字段注入滥用</td><td>2</td><td>-0</td></tr></tbody></table>
+
+  <h2>违规明细（含代码上下文）</h2>
+  
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:4</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-1</dd>
+          <dt>规则</dt><dd>违反分层单向依赖原则</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>Controller 层禁止直接依赖 Repository/Mapper/Entity</dd>
+          <dt>规范说明</dt><dd>遵循 Controller→Service→Repository→Model 单向依赖，禁止 Controller 直接依赖 Repository/Mapper/Entity。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">import com.example.repository.UserRepository;</span>
+<span class="hit">import com.example.entity.User;</span>
+<span class="ctx">import java.util.*;</span>
+<span class="ctx">import java.sql.DriverManager;</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:5</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-11</dd>
+          <dt>规则</dt><dd>导包顺序混乱，无用依赖未清理</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>禁止使用通配符 import（import xxx.*）</dd>
+          <dt>规范说明</dt><dd>禁止通配符 import，保持 import 整洁。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">import com.example.repository.UserRepository;</span>
+<span class="ctx">import com.example.entity.User;</span>
+<span class="hit">import java.util.*;</span>
+<span class="ctx">import java.sql.DriverManager;</span>
+<span class="ctx"></span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:10</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-6</dd>
+          <dt>规则</dt><dd>滥用全局变量/单例/静态变量</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止滥用 static 可变字段存储状态，高并发下会导致请求污染</dd>
+          <dt>规范说明</dt><dd>高并发下 static 可变字段会导致数据错乱、请求污染。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">@RestController</span>
+<span class="ctx">public class UserController {</span>
+<span class="hit">    private static List&lt;String&gt; cache = new ArrayList&lt;&gt;();</span>
+<span class="ctx"></span>
+<span class="ctx">    @Autowired</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:12</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-34</dd>
+          <dt>规则</dt><dd>未使用构造器注入/字段注入滥用</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>推荐使用构造器注入，避免 @Autowired 字段注入</dd>
+          <dt>规范说明</dt><dd>推荐使用构造器注入，避免 @Autowired 字段注入。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    private static List&lt;String&gt; cache = new ArrayList&lt;&gt;();</span>
+<span class="ctx"></span>
+<span class="hit">    @Autowired</span>
+<span class="ctx">    private UserServiceImpl userService;</span>
+<span class="ctx"></span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:13</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-2</dd>
+          <dt>规则</dt><dd>强依赖具体实现，未面向抽象编程</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止直接注入实现类「UserServiceImpl」，应依赖接口</dd>
+          <dt>规范说明</dt><dd>Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">    @Autowired</span>
+<span class="hit">    private UserServiceImpl userService;</span>
+<span class="ctx"></span>
+<span class="ctx">    public List&lt;User&gt; getUsers() {</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:13</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-2</dd>
+          <dt>规则</dt><dd>强依赖具体实现，未面向抽象编程</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止直接注入实现类「UserServiceImpl」，应依赖接口</dd>
+          <dt>规范说明</dt><dd>Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">    @Autowired</span>
+<span class="hit">    private UserServiceImpl userService;</span>
+<span class="ctx"></span>
+<span class="ctx">    public List&lt;User&gt; getUsers() {</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:15</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-17</dd>
+          <dt>规则</dt><dd>公共 API 无文档注释</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>public 方法缺少 Javadoc 注释</dd>
+          <dt>规范说明</dt><dd>public 类和方法应有 Javadoc。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    private UserServiceImpl userService;</span>
+<span class="ctx"></span>
+<span class="hit">    public List&lt;User&gt; getUsers() {</span>
+<span class="ctx">        return userRepository.findAll().get(0);</span>
+<span class="ctx">    }</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:16</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-10</dd>
+          <dt>规则</dt><dd>集合访问无安全检查</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>集合/数组取值前必须判空或检查长度，禁止直接 get(0)/[0]</dd>
+          <dt>规范说明</dt><dd>List/数组取值前必须判空，禁止在长度未确认时直接 get(0)/[0]。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">    public List&lt;User&gt; getUsers() {</span>
+<span class="hit">        return userRepository.findAll().get(0);</span>
+<span class="ctx">    }</span>
+<span class="ctx"></span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:19</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-5</dd>
+          <dt>规则</dt><dd>业务逻辑侵入 Controller 层</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service</dd>
+          <dt>规范说明</dt><dd>Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    }</span>
+<span class="ctx"></span>
+<span class="hit">    @Transactional</span>
+<span class="ctx">    public void ProcessOrder(int id) {</span>
+<span class="ctx">        if (id == 42) {</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:20</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-15</dd>
+          <dt>规则</dt><dd>方法命名不规范</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>方法名「ProcessOrder」应使用 lowerCamelCase</dd>
+          <dt>规范说明</dt><dd>方法名应使用 lowerCamelCase。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">    @Transactional</span>
+<span class="hit">    public void ProcessOrder(int id) {</span>
+<span class="ctx">        if (id == 42) {</span>
+<span class="ctx">            System.out.println(&quot;order &quot; + id);</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:20</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-17</dd>
+          <dt>规则</dt><dd>公共 API 无文档注释</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>public 方法缺少 Javadoc 注释</dd>
+          <dt>规范说明</dt><dd>public 类和方法应有 Javadoc。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx"></span>
+<span class="ctx">    @Transactional</span>
+<span class="hit">    public void ProcessOrder(int id) {</span>
+<span class="ctx">        if (id == 42) {</span>
+<span class="ctx">            System.out.println(&quot;order &quot; + id);</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:21</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-24</dd>
+          <dt>规则</dt><dd>Java 未使用常量定义/魔法数字泛滥</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>魔法数字 42 应提取为命名常量</dd>
+          <dt>规范说明</dt><dd>数字、字符串硬编码应抽离为 public static final 常量。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    @Transactional</span>
+<span class="ctx">    public void ProcessOrder(int id) {</span>
+<span class="hit">        if (id == 42) {</span>
+<span class="ctx">            System.out.println(&quot;order &quot; + id);</span>
+<span class="ctx">        }</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:22</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-15</dd>
+          <dt>规则</dt><dd>Java 禁止使用 System.out/err</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止使用 System.out/err，应使用日志框架</dd>
+          <dt>规范说明</dt><dd>禁止 System.out/err，应使用 SLF4J 等日志框架。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    public void ProcessOrder(int id) {</span>
+<span class="ctx">        if (id == 42) {</span>
+<span class="hit">            System.out.println(&quot;order &quot; + id);</span>
+<span class="ctx">        }</span>
+<span class="ctx">        String sql = &quot;select * from orders where id=&quot; + id;</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:24</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-12</dd>
+          <dt>规则</dt><dd>SQL 注入风险</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止拼接用户输入到 SQL，必须使用参数化查询</dd>
+          <dt>规范说明</dt><dd>禁止直接拼接用户输入到 SQL，必须使用参数化查询。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">            System.out.println(&quot;order &quot; + id);</span>
+<span class="ctx">        }</span>
+<span class="hit">        String sql = &quot;select * from orders where id=&quot; + id;</span>
+<span class="ctx">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="ctx">            new RestTemplate();</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:25</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-5</dd>
+          <dt>规则</dt><dd>业务逻辑侵入 Controller 层</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service</dd>
+          <dt>规范说明</dt><dd>Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        }</span>
+<span class="ctx">        String sql = &quot;select * from orders where id=&quot; + id;</span>
+<span class="hit">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="ctx">            new RestTemplate();</span>
+<span class="ctx">        }</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:25</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-24</dd>
+          <dt>规则</dt><dd>Java 未使用常量定义/魔法数字泛滥</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>魔法数字 10 应提取为命名常量</dd>
+          <dt>规范说明</dt><dd>数字、字符串硬编码应抽离为 public static final 常量。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        }</span>
+<span class="ctx">        String sql = &quot;select * from orders where id=&quot; + id;</span>
+<span class="hit">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="ctx">            new RestTemplate();</span>
+<span class="ctx">        }</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:26</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-7</dd>
+          <dt>规则</dt><dd>实例化位置不当</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>禁止在循环或高频路径中重复创建 Client/Connection 等重型对象</dd>
+          <dt>规范说明</dt><dd>禁止在循环、高频调用逻辑中重复创建 Client/Connection 等重型对象。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        String sql = &quot;select * from orders where id=&quot; + id;</span>
+<span class="ctx">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="hit">            new RestTemplate();</span>
+<span class="ctx">        }</span>
+<span class="ctx">        try {</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:29</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-4</dd>
+          <dt>规则</dt><dd>配置硬编码</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>环境配置/IP/超时时间禁止硬编码，应放入配置中心</dd>
+          <dt>规范说明</dt><dd>环境配置、IP、超时必须放入配置中心，禁止写死代码。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        }</span>
+<span class="ctx">        try {</span>
+<span class="hit">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="ctx">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:29</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-23</dd>
+          <dt>规则</dt><dd>Java 未使用连接池/手动创建连接</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>禁止 DriverManager 直连，应使用连接池（如 HikariCP）</dd>
+          <dt>规范说明</dt><dd>禁止 JDBC DriverManager 直连，应使用 HikariCP 等连接池。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        }</span>
+<span class="ctx">        try {</span>
+<span class="hit">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="ctx">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:29</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-24</dd>
+          <dt>规则</dt><dd>Java 未使用常量定义/魔法数字泛滥</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>魔法数字 3306 应提取为命名常量</dd>
+          <dt>规范说明</dt><dd>数字、字符串硬编码应抽离为 public static final 常量。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        }</span>
+<span class="ctx">        try {</span>
+<span class="hit">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="ctx">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span></code></pre>
+      </article>
+
+      <article class="violation error">
+        <header>
+          <span class="badge error">error</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:30</strong>
+          <span class="deduction">-2 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>一-8</dd>
+          <dt>规则</dt><dd>异常处理链路缺失</dd>
+          <dt>类别</dt><dd>一、核心红线</dd>
+          <dt>问题</dt><dd>catch 块为空，禁止静默失败</dd>
+          <dt>规范说明</dt><dd>所有 IO/网络/数据库操作必须有成功、失败、超时处理，禁止静默失败。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        try {</span>
+<span class="ctx">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="hit">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span>
+<span class="ctx">    }</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:30</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-13</dd>
+          <dt>规则</dt><dd>违规捕获异常</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>catch 块为空，禁止静默失败</dd>
+          <dt>规范说明</dt><dd>异常必须记录日志 + 返回调用方，禁止静默处理（与核心红线互补检测）。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        try {</span>
+<span class="ctx">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="hit">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span>
+<span class="ctx">    }</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:30</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-32</dd>
+          <dt>规则</dt><dd>异常捕获范围过大</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>避免直接 catch Exception，应捕获具体异常类型</dd>
+          <dt>规范说明</dt><dd>避免直接 catch Exception，应捕获具体异常。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">        try {</span>
+<span class="ctx">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="hit">        } catch (Exception e) {}</span>
+<span class="ctx">        log.info(&quot;done &quot; + id);</span>
+<span class="ctx">    }</span></code></pre>
+      </article>
+
+      <article class="violation warning">
+        <header>
+          <span class="badge warning">warning</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:31</strong>
+          <span class="deduction">-1 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>二-22</dd>
+          <dt>规则</dt><dd>Java 日志不规范（字符串拼接）</dd>
+          <dt>类别</dt><dd>二、优化建议</dd>
+          <dt>问题</dt><dd>日志应使用占位符 {} 而非字符串拼接</dd>
+          <dt>规范说明</dt><dd>日志应使用占位符 {}，禁止 log.info(&quot;...&quot; + var) 直接拼接。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">            DriverManager.getConnection(&quot;jdbc:mysql://192.168.1.100:3306/db&quot;, &quot;u&quot;, &quot;p&quot;);</span>
+<span class="ctx">        } catch (Exception e) {}</span>
+<span class="hit">        log.info(&quot;done &quot; + id);</span>
+<span class="ctx">    }</span>
+<span class="ctx"></span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:34</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-34</dd>
+          <dt>规则</dt><dd>未使用构造器注入/字段注入滥用</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>推荐使用构造器注入，避免 @Autowired 字段注入</dd>
+          <dt>规范说明</dt><dd>推荐使用构造器注入，避免 @Autowired 字段注入。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">    }</span>
+<span class="ctx"></span>
+<span class="hit">    @Autowired</span>
+<span class="ctx">    private UserRepository userRepository;</span>
+<span class="ctx">}</span></code></pre>
+      </article>
+
+      <article class="violation info">
+        <header>
+          <span class="badge info">info</span>
+          <strong>packages/java-code-reviewer/fixtures/team-violations/UserController.java:48</strong>
+          <span class="deduction">-0 分</span>
+        </header>
+        <dl>
+          <dt>规范编号</dt><dd>三-15</dd>
+          <dt>规则</dt><dd>变量命名不规范</dd>
+          <dt>类别</dt><dd>三、一般合规项</dd>
+          <dt>问题</dt><dd>类名「log」应使用 UpperCamelCase</dd>
+          <dt>规范说明</dt><dd>类名 UpperCamelCase，方法/变量 lowerCamelCase，常量 UPPER_SNAKE_CASE。</dd>
+        </dl>
+        <pre class="code"><code><span class="ctx">@interface Transactional {}</span>
+<span class="ctx">class RestTemplate {}</span>
+<span class="hit">class log {</span>
+<span class="ctx">    static void info(String s) {}</span>
+<span class="ctx">}</span></code></pre>
+      </article>
+</body>
+</html>

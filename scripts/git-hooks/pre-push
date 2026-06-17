@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# pre-push: 仅在有 .java 变更时跑规范检查
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+REVIEW="$ROOT/scripts/java-review.sh"
+
+if [[ ! -x "$REVIEW" ]]; then
+  # 工具在 tools 子目录的情况
+  REVIEW="$ROOT/tools/java-code-reviewer/../../scripts/java-review.sh"
+fi
+
+if [[ ! -f "$REVIEW" ]] && [[ -f "$ROOT/../产品相关mcp架构/scripts/java-review.sh" ]]; then
+  REVIEW="$ROOT/../产品相关mcp架构/scripts/java-review.sh"
+fi
+
+CHANGED=$(git diff --name-only @{push} 2>/dev/null | grep -E '\.java$' || true)
+if [[ -z "$CHANGED" ]]; then
+  exit 0
+fi
+
+echo "🔍 pre-push: 检测到 Java 变更，运行规范检查..."
+bash "$ROOT/scripts/java-review.sh" 2>/dev/null || bash "$REVIEW" || {
+  echo "⚠️  未找到 java-review 脚本，跳过 pre-push 检查"
+  exit 0
+}

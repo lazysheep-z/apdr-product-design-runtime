@@ -1,0 +1,333 @@
+# 后端日常开发检查评估准则 — Java 可自动化检查规则
+# 来源: 后端日常开发检查评估准则(PHP、Go、Java).docx
+# 扣分标准:
+#   一、核心红线     -2 分/项/次
+#   二、优化建议     -1 分/项/次
+#   三、一般合规项    0 分/项/次（仅提示，不扣分）
+# 通过标准: 零扣分（有任何扣分项即为未通过）
+# 注: 部分条目（主分支合入、Git 提交、周报等）需 CI/人工流程，见 rules/manual-checks.md
+
+version: "1.0"
+source: "后端日常开发检查评估准则(PHP、Go、Java).docx"
+baseScore: 100
+minPassScore: 70
+
+rules:
+  # ═══════════════════════════════════════
+  # 一、核心红线（-2 分/项/次）
+  # ═══════════════════════════════════════
+
+  - id: R01
+    category: 一、核心红线
+    specRef: "一-1"
+    title: 违反分层单向依赖原则
+    description: 遵循 Controller→Service→Repository→Model 单向依赖，禁止 Controller 直接依赖 Repository/Mapper/Entity。
+    deduction: 2
+    severity: error
+    checker: controller-layer-violation
+
+  - id: R02
+    category: 一、核心红线
+    specRef: "一-2"
+    title: 强依赖具体实现，未面向抽象编程
+    description: Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。
+    deduction: 2
+    severity: error
+    checker: concrete-injection
+
+  - id: R05
+    category: 一、核心红线
+    specRef: "一-5"
+    title: 业务逻辑侵入 Controller 层
+    description: Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。
+    deduction: 2
+    severity: error
+    checker: controller-business-logic
+
+  - id: R06
+    category: 一、核心红线
+    specRef: "一-6"
+    title: 滥用全局变量/单例/静态变量
+    description: 高并发下 static 可变字段会导致数据错乱、请求污染。
+    deduction: 2
+    severity: error
+    checker: static-mutable-field
+
+  - id: R07
+    category: 一、核心红线
+    specRef: "一-7"
+    title: 实例化位置不当
+    description: 禁止在循环、高频调用逻辑中重复创建 Client/Connection 等重型对象。
+    deduction: 2
+    severity: error
+    checker: new-in-loop
+
+  - id: R08
+    category: 一、核心红线
+    specRef: "一-8"
+    title: 异常处理链路缺失
+    description: 所有 IO/网络/数据库操作必须有成功、失败、超时处理，禁止静默失败。
+    deduction: 2
+    severity: error
+    checker: silent-catch
+
+  - id: R10
+    category: 一、核心红线
+    specRef: "一-10"
+    title: 集合访问无安全检查
+    description: List/数组取值前必须判空，禁止在长度未确认时直接 get(0)/[0]。
+    deduction: 2
+    severity: error
+    checker: unsafe-collection-access
+
+  - id: R12
+    category: 一、核心红线
+    specRef: "一-12"
+    title: SQL 注入风险
+    description: 禁止直接拼接用户输入到 SQL，必须使用参数化查询。
+    deduction: 2
+    severity: error
+    checker: sql-injection
+
+  - id: R15a
+    category: 一、核心红线
+    specRef: "一-15"
+    title: Java 线程池滥用
+    description: 禁止 Executors 工厂创建无界/不当线程池，应使用 ThreadPoolExecutor 并配置边界。
+    deduction: 2
+    severity: error
+    checker: executors-abuse
+
+  - id: R15b
+    category: 一、核心红线
+    specRef: "一-15"
+    title: Java ThreadLocal 未 remove
+    description: ThreadLocal 使用后必须在 finally 中 remove，防止内存泄漏。
+    deduction: 2
+    severity: error
+    checker: thread-local-leak
+
+  - id: R15c
+    category: 一、核心红线
+    specRef: "一-15"
+    title: Java 未关闭资源
+    description: 流、连接、池资源必须关闭；推荐使用 try-with-resources。
+    deduction: 2
+    severity: error
+    checker: resource-leak
+
+  - id: R15d
+    category: 一、核心红线
+    specRef: "一-15"
+    title: Java 禁止使用 System.out/err
+    description: 禁止 System.out/err，应使用 SLF4J 等日志框架。
+    deduction: 2
+    severity: error
+    checker: system-out
+
+  # ═══════════════════════════════════════
+  # 二、优化建议（-1 分/项/次）— Java 相关
+  # ═══════════════════════════════════════
+
+  - id: O04
+    category: 二、优化建议
+    specRef: "二-4"
+    title: 配置硬编码
+    description: 环境配置、IP、超时必须放入配置中心，禁止写死代码。
+    deduction: 1
+    severity: warning
+    checker: hardcoded-config
+
+  - id: O13
+    category: 二、优化建议
+    specRef: "二-13"
+    title: 违规捕获异常
+    description: 异常必须记录日志 + 返回调用方，禁止静默处理（与核心红线互补检测）。
+    deduction: 1
+    severity: warning
+    checker: silent-catch
+
+  - id: O16
+    category: 二、优化建议
+    specRef: "二-16"
+    title: 方法/函数过长未拆分
+    description: 单个方法逻辑过长必须拆分，提高可读性（默认上限 300 行）。
+    deduction: 1
+    severity: warning
+    checker: method-too-long
+    config:
+      maxLines: 300
+
+  - id: O22
+    category: 二、优化建议
+    specRef: "二-22"
+    title: Java 日志不规范（字符串拼接）
+    description: 日志应使用占位符 {}，禁止 log.info("..." + var) 直接拼接。
+    deduction: 1
+    severity: warning
+    checker: log-concat
+
+  - id: O23
+    category: 二、优化建议
+    specRef: "二-23"
+    title: Java 未使用连接池/手动创建连接
+    description: 禁止 JDBC DriverManager 直连，应使用 HikariCP 等连接池。
+    deduction: 1
+    severity: warning
+    checker: jdbc-direct
+
+  - id: O24
+    category: 二、优化建议
+    specRef: "二-24"
+    title: Java 未使用常量定义/魔法数字泛滥
+    description: 数字、字符串硬编码应抽离为 public static final 常量（枚举项定义、已有 static final 常量除外）。
+    deduction: 1
+    severity: warning
+    checker: magic-number
+    config:
+      allow: [0, 1, -1]
+
+  - id: O25
+    category: 二、优化建议
+    specRef: "二-25"
+    title: Java 集合使用不当
+    description: 禁止使用 Vector 等低效集合，应使用 ArrayList 等现代集合。
+    deduction: 1
+    severity: warning
+    checker: vector-usage
+
+  # ═══════════════════════════════════════
+  # 三、一般合规项（0 分/项/次）— Java 相关，仅提示
+  # ═══════════════════════════════════════
+
+  - id: G11
+    category: 三、一般合规项
+    specRef: "三-11"
+    title: 导包顺序混乱，无用依赖未清理
+    description: 禁止通配符 import，保持 import 整洁。
+    deduction: 0
+    severity: info
+    checker: wildcard-import
+
+  - id: G15
+    category: 三、一般合规项
+    specRef: "三-15"
+    title: 变量命名不规范
+    description: 类名 UpperCamelCase，方法/变量 lowerCamelCase，常量 UPPER_SNAKE_CASE。
+    deduction: 0
+    severity: info
+    checker: naming-class
+
+  - id: G15b
+    category: 三、一般合规项
+    specRef: "三-15"
+    title: 方法命名不规范
+    description: 方法名应使用 lowerCamelCase。
+    deduction: 0
+    severity: info
+    checker: naming-method
+
+  - id: G16
+    category: 三、一般合规项
+    specRef: "三-16"
+    title: 魔法数字、魔法字符串未抽离
+    deduction: 0
+    severity: info
+    checker: magic-number
+    enabled: false
+    config:
+      allow: [0, 1, -1]
+
+  - id: G17
+    category: 三、一般合规项
+    specRef: "三-17"
+    title: 公共 API 无文档注释
+    description: public 类和方法应有 Javadoc。
+    deduction: 0
+    severity: info
+    checker: missing-javadoc-public-method
+
+  - id: G32
+    category: 三、一般合规项
+    specRef: "三-32"
+    title: 异常捕获范围过大
+    description: 避免直接 catch Exception，应捕获具体异常。
+    deduction: 0
+    severity: info
+    checker: catch-too-broad
+
+  - id: G34
+    category: 三、一般合规项
+    specRef: "三-34"
+    title: 未使用构造器注入/字段注入滥用
+    description: 推荐使用构造器注入，避免 @Autowired 字段注入。
+    deduction: 0
+    severity: info
+    checker: field-injection
+
+  - id: G36
+    category: 三、一般合规项
+    specRef: "三-36"
+    title: equals 使用不当，空指针风险
+    deduction: 0
+    severity: info
+    checker: equals-npe-risk
+
+  - id: G37
+    category: 三、一般合规项
+    specRef: "三-37"
+    title: 未使用 try-with-resources
+    description: IO 资源应使用 try-with-resources 自动关闭。
+    deduction: 0
+    severity: info
+    checker: resource-leak
+
+  - id: G39
+    category: 三、一般合规项
+    specRef: "三-39"
+    title: 泛型使用不规范
+    description: 集合声明必须指定泛型，禁止原始类型 List/Map。
+    deduction: 0
+    severity: info
+    checker: raw-generic
+
+  - id: G40
+    category: 三、一般合规项
+    specRef: "三-40"
+    title: 方法参数过多未封装
+    description: 方法参数超过 5 个应封装为对象。
+    deduction: 0
+    severity: info
+    checker: too-many-params
+    config:
+      max: 5
+
+  # ═══════════════════════════════════════
+  # 需人工/CI 流程检查的条目（默认关闭）
+  # ═══════════════════════════════════════
+
+  - id: R09
+    category: 一、核心红线
+    specRef: "一-9"
+    title: 主分支合入违规
+    description: Master 分支仅接受通过静态检查、单元测试、Code Review 三重验证的代码。
+    deduction: 2
+    severity: error
+    checker: regex
+    enabled: false
+    config:
+      pattern: "NEVER_MATCH_MANUAL_CHECK"
+      message: 需通过 Gitee MR + Code Review 流程人工确认
+
+  - id: O17
+    category: 二、优化建议
+    specRef: "二-17"
+    title: Git 提交信息不规范
+    description: "必须遵循「类型(模块): 描述」格式。"
+    deduction: 1
+    severity: warning
+    checker: regex
+    enabled: false
+    config:
+      pattern: "NEVER_MATCH_USE_GIT_HOOK"
+      message: 请配置 commit-msg hook 检查提交信息

@@ -1,0 +1,21 @@
+{
+  "name": "@apdr/mcp-design-artifacts",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "mcp-design-artifacts": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --watch dist/index.js",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@apdr/core": "0.1.0",
+    "@apdr/orchestrator": "0.1.0",
+    "@apdr/mcp-shared": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.2"
+  }
+}

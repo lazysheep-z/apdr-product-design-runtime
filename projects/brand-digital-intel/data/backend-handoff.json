@@ -1,0 +1,44 @@
+{
+  "backendOwned": [
+    {
+      "item": "短信验证码登录",
+      "description": "接入迈点自有短信平台；发送验证码、校验、会话签发均由后端实现",
+      "frontend": "仅调用登录/验证码 API，不集成第三方短信 SDK"
+    },
+    {
+      "item": "大模型密钥管理",
+      "description": "阿里云 Token Plan API Key 由后端环境变量注入（TOKEN_PLAN_API_KEY），禁止写入前端或仓库",
+      "envHint": "TOKEN_PLAN_API_KEY",
+      "tokenPlan": {
+        "openaiCompatibleBaseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+        "anthropicCompatibleBaseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+        "protocolEnv": "TOKEN_PLAN_PROTOCOL",
+        "baseUrlEnv": "TOKEN_PLAN_BASE_URL"
+      }
+    },
+    {
+      "item": "首批品牌数据导入",
+      "description": "约 2000 家酒店品牌榜单与经营数据批量入库，格式同样例 xls/xlsx"
+    }
+  ],
+  "llm": {
+    "provider": "阿里云 Token Plan（OpenAI / Anthropic 兼容）",
+    "openaiCompatibleBaseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+    "anthropicCompatibleBaseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "models": [
+      { "id": "qwen3.7-max", "tier": "旗舰", "useCase": "复杂对比与深度分析" },
+      { "id": "qwen3.6-plus", "idNote": "用户口述 qwen3.6-plus", "tier": "均衡", "useCase": "默认日常对话" },
+      { "id": "qwen3.6-flash", "tier": "轻量", "useCase": "快速响应、体验次数" }
+    ],
+    "capabilities": ["文本对话", "图片生成", "多轮历史"],
+    "configScope": "后台管理（V1）；用户可在对话内切换上述三模型"
+  },
+  "guestTrial": {
+    "maxConversations": 3,
+    "note": "未登录用户累计 3 次体验对话后引导手机号登录"
+  },
+  "export": {
+    "formats": ["图片", "PDF"],
+    "source": "对话结论与可选图表/生成图"
+  }
+}

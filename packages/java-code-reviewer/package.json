@@ -1,0 +1,19 @@
+{
+  "name": "@apdr/java-code-reviewer",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Java code compliance checker with scoring and Gitee CI integration",
+  "bin": {
+    "java-review": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "review": "node dist/cli.js",
+    "review:sample": "node dist/cli.js --path fixtures/sample-project/src --rules rules/default-rules.yaml --format html,json,console --out reports"
+  },
+  "dependencies": {
+    "yaml": "^2.7.0"
+  }
+}

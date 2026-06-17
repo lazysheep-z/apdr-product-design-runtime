@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "design-artifacts": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/packages/mcp-servers/design-artifacts/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "${workspaceFolder}/projects"
+      }
+    },
+    "design-research": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/packages/mcp-servers/research/dist/index.js"
+      ]
+    },
+    "design-preview": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/packages/mcp-servers/preview/dist/index.js"
+      ]
+    },
+    "design-repo": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/packages/mcp-servers/repo/dist/index.js"
+      ]
+    }
+  }
+}

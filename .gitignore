@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+projects/*/artifacts/
+projects/*/research/
+projects/*/diagram/
+projects/*/wireframes/
+projects/*/visual/
+projects/*/app/
+skillopt/logs/
+skillopt/outputs/
+*.log
+.runtime-state.json

@@ -1,0 +1,1248 @@
+{
+  "generatedAt": "2026-05-25T06:13:12.596Z",
+  "baseScore": 100,
+  "minPassScore": 70,
+  "totalDeduction": 29,
+  "finalScore": 71,
+  "passed": true,
+  "filesScanned": 1,
+  "violationCount": 26,
+  "byCategory": {
+    "一、核心红线": {
+      "count": 11,
+      "deduction": 22
+    },
+    "二、优化建议": {
+      "count": 7,
+      "deduction": 7
+    },
+    "三、一般合规项": {
+      "count": 8,
+      "deduction": 0
+    }
+  },
+  "byRule": {
+    "R01": {
+      "count": 1,
+      "deduction": 2,
+      "title": "违反分层单向依赖原则",
+      "specRef": "一-1"
+    },
+    "R02": {
+      "count": 2,
+      "deduction": 4,
+      "title": "强依赖具体实现，未面向抽象编程",
+      "specRef": "一-2"
+    },
+    "R05": {
+      "count": 2,
+      "deduction": 4,
+      "title": "业务逻辑侵入 Controller 层",
+      "specRef": "一-5"
+    },
+    "R06": {
+      "count": 1,
+      "deduction": 2,
+      "title": "滥用全局变量/单例/静态变量",
+      "specRef": "一-6"
+    },
+    "R07": {
+      "count": 1,
+      "deduction": 2,
+      "title": "实例化位置不当",
+      "specRef": "一-7"
+    },
+    "R08": {
+      "count": 1,
+      "deduction": 2,
+      "title": "异常处理链路缺失",
+      "specRef": "一-8"
+    },
+    "R10": {
+      "count": 1,
+      "deduction": 2,
+      "title": "集合访问无安全检查",
+      "specRef": "一-10"
+    },
+    "R12": {
+      "count": 1,
+      "deduction": 2,
+      "title": "SQL 注入风险",
+      "specRef": "一-12"
+    },
+    "R15d": {
+      "count": 1,
+      "deduction": 2,
+      "title": "Java 禁止使用 System.out/err",
+      "specRef": "一-15"
+    },
+    "O04": {
+      "count": 1,
+      "deduction": 1,
+      "title": "配置硬编码",
+      "specRef": "二-4"
+    },
+    "O13": {
+      "count": 1,
+      "deduction": 1,
+      "title": "违规捕获异常",
+      "specRef": "二-13"
+    },
+    "O22": {
+      "count": 1,
+      "deduction": 1,
+      "title": "Java 日志不规范（字符串拼接）",
+      "specRef": "二-22"
+    },
+    "O23": {
+      "count": 1,
+      "deduction": 1,
+      "title": "Java 未使用连接池/手动创建连接",
+      "specRef": "二-23"
+    },
+    "O24": {
+      "count": 3,
+      "deduction": 3,
+      "title": "Java 未使用常量定义/魔法数字泛滥",
+      "specRef": "二-24"
+    },
+    "G11": {
+      "count": 1,
+      "deduction": 0,
+      "title": "导包顺序混乱，无用依赖未清理",
+      "specRef": "三-11"
+    },
+    "G15": {
+      "count": 1,
+      "deduction": 0,
+      "title": "变量命名不规范",
+      "specRef": "三-15"
+    },
+    "G15b": {
+      "count": 1,
+      "deduction": 0,
+      "title": "方法命名不规范",
+      "specRef": "三-15"
+    },
+    "G17": {
+      "count": 2,
+      "deduction": 0,
+      "title": "公共 API 无文档注释",
+      "specRef": "三-17"
+    },
+    "G32": {
+      "count": 1,
+      "deduction": 0,
+      "title": "异常捕获范围过大",
+      "specRef": "三-32"
+    },
+    "G34": {
+      "count": 2,
+      "deduction": 0,
+      "title": "未使用构造器注入/字段注入滥用",
+      "specRef": "三-34"
+    }
+  },
+  "files": [
+    {
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "violations": [
+        {
+          "ruleId": "R01",
+          "specRef": "一-1",
+          "category": "一、核心红线",
+          "title": "违反分层单向依赖原则",
+          "description": "遵循 Controller→Service→Repository→Model 单向依赖，禁止 Controller 直接依赖 Repository/Mapper/Entity。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 4,
+          "message": "Controller 层禁止直接依赖 Repository/Mapper/Entity",
+          "snippet": "import com.example.entity.User;",
+          "contextBefore": [
+            "",
+            "import com.example.repository.UserRepository;"
+          ],
+          "contextAfter": [
+            "import java.util.*;",
+            "import java.sql.DriverManager;"
+          ]
+        },
+        {
+          "ruleId": "R02",
+          "specRef": "一-2",
+          "category": "一、核心红线",
+          "title": "强依赖具体实现，未面向抽象编程",
+          "description": "Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 13,
+          "message": "禁止直接注入实现类「UserServiceImpl」，应依赖接口",
+          "snippet": "    private UserServiceImpl userService;",
+          "contextBefore": [
+            "",
+            "    @Autowired"
+          ],
+          "contextAfter": [
+            "",
+            "    public List<User> getUsers() {"
+          ]
+        },
+        {
+          "ruleId": "R02",
+          "specRef": "一-2",
+          "category": "一、核心红线",
+          "title": "强依赖具体实现，未面向抽象编程",
+          "description": "Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 13,
+          "message": "禁止直接注入实现类「UserServiceImpl」，应依赖接口",
+          "snippet": "    private UserServiceImpl userService;",
+          "contextBefore": [
+            "",
+            "    @Autowired"
+          ],
+          "contextAfter": [
+            "",
+            "    public List<User> getUsers() {"
+          ]
+        },
+        {
+          "ruleId": "R05",
+          "specRef": "一-5",
+          "category": "一、核心红线",
+          "title": "业务逻辑侵入 Controller 层",
+          "description": "Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 19,
+          "message": "Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service",
+          "snippet": "    @Transactional",
+          "contextBefore": [
+            "    }",
+            ""
+          ],
+          "contextAfter": [
+            "    public void ProcessOrder(int id) {",
+            "        if (id == 42) {"
+          ]
+        },
+        {
+          "ruleId": "R05",
+          "specRef": "一-5",
+          "category": "一、核心红线",
+          "title": "业务逻辑侵入 Controller 层",
+          "description": "Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 25,
+          "message": "Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service",
+          "snippet": "        for (int i = 0; i < 10; i++) {",
+          "contextBefore": [
+            "        }",
+            "        String sql = \"select * from orders where id=\" + id;"
+          ],
+          "contextAfter": [
+            "            new RestTemplate();",
+            "        }"
+          ]
+        },
+        {
+          "ruleId": "R06",
+          "specRef": "一-6",
+          "category": "一、核心红线",
+          "title": "滥用全局变量/单例/静态变量",
+          "description": "高并发下 static 可变字段会导致数据错乱、请求污染。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 10,
+          "message": "禁止滥用 static 可变字段存储状态，高并发下会导致请求污染",
+          "snippet": "    private static List<String> cache = new ArrayList<>();",
+          "contextBefore": [
+            "@RestController",
+            "public class UserController {"
+          ],
+          "contextAfter": [
+            "",
+            "    @Autowired"
+          ]
+        },
+        {
+          "ruleId": "R07",
+          "specRef": "一-7",
+          "category": "一、核心红线",
+          "title": "实例化位置不当",
+          "description": "禁止在循环、高频调用逻辑中重复创建 Client/Connection 等重型对象。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 26,
+          "message": "禁止在循环或高频路径中重复创建 Client/Connection 等重型对象",
+          "snippet": "            new RestTemplate();",
+          "contextBefore": [
+            "        String sql = \"select * from orders where id=\" + id;",
+            "        for (int i = 0; i < 10; i++) {"
+          ],
+          "contextAfter": [
+            "        }",
+            "        try {"
+          ]
+        },
+        {
+          "ruleId": "R08",
+          "specRef": "一-8",
+          "category": "一、核心红线",
+          "title": "异常处理链路缺失",
+          "description": "所有 IO/网络/数据库操作必须有成功、失败、超时处理，禁止静默失败。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 30,
+          "message": "catch 块为空，禁止静默失败",
+          "snippet": "        } catch (Exception e) {}",
+          "contextBefore": [
+            "        try {",
+            "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+          ],
+          "contextAfter": [
+            "        log.info(\"done \" + id);",
+            "    }"
+          ]
+        },
+        {
+          "ruleId": "R10",
+          "specRef": "一-10",
+          "category": "一、核心红线",
+          "title": "集合访问无安全检查",
+          "description": "List/数组取值前必须判空，禁止在长度未确认时直接 get(0)/[0]。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 16,
+          "message": "集合/数组取值前必须判空或检查长度，禁止直接 get(0)/[0]",
+          "snippet": "        return userRepository.findAll().get(0);",
+          "contextBefore": [
+            "",
+            "    public List<User> getUsers() {"
+          ],
+          "contextAfter": [
+            "    }",
+            ""
+          ]
+        },
+        {
+          "ruleId": "R12",
+          "specRef": "一-12",
+          "category": "一、核心红线",
+          "title": "SQL 注入风险",
+          "description": "禁止直接拼接用户输入到 SQL，必须使用参数化查询。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 24,
+          "message": "禁止拼接用户输入到 SQL，必须使用参数化查询",
+          "snippet": "        String sql = \"select * from orders where id=\" + id;",
+          "contextBefore": [
+            "            System.out.println(\"order \" + id);",
+            "        }"
+          ],
+          "contextAfter": [
+            "        for (int i = 0; i < 10; i++) {",
+            "            new RestTemplate();"
+          ]
+        },
+        {
+          "ruleId": "R15d",
+          "specRef": "一-15",
+          "category": "一、核心红线",
+          "title": "Java 禁止使用 System.out/err",
+          "description": "禁止 System.out/err，应使用 SLF4J 等日志框架。",
+          "deduction": 2,
+          "severity": "error",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 22,
+          "message": "禁止使用 System.out/err，应使用日志框架",
+          "snippet": "            System.out.println(\"order \" + id);",
+          "contextBefore": [
+            "    public void ProcessOrder(int id) {",
+            "        if (id == 42) {"
+          ],
+          "contextAfter": [
+            "        }",
+            "        String sql = \"select * from orders where id=\" + id;"
+          ]
+        },
+        {
+          "ruleId": "O04",
+          "specRef": "二-4",
+          "category": "二、优化建议",
+          "title": "配置硬编码",
+          "description": "环境配置、IP、超时必须放入配置中心，禁止写死代码。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 29,
+          "message": "环境配置/IP/超时时间禁止硬编码，应放入配置中心",
+          "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+          "contextBefore": [
+            "        }",
+            "        try {"
+          ],
+          "contextAfter": [
+            "        } catch (Exception e) {}",
+            "        log.info(\"done \" + id);"
+          ]
+        },
+        {
+          "ruleId": "O13",
+          "specRef": "二-13",
+          "category": "二、优化建议",
+          "title": "违规捕获异常",
+          "description": "异常必须记录日志 + 返回调用方，禁止静默处理（与核心红线互补检测）。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 30,
+          "message": "catch 块为空，禁止静默失败",
+          "snippet": "        } catch (Exception e) {}",
+          "contextBefore": [
+            "        try {",
+            "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+          ],
+          "contextAfter": [
+            "        log.info(\"done \" + id);",
+            "    }"
+          ]
+        },
+        {
+          "ruleId": "O22",
+          "specRef": "二-22",
+          "category": "二、优化建议",
+          "title": "Java 日志不规范（字符串拼接）",
+          "description": "日志应使用占位符 {}，禁止 log.info(\"...\" + var) 直接拼接。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 31,
+          "message": "日志应使用占位符 {} 而非字符串拼接",
+          "snippet": "        log.info(\"done \" + id);",
+          "contextBefore": [
+            "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+            "        } catch (Exception e) {}"
+          ],
+          "contextAfter": [
+            "    }",
+            ""
+          ]
+        },
+        {
+          "ruleId": "O23",
+          "specRef": "二-23",
+          "category": "二、优化建议",
+          "title": "Java 未使用连接池/手动创建连接",
+          "description": "禁止 JDBC DriverManager 直连，应使用 HikariCP 等连接池。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 29,
+          "message": "禁止 DriverManager 直连，应使用连接池（如 HikariCP）",
+          "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+          "contextBefore": [
+            "        }",
+            "        try {"
+          ],
+          "contextAfter": [
+            "        } catch (Exception e) {}",
+            "        log.info(\"done \" + id);"
+          ]
+        },
+        {
+          "ruleId": "O24",
+          "specRef": "二-24",
+          "category": "二、优化建议",
+          "title": "Java 未使用常量定义/魔法数字泛滥",
+          "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 21,
+          "message": "魔法数字 42 应提取为命名常量",
+          "snippet": "        if (id == 42) {",
+          "contextBefore": [
+            "    @Transactional",
+            "    public void ProcessOrder(int id) {"
+          ],
+          "contextAfter": [
+            "            System.out.println(\"order \" + id);",
+            "        }"
+          ]
+        },
+        {
+          "ruleId": "O24",
+          "specRef": "二-24",
+          "category": "二、优化建议",
+          "title": "Java 未使用常量定义/魔法数字泛滥",
+          "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 25,
+          "message": "魔法数字 10 应提取为命名常量",
+          "snippet": "        for (int i = 0; i < 10; i++) {",
+          "contextBefore": [
+            "        }",
+            "        String sql = \"select * from orders where id=\" + id;"
+          ],
+          "contextAfter": [
+            "            new RestTemplate();",
+            "        }"
+          ]
+        },
+        {
+          "ruleId": "O24",
+          "specRef": "二-24",
+          "category": "二、优化建议",
+          "title": "Java 未使用常量定义/魔法数字泛滥",
+          "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+          "deduction": 1,
+          "severity": "warning",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 29,
+          "message": "魔法数字 3306 应提取为命名常量",
+          "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+          "contextBefore": [
+            "        }",
+            "        try {"
+          ],
+          "contextAfter": [
+            "        } catch (Exception e) {}",
+            "        log.info(\"done \" + id);"
+          ]
+        },
+        {
+          "ruleId": "G11",
+          "specRef": "三-11",
+          "category": "三、一般合规项",
+          "title": "导包顺序混乱，无用依赖未清理",
+          "description": "禁止通配符 import，保持 import 整洁。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 5,
+          "message": "禁止使用通配符 import（import xxx.*）",
+          "snippet": "import java.util.*;",
+          "contextBefore": [
+            "import com.example.repository.UserRepository;",
+            "import com.example.entity.User;"
+          ],
+          "contextAfter": [
+            "import java.sql.DriverManager;",
+            ""
+          ]
+        },
+        {
+          "ruleId": "G15",
+          "specRef": "三-15",
+          "category": "三、一般合规项",
+          "title": "变量命名不规范",
+          "description": "类名 UpperCamelCase，方法/变量 lowerCamelCase，常量 UPPER_SNAKE_CASE。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 48,
+          "message": "类名「log」应使用 UpperCamelCase",
+          "snippet": "class log {",
+          "contextBefore": [
+            "@interface Transactional {}",
+            "class RestTemplate {}"
+          ],
+          "contextAfter": [
+            "    static void info(String s) {}",
+            "}"
+          ]
+        },
+        {
+          "ruleId": "G15b",
+          "specRef": "三-15",
+          "category": "三、一般合规项",
+          "title": "方法命名不规范",
+          "description": "方法名应使用 lowerCamelCase。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 20,
+          "message": "方法名「ProcessOrder」应使用 lowerCamelCase",
+          "snippet": "    public void ProcessOrder(int id) {",
+          "contextBefore": [
+            "",
+            "    @Transactional"
+          ],
+          "contextAfter": [
+            "        if (id == 42) {",
+            "            System.out.println(\"order \" + id);"
+          ]
+        },
+        {
+          "ruleId": "G17",
+          "specRef": "三-17",
+          "category": "三、一般合规项",
+          "title": "公共 API 无文档注释",
+          "description": "public 类和方法应有 Javadoc。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 15,
+          "message": "public 方法缺少 Javadoc 注释",
+          "snippet": "    public List<User> getUsers() {",
+          "contextBefore": [
+            "    private UserServiceImpl userService;",
+            ""
+          ],
+          "contextAfter": [
+            "        return userRepository.findAll().get(0);",
+            "    }"
+          ]
+        },
+        {
+          "ruleId": "G17",
+          "specRef": "三-17",
+          "category": "三、一般合规项",
+          "title": "公共 API 无文档注释",
+          "description": "public 类和方法应有 Javadoc。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 20,
+          "message": "public 方法缺少 Javadoc 注释",
+          "snippet": "    public void ProcessOrder(int id) {",
+          "contextBefore": [
+            "",
+            "    @Transactional"
+          ],
+          "contextAfter": [
+            "        if (id == 42) {",
+            "            System.out.println(\"order \" + id);"
+          ]
+        },
+        {
+          "ruleId": "G32",
+          "specRef": "三-32",
+          "category": "三、一般合规项",
+          "title": "异常捕获范围过大",
+          "description": "避免直接 catch Exception，应捕获具体异常。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 30,
+          "message": "避免直接 catch Exception，应捕获具体异常类型",
+          "snippet": "        } catch (Exception e) {}",
+          "contextBefore": [
+            "        try {",
+            "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+          ],
+          "contextAfter": [
+            "        log.info(\"done \" + id);",
+            "    }"
+          ]
+        },
+        {
+          "ruleId": "G34",
+          "specRef": "三-34",
+          "category": "三、一般合规项",
+          "title": "未使用构造器注入/字段注入滥用",
+          "description": "推荐使用构造器注入，避免 @Autowired 字段注入。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 12,
+          "message": "推荐使用构造器注入，避免 @Autowired 字段注入",
+          "snippet": "    @Autowired",
+          "contextBefore": [
+            "    private static List<String> cache = new ArrayList<>();",
+            ""
+          ],
+          "contextAfter": [
+            "    private UserServiceImpl userService;",
+            ""
+          ]
+        },
+        {
+          "ruleId": "G34",
+          "specRef": "三-34",
+          "category": "三、一般合规项",
+          "title": "未使用构造器注入/字段注入滥用",
+          "description": "推荐使用构造器注入，避免 @Autowired 字段注入。",
+          "deduction": 0,
+          "severity": "info",
+          "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+          "line": 34,
+          "message": "推荐使用构造器注入，避免 @Autowired 字段注入",
+          "snippet": "    @Autowired",
+          "contextBefore": [
+            "    }",
+            ""
+          ],
+          "contextAfter": [
+            "    private UserRepository userRepository;",
+            "}"
+          ]
+        }
+      ],
+      "deduction": 29
+    }
+  ],
+  "violations": [
+    {
+      "ruleId": "R01",
+      "specRef": "一-1",
+      "category": "一、核心红线",
+      "title": "违反分层单向依赖原则",
+      "description": "遵循 Controller→Service→Repository→Model 单向依赖，禁止 Controller 直接依赖 Repository/Mapper/Entity。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 4,
+      "message": "Controller 层禁止直接依赖 Repository/Mapper/Entity",
+      "snippet": "import com.example.entity.User;",
+      "contextBefore": [
+        "",
+        "import com.example.repository.UserRepository;"
+      ],
+      "contextAfter": [
+        "import java.util.*;",
+        "import java.sql.DriverManager;"
+      ]
+    },
+    {
+      "ruleId": "G11",
+      "specRef": "三-11",
+      "category": "三、一般合规项",
+      "title": "导包顺序混乱，无用依赖未清理",
+      "description": "禁止通配符 import，保持 import 整洁。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 5,
+      "message": "禁止使用通配符 import（import xxx.*）",
+      "snippet": "import java.util.*;",
+      "contextBefore": [
+        "import com.example.repository.UserRepository;",
+        "import com.example.entity.User;"
+      ],
+      "contextAfter": [
+        "import java.sql.DriverManager;",
+        ""
+      ]
+    },
+    {
+      "ruleId": "R06",
+      "specRef": "一-6",
+      "category": "一、核心红线",
+      "title": "滥用全局变量/单例/静态变量",
+      "description": "高并发下 static 可变字段会导致数据错乱、请求污染。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 10,
+      "message": "禁止滥用 static 可变字段存储状态，高并发下会导致请求污染",
+      "snippet": "    private static List<String> cache = new ArrayList<>();",
+      "contextBefore": [
+        "@RestController",
+        "public class UserController {"
+      ],
+      "contextAfter": [
+        "",
+        "    @Autowired"
+      ]
+    },
+    {
+      "ruleId": "G34",
+      "specRef": "三-34",
+      "category": "三、一般合规项",
+      "title": "未使用构造器注入/字段注入滥用",
+      "description": "推荐使用构造器注入，避免 @Autowired 字段注入。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 12,
+      "message": "推荐使用构造器注入，避免 @Autowired 字段注入",
+      "snippet": "    @Autowired",
+      "contextBefore": [
+        "    private static List<String> cache = new ArrayList<>();",
+        ""
+      ],
+      "contextAfter": [
+        "    private UserServiceImpl userService;",
+        ""
+      ]
+    },
+    {
+      "ruleId": "R02",
+      "specRef": "一-2",
+      "category": "一、核心红线",
+      "title": "强依赖具体实现，未面向抽象编程",
+      "description": "Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 13,
+      "message": "禁止直接注入实现类「UserServiceImpl」，应依赖接口",
+      "snippet": "    private UserServiceImpl userService;",
+      "contextBefore": [
+        "",
+        "    @Autowired"
+      ],
+      "contextAfter": [
+        "",
+        "    public List<User> getUsers() {"
+      ]
+    },
+    {
+      "ruleId": "R02",
+      "specRef": "一-2",
+      "category": "一、核心红线",
+      "title": "强依赖具体实现，未面向抽象编程",
+      "description": "Service 层必须依赖抽象接口，禁止直接注入 *Impl 实现类。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 13,
+      "message": "禁止直接注入实现类「UserServiceImpl」，应依赖接口",
+      "snippet": "    private UserServiceImpl userService;",
+      "contextBefore": [
+        "",
+        "    @Autowired"
+      ],
+      "contextAfter": [
+        "",
+        "    public List<User> getUsers() {"
+      ]
+    },
+    {
+      "ruleId": "G17",
+      "specRef": "三-17",
+      "category": "三、一般合规项",
+      "title": "公共 API 无文档注释",
+      "description": "public 类和方法应有 Javadoc。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 15,
+      "message": "public 方法缺少 Javadoc 注释",
+      "snippet": "    public List<User> getUsers() {",
+      "contextBefore": [
+        "    private UserServiceImpl userService;",
+        ""
+      ],
+      "contextAfter": [
+        "        return userRepository.findAll().get(0);",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "R10",
+      "specRef": "一-10",
+      "category": "一、核心红线",
+      "title": "集合访问无安全检查",
+      "description": "List/数组取值前必须判空，禁止在长度未确认时直接 get(0)/[0]。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 16,
+      "message": "集合/数组取值前必须判空或检查长度，禁止直接 get(0)/[0]",
+      "snippet": "        return userRepository.findAll().get(0);",
+      "contextBefore": [
+        "",
+        "    public List<User> getUsers() {"
+      ],
+      "contextAfter": [
+        "    }",
+        ""
+      ]
+    },
+    {
+      "ruleId": "R05",
+      "specRef": "一-5",
+      "category": "一、核心红线",
+      "title": "业务逻辑侵入 Controller 层",
+      "description": "Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 19,
+      "message": "Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service",
+      "snippet": "    @Transactional",
+      "contextBefore": [
+        "    }",
+        ""
+      ],
+      "contextAfter": [
+        "    public void ProcessOrder(int id) {",
+        "        if (id == 42) {"
+      ]
+    },
+    {
+      "ruleId": "G15b",
+      "specRef": "三-15",
+      "category": "三、一般合规项",
+      "title": "方法命名不规范",
+      "description": "方法名应使用 lowerCamelCase。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 20,
+      "message": "方法名「ProcessOrder」应使用 lowerCamelCase",
+      "snippet": "    public void ProcessOrder(int id) {",
+      "contextBefore": [
+        "",
+        "    @Transactional"
+      ],
+      "contextAfter": [
+        "        if (id == 42) {",
+        "            System.out.println(\"order \" + id);"
+      ]
+    },
+    {
+      "ruleId": "G17",
+      "specRef": "三-17",
+      "category": "三、一般合规项",
+      "title": "公共 API 无文档注释",
+      "description": "public 类和方法应有 Javadoc。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 20,
+      "message": "public 方法缺少 Javadoc 注释",
+      "snippet": "    public void ProcessOrder(int id) {",
+      "contextBefore": [
+        "",
+        "    @Transactional"
+      ],
+      "contextAfter": [
+        "        if (id == 42) {",
+        "            System.out.println(\"order \" + id);"
+      ]
+    },
+    {
+      "ruleId": "O24",
+      "specRef": "二-24",
+      "category": "二、优化建议",
+      "title": "Java 未使用常量定义/魔法数字泛滥",
+      "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 21,
+      "message": "魔法数字 42 应提取为命名常量",
+      "snippet": "        if (id == 42) {",
+      "contextBefore": [
+        "    @Transactional",
+        "    public void ProcessOrder(int id) {"
+      ],
+      "contextAfter": [
+        "            System.out.println(\"order \" + id);",
+        "        }"
+      ]
+    },
+    {
+      "ruleId": "R15d",
+      "specRef": "一-15",
+      "category": "一、核心红线",
+      "title": "Java 禁止使用 System.out/err",
+      "description": "禁止 System.out/err，应使用 SLF4J 等日志框架。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 22,
+      "message": "禁止使用 System.out/err，应使用日志框架",
+      "snippet": "            System.out.println(\"order \" + id);",
+      "contextBefore": [
+        "    public void ProcessOrder(int id) {",
+        "        if (id == 42) {"
+      ],
+      "contextAfter": [
+        "        }",
+        "        String sql = \"select * from orders where id=\" + id;"
+      ]
+    },
+    {
+      "ruleId": "R12",
+      "specRef": "一-12",
+      "category": "一、核心红线",
+      "title": "SQL 注入风险",
+      "description": "禁止直接拼接用户输入到 SQL，必须使用参数化查询。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 24,
+      "message": "禁止拼接用户输入到 SQL，必须使用参数化查询",
+      "snippet": "        String sql = \"select * from orders where id=\" + id;",
+      "contextBefore": [
+        "            System.out.println(\"order \" + id);",
+        "        }"
+      ],
+      "contextAfter": [
+        "        for (int i = 0; i < 10; i++) {",
+        "            new RestTemplate();"
+      ]
+    },
+    {
+      "ruleId": "R05",
+      "specRef": "一-5",
+      "category": "一、核心红线",
+      "title": "业务逻辑侵入 Controller 层",
+      "description": "Controller 只允许参数接收、校验、返回封装，禁止事务/循环/计算等业务逻辑。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 25,
+      "message": "Controller 层应只做参数校验与返回封装，业务逻辑需下沉 Service",
+      "snippet": "        for (int i = 0; i < 10; i++) {",
+      "contextBefore": [
+        "        }",
+        "        String sql = \"select * from orders where id=\" + id;"
+      ],
+      "contextAfter": [
+        "            new RestTemplate();",
+        "        }"
+      ]
+    },
+    {
+      "ruleId": "O24",
+      "specRef": "二-24",
+      "category": "二、优化建议",
+      "title": "Java 未使用常量定义/魔法数字泛滥",
+      "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 25,
+      "message": "魔法数字 10 应提取为命名常量",
+      "snippet": "        for (int i = 0; i < 10; i++) {",
+      "contextBefore": [
+        "        }",
+        "        String sql = \"select * from orders where id=\" + id;"
+      ],
+      "contextAfter": [
+        "            new RestTemplate();",
+        "        }"
+      ]
+    },
+    {
+      "ruleId": "R07",
+      "specRef": "一-7",
+      "category": "一、核心红线",
+      "title": "实例化位置不当",
+      "description": "禁止在循环、高频调用逻辑中重复创建 Client/Connection 等重型对象。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 26,
+      "message": "禁止在循环或高频路径中重复创建 Client/Connection 等重型对象",
+      "snippet": "            new RestTemplate();",
+      "contextBefore": [
+        "        String sql = \"select * from orders where id=\" + id;",
+        "        for (int i = 0; i < 10; i++) {"
+      ],
+      "contextAfter": [
+        "        }",
+        "        try {"
+      ]
+    },
+    {
+      "ruleId": "O04",
+      "specRef": "二-4",
+      "category": "二、优化建议",
+      "title": "配置硬编码",
+      "description": "环境配置、IP、超时必须放入配置中心，禁止写死代码。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 29,
+      "message": "环境配置/IP/超时时间禁止硬编码，应放入配置中心",
+      "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+      "contextBefore": [
+        "        }",
+        "        try {"
+      ],
+      "contextAfter": [
+        "        } catch (Exception e) {}",
+        "        log.info(\"done \" + id);"
+      ]
+    },
+    {
+      "ruleId": "O23",
+      "specRef": "二-23",
+      "category": "二、优化建议",
+      "title": "Java 未使用连接池/手动创建连接",
+      "description": "禁止 JDBC DriverManager 直连，应使用 HikariCP 等连接池。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 29,
+      "message": "禁止 DriverManager 直连，应使用连接池（如 HikariCP）",
+      "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+      "contextBefore": [
+        "        }",
+        "        try {"
+      ],
+      "contextAfter": [
+        "        } catch (Exception e) {}",
+        "        log.info(\"done \" + id);"
+      ]
+    },
+    {
+      "ruleId": "O24",
+      "specRef": "二-24",
+      "category": "二、优化建议",
+      "title": "Java 未使用常量定义/魔法数字泛滥",
+      "description": "数字、字符串硬编码应抽离为 public static final 常量。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 29,
+      "message": "魔法数字 3306 应提取为命名常量",
+      "snippet": "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+      "contextBefore": [
+        "        }",
+        "        try {"
+      ],
+      "contextAfter": [
+        "        } catch (Exception e) {}",
+        "        log.info(\"done \" + id);"
+      ]
+    },
+    {
+      "ruleId": "R08",
+      "specRef": "一-8",
+      "category": "一、核心红线",
+      "title": "异常处理链路缺失",
+      "description": "所有 IO/网络/数据库操作必须有成功、失败、超时处理，禁止静默失败。",
+      "deduction": 2,
+      "severity": "error",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 30,
+      "message": "catch 块为空，禁止静默失败",
+      "snippet": "        } catch (Exception e) {}",
+      "contextBefore": [
+        "        try {",
+        "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+      ],
+      "contextAfter": [
+        "        log.info(\"done \" + id);",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "O13",
+      "specRef": "二-13",
+      "category": "二、优化建议",
+      "title": "违规捕获异常",
+      "description": "异常必须记录日志 + 返回调用方，禁止静默处理（与核心红线互补检测）。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 30,
+      "message": "catch 块为空，禁止静默失败",
+      "snippet": "        } catch (Exception e) {}",
+      "contextBefore": [
+        "        try {",
+        "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+      ],
+      "contextAfter": [
+        "        log.info(\"done \" + id);",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "G32",
+      "specRef": "三-32",
+      "category": "三、一般合规项",
+      "title": "异常捕获范围过大",
+      "description": "避免直接 catch Exception，应捕获具体异常。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 30,
+      "message": "避免直接 catch Exception，应捕获具体异常类型",
+      "snippet": "        } catch (Exception e) {}",
+      "contextBefore": [
+        "        try {",
+        "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");"
+      ],
+      "contextAfter": [
+        "        log.info(\"done \" + id);",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "O22",
+      "specRef": "二-22",
+      "category": "二、优化建议",
+      "title": "Java 日志不规范（字符串拼接）",
+      "description": "日志应使用占位符 {}，禁止 log.info(\"...\" + var) 直接拼接。",
+      "deduction": 1,
+      "severity": "warning",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 31,
+      "message": "日志应使用占位符 {} 而非字符串拼接",
+      "snippet": "        log.info(\"done \" + id);",
+      "contextBefore": [
+        "            DriverManager.getConnection(\"jdbc:mysql://192.168.1.100:3306/db\", \"u\", \"p\");",
+        "        } catch (Exception e) {}"
+      ],
+      "contextAfter": [
+        "    }",
+        ""
+      ]
+    },
+    {
+      "ruleId": "G34",
+      "specRef": "三-34",
+      "category": "三、一般合规项",
+      "title": "未使用构造器注入/字段注入滥用",
+      "description": "推荐使用构造器注入，避免 @Autowired 字段注入。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 34,
+      "message": "推荐使用构造器注入，避免 @Autowired 字段注入",
+      "snippet": "    @Autowired",
+      "contextBefore": [
+        "    }",
+        ""
+      ],
+      "contextAfter": [
+        "    private UserRepository userRepository;",
+        "}"
+      ]
+    },
+    {
+      "ruleId": "G15",
+      "specRef": "三-15",
+      "category": "三、一般合规项",
+      "title": "变量命名不规范",
+      "description": "类名 UpperCamelCase，方法/变量 lowerCamelCase，常量 UPPER_SNAKE_CASE。",
+      "deduction": 0,
+      "severity": "info",
+      "file": "packages/java-code-reviewer/fixtures/team-violations/UserController.java",
+      "line": 48,
+      "message": "类名「log」应使用 UpperCamelCase",
+      "snippet": "class log {",
+      "contextBefore": [
+        "@interface Transactional {}",
+        "class RestTemplate {}"
+      ],
+      "contextAfter": [
+        "    static void info(String s) {}",
+        "}"
+      ]
+    }
+  ]
+}

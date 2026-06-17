@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "design-artifacts": {
+      "command": "node",
+      "args": [
+        "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/packages/mcp-servers/design-artifacts/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/projects"
+      }
+    },
+    "research": {
+      "command": "node",
+      "args": [
+        "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/packages/mcp-servers/research/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/projects"
+      }
+    },
+    "preview": {
+      "command": "node",
+      "args": [
+        "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/packages/mcp-servers/preview/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/projects"
+      }
+    },
+    "repo": {
+      "command": "node",
+      "args": [
+        "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/packages/mcp-servers/repo/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/projects"
+      }
+    },
+    "diagram": {
+      "command": "node",
+      "args": [
+        "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/packages/mcp-servers/diagram/dist/index.js"
+      ],
+      "env": {
+        "APDR_PROJECTS_ROOT": "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构/projects"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+---
+description: Java 规范检查 Agent 强制约束（Gitee 令牌、只读、评分规则）
+alwaysApply: true
+---
+
+# Java 规范检查 — Agent 强制约束
+
+执行 Java 代码规范检查、评分、报告生成时，**必须**遵守以下规则，不得违反。
+
+## 1. Gitee 私人令牌
+
+- 用户已删除历史 Gitee 令牌；**禁止**使用对话或仓库中可能残留的旧令牌。
+- 任何需要访问 Gitee 的操作（克隆私有库、拉取 MR、读远程分支等）之前，**必须先向用户索要新的私人令牌**。
+- 不得将令牌写入仓库文件、不得提交到 git、不得写入报告。
+
+## 2. 权限：只读代码
+
+- **仅允许**：读取本地已存在的代码、`git diff` / `git log` 等只读 git 命令、运行 `java-review` / `scripts/java-review.sh` 生成报告、启动本地 HTTP 服务展示报告。
+- **禁止**：修改业务项目或本工具仓库中的任何源代码；`git add` / `git commit` / `git push`；创建 PR；除非用户**明确另行授权**某次具体修改。
+
+## 3. 通过标准
+
+- **通过** = 总扣分为 **0**（有任何扣分项即为未通过）。
+- 「三、一般合规项」扣 0 分，仅提示，不计入未通过。
+
+## 4. 检查范围（默认）
+
+- 用户说「最近一次 commit」时：使用 `--last-commit`，且**仅统计 git diff 新增/修改行**。
+- 不得把变更文件中的历史存量问题全部算作本次违规。
+
+## 5. 推荐命令（给用户或自行执行）
+
+```bash
+cd <Java 项目根目录>
+git pull   # 可选
+bash scripts/java-review.sh --last-commit
+REPORT_PORT=8766 bash scripts/serve-report.sh   # 可选，局域网看 HTML
+```
+
+## 6. 用户提问模板（可回复）
+
+用户可说：「对 `<项目名>` 跑 Java 规范检查 --last-commit，零扣分才算通过，给我报告地址。」

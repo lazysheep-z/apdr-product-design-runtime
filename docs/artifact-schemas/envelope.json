@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apdr.local/schemas/envelope.json",
+  "title": "ArtifactEnvelope",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "projectId",
+    "version",
+    "status",
+    "upstream",
+    "content",
+    "provenance",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": {
+      "enum": [
+        "ProjectBrief",
+        "RequirementsAnalysis",
+        "PRD",
+        "UserFlows",
+        "InformationArchitecture",
+        "Wireframes",
+        "UIDesignSpec",
+        "CodeBundle"
+      ]
+    },
+    "projectId": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": ["draft", "review", "approved", "stale"]
+    },
+    "upstream": { "type": "array", "items": { "type": "string" } },
+    "content": { "type": "object" },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "agent": { "type": "string" },
+        "model": { "type": "string" },
+        "tools": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

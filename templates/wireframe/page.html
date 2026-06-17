@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{PAGE_TITLE}} — Wireframe</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin: 0; background: #f4f4f5; color: #18181b; }
+    header { background: #fff; border-bottom: 2px dashed #a1a1aa; padding: 12px 24px; }
+    main { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 24px; max-width: 1200px; margin: 0 auto; }
+    nav, section { background: #fff; border: 2px dashed #d4d4d8; border-radius: 8px; padding: 16px; min-height: 120px; }
+    .region-label { font-size: 11px; text-transform: uppercase; color: #71717a; margin-bottom: 8px; }
+    .placeholder { background: #e4e4e7; height: 48px; border-radius: 4px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <header><strong>{{PAGE_TITLE}}</strong> — 低保真线框</header>
+  <main>
+    <nav>
+      <div class="region-label">Navigation</div>
+      <div class="placeholder"></div>
+    </nav>
+    <section>
+      <div class="region-label">Main content</div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+    </section>
+  </main>
+</body>
+</html>

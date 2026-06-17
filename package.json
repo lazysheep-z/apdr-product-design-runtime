@@ -1,0 +1,35 @@
+{
+  "name": "ai-product-design-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Product Design Runtime — from requirements to frontend",
+  "workspaces": [
+    "packages/*",
+    "packages/mcp-servers/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @apdr/core && npm run build -w @apdr/mcp-shared && npm run build -w @apdr/orchestrator && npm run build -w @apdr/mcp-design-artifacts && npm run build -w @apdr/mcp-research && npm run build -w @apdr/mcp-preview && npm run build -w @apdr/mcp-repo && npm run build -w @apdr/mcp-diagram && npm run build -w @apdr/java-code-reviewer",
+    "dev:artifacts-mcp": "npm run dev -w @apdr/mcp-design-artifacts",
+    "orchestrator": "node packages/orchestrator/dist/cli.js",
+    "orchestrator:dev": "npm run build -w @apdr/core && npm run build -w @apdr/mcp-shared && npm run build -w @apdr/orchestrator && node packages/orchestrator/dist/cli.js",
+    "init-project": "npm run start -w @apdr/orchestrator -- init",
+    "dev:all-mcp": "npm run build -w @apdr/core && npm run build -w @apdr/mcp-shared && npm run build -w @apdr/mcp-design-artifacts && npm run build -w @apdr/mcp-research && npm run build -w @apdr/mcp-preview && npm run build -w @apdr/mcp-repo && npm run build -w @apdr/mcp-diagram",
+    "start:all-mcp": "echo 'Run each MCP server individually or use .cursor/mcp.json for Cursor/Codex integration'",
+    "install-baoyu": "bash scripts/install-baoyu-skills.sh",
+    "install-superpowers": "bash scripts/install-superpowers.sh",
+    "setup-cursor": "bash scripts/setup-cursor.sh",
+    "java-review": "node packages/java-code-reviewer/dist/cli.js",
+    "java-review:sample": "npm run build -w @apdr/java-code-reviewer && node packages/java-code-reviewer/dist/cli.js --path packages/java-code-reviewer/fixtures/team-violations --rules packages/java-code-reviewer/rules/team-backend-rules.yaml --format html,json,console,markdown --out packages/java-code-reviewer/reports",
+    "review:mr": "bash scripts/java-review.sh",
+    "review:check": "bash scripts/java-review.sh",
+    "review:all": "bash scripts/java-review.sh --all",
+    "typecheck": "npm run typecheck -ws --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}
