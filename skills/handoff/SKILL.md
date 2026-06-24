@@ -40,10 +40,12 @@ Pipeline stage: handoff. Requires: CodeBundle + UIDesignSpec approved.
 
 3. Write HandoffDoc artifact with projectSummary, componentList, routes, designTokens, buildInstructions, apiEndpoints
 4. Save docs under projects/{projectId}/docs/ as markdown files
+5. Collect all ADRs from projects/{projectId}/decisions/ and include them as a Decision Log appendix in component docs
 5. Optionally scaffold Storybook config if storybook is detected in stack
 
 ## Do not
 - Treat Storybook scaffold as required -- only if it matches the stack
+- Skip ADR collection — decision records are part of the handoff
 - Skip build instructions -- they are the first thing a developer reads
 - Omit auth/API contracts for protected routes
 

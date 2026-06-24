@@ -25,6 +25,7 @@ For each artifact in the project, run a rubric-based quality check:
 | DesignReviewReport | Issue completeness, fix confirmation, pass/fail correctness |
 | CodeBundle | Structure, naming, accessibility attributes, responsive implementation |
 | HandoffDoc | Component docs completeness, build instructions clarity, API contract coverage |
+| DecisionRecords | ADR coverage (all critical stages), ADR quality (context+decision+consequences), numbering consistency |
 
 For each artifact:
 - Score 0-10 on each rubric dimension
