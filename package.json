@@ -5,6 +5,7 @@
   "description": "AI Product Design Runtime \u2014 from requirements to frontend",
   "workspaces": [
     "packages/*",
+    "packages/ruflo-apdr",
     "packages/mcp-servers/*"
   ],
   "scripts": {
