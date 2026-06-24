@@ -174,7 +174,10 @@ export class ArtifactStore {
       "information_architecture",
       "wireframes",
       "ui_design",
+      "design_review",
       "frontend_codegen",
+      "handoff",
+      "quality_eval",
     ];
     const idx = order.indexOf(fromStage);
     const stale = order.slice(idx + 1) as RuntimeState["staleDownstream"];

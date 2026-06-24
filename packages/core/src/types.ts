@@ -10,7 +10,10 @@ export type PipelineStage =
   | "information_architecture"
   | "wireframes"
   | "ui_design"
-  | "frontend_codegen";
+  | "design_review"
+  | "frontend_codegen"
+  | "quality_eval"
+  | "handoff";
 
 export type ArtifactType =
   | "ProjectBrief"
@@ -20,7 +23,10 @@ export type ArtifactType =
   | "InformationArchitecture"
   | "Wireframes"
   | "UIDesignSpec"
-  | "CodeBundle";
+  | "DesignReviewReport"
+  | "CodeBundle"
+  | "QualityReport"
+  | "HandoffDoc";
 
 export interface Provenance {
   agent?: string;

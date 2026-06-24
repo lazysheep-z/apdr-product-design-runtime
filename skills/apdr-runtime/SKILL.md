@@ -1,8 +1,8 @@
 ---
 name: apdr-runtime
 description: |
-  AI Product Design Runtime (APDR) v2 — 从一句话产品需求到 PRD、用户流、信息架构、线框图、UI 与前端代码的完整对话流水线。
-  支持 revision 回环、rollback、stale 检测和 6 个 MCP server 的协调调用。
+  AI Product Design Runtime (APDR) v2 — 10 阶段产品设计流水线：从一句话需求到 PRD、用户流、信息架构、线框图、UI、设计审查、前端代码、交接文档。
+  支持 revision 回环、rollback、stale 检测和 5 个 MCP server 的协调调用。
   触发词：APDR、产品设计流水线、从需求到前端、start apdr、运行产品设计、继续产品设计。
 ---
 
@@ -17,8 +17,8 @@ description: |
 3. **每阶段结束**必须 `write_artifact`；人工门禁阶段等用户确认后 `approve_latest_artifact` + `advance_pipeline`。
 4. **Revision 回环**：如果用户要求修改已批准产物，调用 `revise_artifact` 创建新版本，下游会自动标记 stale。
 5. **Rollback**：如果用户要求退回到之前阶段，调用 `rollback_pipeline`。
-4. **禁止**在未写入 artifact 的情况下声称阶段完成。
-6. 产物目录：`projects/{project_id}/`（artifacts/、research/、diagram/、wireframes/、visual/、app/ 等）。
+6. **禁止**在未写入 artifact 的情况下声称阶段完成。
+7. 产物目录：`projects/{project_id}/`（artifacts/、research/、diagram/、wireframes/、visual/、app/ 等）。
 
 ## 用户怎么说（复制即用）
 
@@ -49,7 +49,7 @@ description: |
 修改 PRD / 重新设计 UI / 退回到需求分析
 ```
 
-## 对话流程（8 阶段）
+## 对话流程（11 阶段）
 
 | # | 阶段 | 产出物 | 门禁 |
 |---|------|--------|------|
@@ -60,7 +60,10 @@ description: |
 | 5 | information_architecture | InformationArchitecture | 可选 |
 | 6 | wireframes | Wireframes | 可选 |
 | 7 | ui_design | UIDesignSpec | **必须** |
-| 8 | frontend_codegen | CodeBundle | 可选 |
+| 8 | design_review | DesignReviewReport | **必须** |
+| 9 | frontend_codegen | CodeBundle | 可选 |
+| 10 | handoff | HandoffDoc | 可选 |
+| 11 | quality_eval | QualityReport | 可选 |
 
 ## MCP 工具速查（server: `design-artifacts`）
 
@@ -102,7 +105,7 @@ description: |
   - 需求分析阶段：`/plan-market-research` 竞品调研
   - PRD 阶段：`/strategy` 战略对齐
  
-安装：`codex plugin marketplace add phuryn/pm-skills` 或 `codex plugin add pm-product-discovery@pm-skills` 等具体插件
+安装：`codex plugin marketplace add phuryn/pm-skills` 或单独安装 pm-product-discovery@pm-skills 等插件
 
 ## 首轮话术模板
 

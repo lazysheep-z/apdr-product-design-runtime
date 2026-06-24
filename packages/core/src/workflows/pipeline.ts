@@ -4,7 +4,7 @@ export const DESIGN_PIPELINE_WORKFLOW: WorkflowDefinition = {
   id: "design_pipeline",
   name: "Full Product Design Pipeline",
   description:
-    "End-to-end: brief → requirements → PRD → flows → IA → wireframes → UI → code",
+    "End-to-end: brief → requirements → PRD → flows → IA → wireframes → UI → design review → code → handoff → quality assessment",
   steps: [
     {
       id: "step_intake",
@@ -63,11 +63,35 @@ export const DESIGN_PIPELINE_WORKFLOW: WorkflowDefinition = {
       humanGate: "required",
     },
     {
+      id: "step_design_review",
+      stage: "design_review",
+      agentId: "design_reviewer",
+      requiredUpstream: ["UIDesignSpec", "Wireframes"],
+      outputArtifactType: "DesignReviewReport",
+      humanGate: "required",
+    },
+    {
       id: "step_codegen",
       stage: "frontend_codegen",
       agentId: "frontend_engineer",
-      requiredUpstream: ["UIDesignSpec"],
+      requiredUpstream: ["UIDesignSpec", "DesignReviewReport"],
       outputArtifactType: "CodeBundle",
+      humanGate: "optional",
+    },
+    {
+      id: "step_handoff",
+      stage: "handoff",
+      agentId: "handoff_specialist",
+      requiredUpstream: ["CodeBundle"],
+      outputArtifactType: "HandoffDoc",
+      humanGate: "optional",
+    },
+    {
+      id: "step_quality_eval",
+      stage: "quality_eval",
+      agentId: "quality_evaluator",
+      requiredUpstream: ["HandoffDoc"],
+      outputArtifactType: "QualityReport",
       humanGate: "optional",
     },
   ],

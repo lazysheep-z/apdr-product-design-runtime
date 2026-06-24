@@ -103,6 +103,32 @@ export interface CodeBundleContent {
   previewUrl?: string;
 }
 
+export interface DesignReviewContent {
+  tokenConsistency: string;       // token覆盖率报告
+  componentCoverage: string;      // wireframe → component 映射
+  responsiveCheck: string;         // 响应式检查结果
+  accessibilityCheck: string;      // WCAG 合规检查
+  issues: Array<{ severity: "critical" | "major" | "minor"; item: string; recommendation: string }>;
+  passed: boolean;
+}
+
+export interface HandoffDocContent {
+  projectSummary: string;
+  componentList: Array<{ name: string; filePath: string; props: string }>;
+  routes: Array<{ path: string; page: string; description: string }>;
+  designTokens: string;
+  buildInstructions: string;
+  apiEndpoints?: string[];
+}
+
+export interface QualityReportContent {
+  qualityScores: Array<{ artifactType: string; score: number; maxScore: number; issues: string[] }>;
+  coverageGaps: Array<{ featureId: string; featureName: string; hasFlow: boolean; hasWireframe: boolean; hasComponent: boolean }>;
+  overallScore: number;
+  passed: boolean;
+  summary: string;
+}
+
 export const ARTIFACT_STAGE_MAP: Record<ArtifactType, string> = {
   ProjectBrief: "intake",
   RequirementsAnalysis: "requirements_analysis",
@@ -111,7 +137,10 @@ export const ARTIFACT_STAGE_MAP: Record<ArtifactType, string> = {
   InformationArchitecture: "information_architecture",
   Wireframes: "wireframes",
   UIDesignSpec: "ui_design",
+  DesignReviewReport: "design_review",
   CodeBundle: "frontend_codegen",
+  HandoffDoc: "handoff",
+  QualityReport: "quality_eval",
 };
 
 export function createEmptyBrief(
