@@ -14,3 +14,17 @@ skillopt/outputs/
 
 # Local MCP config (contains absolute paths)
 .cursor/mcp.json
+# Binary files
+*.xlsx
+*.xls
+*.docx
+*.zip
+!*.tar.gz
+
+# Project artifacts (already tracked content to be removed)
+projects/*/.runtime-state.json
+java-code-reviewer-分发包/
+
+# Project generated files (all subdirs except meta.json)
+projects/*/data/
+projects/*/server/
