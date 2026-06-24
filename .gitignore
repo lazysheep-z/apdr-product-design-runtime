@@ -28,3 +28,10 @@ java-code-reviewer-分发包/
 # Project generated files (all subdirs except meta.json)
 projects/*/data/
 projects/*/server/
+
+# Vendored build artifacts
+vendor/*/packages/*/dist/
+vendor/*/screenshots/
+vendor/*/.github/
+vendor/*/.githooks/
+vendor/*/assets/
