@@ -2,30 +2,28 @@
   "mcpServers": {
     "design-artifacts": {
       "command": "node",
-      "args": [
-        "${workspaceFolder}/packages/mcp-servers/design-artifacts/dist/index.js"
-      ],
-      "env": {
-        "APDR_PROJECTS_ROOT": "${workspaceFolder}/projects"
-      }
+      "args": ["<APDR_ROOT>/packages/mcp-servers/design-artifacts/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
     },
-    "design-research": {
+    "research": {
       "command": "node",
-      "args": [
-        "${workspaceFolder}/packages/mcp-servers/research/dist/index.js"
-      ]
+      "args": ["<APDR_ROOT>/packages/mcp-servers/research/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
     },
-    "design-preview": {
+    "preview": {
       "command": "node",
-      "args": [
-        "${workspaceFolder}/packages/mcp-servers/preview/dist/index.js"
-      ]
+      "args": ["<APDR_ROOT>/packages/mcp-servers/preview/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
     },
-    "design-repo": {
+    "repo": {
       "command": "node",
-      "args": [
-        "${workspaceFolder}/packages/mcp-servers/repo/dist/index.js"
-      ]
+      "args": ["<APDR_ROOT>/packages/mcp-servers/repo/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "diagram": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/diagram/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
     }
   }
 }

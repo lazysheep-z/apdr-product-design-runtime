@@ -1,8 +1,8 @@
-# 在 Cursor 里用对话跑完整产品设计流水线
+# 通过对话跑完整产品设计流水线
 
-APDR（AI Product Design Runtime）让你**只用 Cursor 聊天**完成：
+APDR（AI Product Design Runtime）让你**用对话完成**完整产品设计流程，支持 MCP 协议兼容的 AI 工具（Codex / Cursor / Claude Code）。
 
-需求分析 → PRD → 用户流 → 信息架构 → 低保真 → UI → 前端代码
+需求分析 → PRD → 用户流 → 信息架构 → 线框图 → UI → 设计审查 → 前端代码 → 交接文档 → 质量评估
 
 ## 一分钟上手（本机）
 

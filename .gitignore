@@ -11,3 +11,6 @@ skillopt/logs/
 skillopt/outputs/
 *.log
 .runtime-state.json
+
+# Local MCP config (contains absolute paths)
+.cursor/mcp.json
