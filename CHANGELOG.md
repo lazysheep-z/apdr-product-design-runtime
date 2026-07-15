@@ -3,7 +3,6 @@
 ## v0.3.1 (2026-07-15)
 
 ### Cleanup
-- 移除与 APDR MCP 主流程无关的个人工作内容：离职交接文档、Word/docx 转换脚本、Java 规范检查工具包与相关 Cursor 规则
 - 移除示例/业务项目产物（`finance-dashboard`、`brand-digital-intel`）
 - MCP 配置仅保留 design-artifacts / research / preview / repo / diagram（可选 codegraph）主流程 server
 
