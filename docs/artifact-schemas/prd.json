@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apdr.local/schemas/prd-content.json",
+  "title": "PRDContent",
+  "type": "object",
+  "required": ["version", "overview", "features", "successMetrics"],
+  "properties": {
+    "version": { "type": "string" },
+    "overview": { "type": "string" },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description", "priority", "userStories", "acceptanceCriteria"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "priority": { "enum": ["must", "should", "could", "wont"] },
+          "userStories": { "type": "array", "items": { "type": "string" } },
+          "acceptanceCriteria": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "successMetrics": { "type": "array", "items": { "type": "string" } }
+  }
+}

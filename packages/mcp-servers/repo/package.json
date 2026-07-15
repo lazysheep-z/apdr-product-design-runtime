@@ -1,0 +1,15 @@
+{
+  "name": "@apdr/mcp-repo",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "mcp-repo": "./dist/index.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@apdr/mcp-shared": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  }
+}

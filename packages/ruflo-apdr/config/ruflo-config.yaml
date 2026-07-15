@@ -1,0 +1,165 @@
+# APDR × Ruflo: 11-stage Product Design Swarm
+# Run: npx ruflo start --config config/ruflo-config.yaml
+
+name: apdr-design-swarm
+version: "0.3.0"
+description: "APDR 11-stage product design pipeline powered by ruflo multi-agent orchestration"
+
+# ─── Swarm Configuration ──────────────────────────────────
+swarm:
+  mode: "pipeline"              # pipeline, parallel, or hybrid
+  max_concurrent_agents: 3      # max parallel stages
+  consensus: "sequential"       # each stage must complete before next
+  human_in_the_loop: true       # gates enabled
+
+# ─── Memory System ────────────────────────────────────────
+memory:
+  adapter: "apdr-artifact-store"   # use APDR's JSON file store
+  vector: false                     # no vector search needed
+  context_window: 10                # last 10 artifacts in context
+
+# ─── MCP Servers ──────────────────────────────────────────
+mcp_servers:
+  - name: "design-artifacts"
+    command: "node"
+    args: ["<APDR_ROOT>/packages/mcp-servers/design-artifacts/dist/index.js"]
+    env:
+      APDR_PROJECTS_ROOT: "<APDR_ROOT>/projects"
+  - name: "research"
+    command: "node"
+    args: ["<APDR_ROOT>/packages/mcp-servers/research/dist/index.js"]
+    env:
+      APDR_PROJECTS_ROOT: "<APDR_ROOT>/projects"
+  - name: "diagram"
+    command: "node"
+    args: ["<APDR_ROOT>/packages/mcp-servers/diagram/dist/index.js"]
+    env:
+      APDR_PROJECTS_ROOT: "<APDR_ROOT>/projects"
+  - name: "preview"
+    command: "node"
+    args: ["<APDR_ROOT>/packages/mcp-servers/preview/dist/index.js"]
+    env:
+      APDR_PROJECTS_ROOT: "<APDR_ROOT>/projects"
+  - name: "repo"
+    command: "node"
+    args: ["<APDR_ROOT>/packages/mcp-servers/repo/dist/index.js"]
+    env:
+      APDR_PROJECTS_ROOT: "<APDR_ROOT>/projects"
+
+# ─── Agent Definitions ────────────────────────────────────
+agents:
+
+  - name: "intake_specialist"
+    description: "Parse raw requirements into structured ProjectBrief using pm-skills discovery chain"
+    skill_path: "<APDR_ROOT>/skills/intake/SKILL.md"
+    mcp_servers: ["design-artifacts", "research"]
+    memory: { window: 2 }
+    gates: { human_approval: false }
+    output_artifact: "ProjectBrief"
+
+  - name: "requirements_analyst"
+    description: "Analyze brief into structured requirements with market research and pm-skills integration"
+    skill_path: "<APDR_ROOT>/skills/requirements-analyst/SKILL.md"
+    mcp_servers: ["design-artifacts", "research"]
+    memory: { window: 3 }
+    gates: { human_approval: true }
+    output_artifact: "RequirementsAnalysis"
+    depends_on: ["intake_specialist"]
+
+  - name: "product_writer"
+    description: "Draft full PRD with MoSCoW, user stories, acceptance criteria, data contracts"
+    skill_path: "<APDR_ROOT>/skills/prd-writer/SKILL.md"
+    mcp_servers: ["design-artifacts"]
+    memory: { window: 3 }
+    gates: { human_approval: true }
+    output_artifact: "PRD"
+    depends_on: ["requirements_analyst"]
+
+  - name: "ux_strategist"
+    description: "Design task flows with happy path, error paths, permission flows, system boundary diagrams"
+    skill_path: "<APDR_ROOT>/skills/ux-flow/SKILL.md"
+    mcp_servers: ["design-artifacts", "diagram"]
+    memory: { window: 3 }
+    gates: { human_approval: false }
+    output_artifact: "UserFlows"
+    depends_on: ["product_writer"]
+
+  - name: "information_architect"
+    description: "Define sitemap, navigation, search strategy, URL map, content types"
+    skill_path: "<APDR_ROOT>/skills/information-architect/SKILL.md"
+    mcp_servers: ["design-artifacts", "diagram"]
+    memory: { window: 3 }
+    gates: { human_approval: false }
+    output_artifact: "InformationArchitecture"
+    depends_on: ["product_writer", "ux_strategist"]
+
+  - name: "wireframe_designer"
+    description: "Generate low-fidelity HTML wireframes with interaction annotations and state coverage"
+    skill_path: "<APDR_ROOT>/skills/wireframe-designer/SKILL.md"
+    mcp_servers: ["design-artifacts", "preview"]
+    memory: { window: 3 }
+    gates: { human_approval: false }
+    output_artifact: "Wireframes"
+    depends_on: ["information_architect", "ux_strategist"]
+
+  - name: "visual_designer"
+    description: "Create UIDesignSpec with design tokens, component spec, screen specs, concept images"
+    skill_path: "<APDR_ROOT>/skills/visual-designer/SKILL.md"
+    mcp_servers: ["design-artifacts", "diagram"]
+    memory: { window: 3 }
+    gates: { human_approval: true }
+    output_artifact: "UIDesignSpec"
+    depends_on: ["wireframe_designer"]
+
+  - name: "design_reviewer"
+    description: "Design quality gate: token consistency, component coverage, responsive, WCAG accessibility"
+    skill_path: "<APDR_ROOT>/skills/design-reviewer/SKILL.md"
+    mcp_servers: ["design-artifacts"]
+    memory: { window: 4 }
+    gates: { human_approval: true }
+    output_artifact: "DesignReviewReport"
+    depends_on: ["visual_designer", "wireframe_designer"]
+
+  - name: "frontend_engineer"
+    description: "Generate runnable React/Vite frontend from UI spec with tests and code review"
+    skill_path: "<APDR_ROOT>/skills/frontend-engineer/SKILL.md"
+    mcp_servers: ["design-artifacts", "repo", "preview"]
+    memory: { window: 4 }
+    gates: { human_approval: false }
+    output_artifact: "CodeBundle"
+    depends_on: ["design_reviewer"]
+
+  - name: "handoff_specialist"
+    description: "Generate developer handoff documentation: component docs, build instructions, API contracts"
+    skill_path: "<APDR_ROOT>/skills/handoff/SKILL.md"
+    mcp_servers: ["design-artifacts", "repo"]
+    memory: { window: 5 }
+    gates: { human_approval: false }
+    output_artifact: "HandoffDoc"
+    depends_on: ["frontend_engineer"]
+
+  - name: "quality_evaluator"
+    description: "Final quality gate: artifact quality assessment and feature-flow coverage validation"
+    skill_path: "<APDR_ROOT>/skills/quality-evaluator/SKILL.md"
+    mcp_servers: ["design-artifacts"]
+    memory: { window: 10 }
+    gates: { human_approval: false }
+    output_artifact: "QualityReport"
+    depends_on: ["handoff_specialist"]
+
+# ─── Orchestration Policy ─────────────────────────────────
+pipeline:
+  parallel_groups:
+    - agents: []  # all sequential for now
+  retry:
+    max_retries: 2
+    delay_seconds: 5
+  on_failure: "pause"  # pause, skip, or retry
+  on_human_gate: "wait" # wait for approval
+  on_complete: "summarize"
+
+# ─── Logging ──────────────────────────────────────────────
+logging:
+  level: "info"
+  format: "json"
+  output: "<APDR_ROOT>/projects/_ruflo-logs/"

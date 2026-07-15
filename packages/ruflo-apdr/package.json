@@ -1,0 +1,15 @@
+{
+  "name": "@apdr/ruflo-orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ruflo-based orchestration engine for APDR — multi-agent swarm pipeline with adaptive memory",
+  "scripts": {
+    "start": "npx ruflo start --config config/ruflo-config.yaml",
+    "dev": "npx ruflo dev --config config/ruflo-config.yaml",
+    "status": "npx ruflo status --config config/ruflo-config.yaml"
+  },
+  "dependencies": {
+    "ruflo": "^3.14.0"
+  }
+}
