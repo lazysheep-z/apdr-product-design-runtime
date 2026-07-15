@@ -1,0 +1,17 @@
+---
+description: AI Product Design Runtime — 在本仓库对话时自动走 APDR 流水线（MCP + Skills）
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# APDR 对话模式
+
+当用户提到 **APDR**、**产品设计流水线**、**从需求到前端**、**PRD/用户流/线框图** 或要在本仓库做产品设计时：
+
+1. **立即读取** `skills/apdr-runtime/SKILL.md` 并按其执行。
+2. **必须**使用 MCP server `design-artifacts`（工具 `get_next_action` / `start_project`）。
+3. 不要跳过 artifact 写入与审批门禁。
+4. 阶段执行前读取 `get_next_action` 返回的 `skillPath`。
+
+用户只说「继续」时：对当前 `project_id` 调用 `get_next_action` 再行动。

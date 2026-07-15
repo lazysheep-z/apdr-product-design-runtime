@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "design-artifacts": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/design-artifacts/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "research": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/research/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "preview": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/preview/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "repo": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/repo/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "diagram": {
+      "command": "node",
+      "args": ["<APDR_ROOT>/packages/mcp-servers/diagram/dist/index.js"],
+      "env": { "APDR_PROJECTS_ROOT": "<APDR_ROOT>/projects" }
+    },
+    "codegraph": {
+      "command": "codegraph",
+      "args": ["serve", "--mcp"]
+    }
+  }
+}

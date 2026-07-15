@@ -1,0 +1,37 @@
+node_modules/
+dist/
+.DS_Store
+projects/*/artifacts/
+projects/*/research/
+projects/*/diagram/
+projects/*/wireframes/
+projects/*/visual/
+projects/*/app/
+skillopt/logs/
+skillopt/outputs/
+*.log
+.runtime-state.json
+
+# Local MCP config (contains absolute paths)
+.cursor/mcp.json
+.mcp.json
+
+# Binary / office exports (not part of APDR pipeline)
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.zip
+!*.tar.gz
+
+# Project generated files
+projects/*/.runtime-state.json
+projects/*/data/
+projects/*/server/
+
+# Vendored build artifacts
+vendor/*/packages/*/dist/
+vendor/*/screenshots/
+vendor/*/.github/
+vendor/*/.githooks/
+vendor/*/assets/
