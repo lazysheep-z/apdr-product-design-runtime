@@ -3,8 +3,8 @@ import type { PipelineStage, WorkflowDefinition } from "../types.js";
 export const DESIGN_PIPELINE_WORKFLOW: WorkflowDefinition = {
   id: "design_pipeline",
   name: "Full Product Design Pipeline",
-  description:
-    "End-to-end: brief → requirements → PRD → flows → IA → wireframes → UI → design review → code → handoff → quality assessment",
+    description:
+    "End-to-end: brief → requirements → PRD → flows → IA → wireframes → UI → design review → frontend → optional backend → code intelligence → handoff → quality",
   steps: [
     {
       id: "step_intake",
@@ -76,6 +76,14 @@ export const DESIGN_PIPELINE_WORKFLOW: WorkflowDefinition = {
       agentId: "frontend_engineer",
       requiredUpstream: ["UIDesignSpec", "DesignReviewReport"],
       outputArtifactType: "CodeBundle",
+      humanGate: "optional",
+    },
+    {
+      id: "step_backend_codegen",
+      stage: "backend_codegen",
+      agentId: "backend_engineer",
+      requiredUpstream: ["PRD", "CodeBundle"],
+      outputArtifactType: "BackendCodeBundle",
       humanGate: "optional",
     },
     {

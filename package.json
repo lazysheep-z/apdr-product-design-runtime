@@ -1,6 +1,6 @@
 {
   "name": "ai-product-design-runtime",
-  "version": "0.3.1",
+  "version": "0.3.6",
   "private": true,
   "description": "AI Product Design Runtime — from requirements to frontend",
   "workspaces": [
@@ -20,6 +20,7 @@
     "install-superpowers": "bash scripts/install-superpowers.sh",
     "install-codegraph": "bash scripts/install-codegraph.sh",
     "setup-cursor": "bash scripts/setup-cursor.sh",
+    "refresh-external-skills": "bash scripts/refresh-external-skills.sh",
     "typecheck": "npm run typecheck -ws --if-present"
   },
   "engines": {

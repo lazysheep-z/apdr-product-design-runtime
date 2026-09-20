@@ -39,6 +39,7 @@ export class PipelineEngine {
     title: string;
     description?: string;
     constraints?: string[];
+    includeBackend?: boolean;
   }): Promise<ProjectMeta> {
     const now = new Date().toISOString();
     const meta: ProjectMeta = {
@@ -49,14 +50,59 @@ export class PipelineEngine {
       updatedAt: now,
       currentStage: "intake",
       constraints: opts.constraints,
+      includeBackend: opts.includeBackend,
     };
     await this.store.ensureProject(meta);
     return meta;
   }
 
+  /**
+   * Resolve whether backend_codegen should run.
+   * Prefer ProjectMeta.includeBackend; fall back to ProjectBrief.content.includeBackend.
+   * Default: false (skip) until intake explicitly sets true.
+   */
+  async wantsBackend(projectId: string): Promise<boolean> {
+    const project = await this.store.getProjectMeta(projectId);
+    if (typeof project.includeBackend === "boolean") {
+      return project.includeBackend;
+    }
+    const brief = await this.store.getLatestByType(projectId, "ProjectBrief");
+    const content = brief?.content as { includeBackend?: boolean } | undefined;
+    return content?.includeBackend === true;
+  }
+
+  /**
+   * Next stage, skipping backend_codegen when the project opted out.
+   */
+  async resolveNextStage(
+    projectId: string,
+    from: PipelineStage
+  ): Promise<PipelineStage | null> {
+    let n = nextStage(from);
+    if (n === "backend_codegen" && !(await this.wantsBackend(projectId))) {
+      n = nextStage("backend_codegen");
+    }
+    return n;
+  }
+
   async getStatus(projectId: string): Promise<PipelineStatus> {
     const project = await this.store.getProjectMeta(projectId);
-    const runtime = await this.store.loadRuntime(projectId);
+    let runtime = await this.store.loadRuntime(projectId);
+
+    // Auto-skip backend stage when project opted out
+    if (
+      runtime.currentStage === "backend_codegen" &&
+      !(await this.wantsBackend(projectId))
+    ) {
+      const skipped = await this.resolveNextStage(projectId, "frontend_codegen");
+      if (skipped) {
+        runtime.currentStage = skipped;
+        await this.store.saveRuntime(runtime);
+        await this.store.updateProjectMeta(projectId, { currentStage: skipped });
+      }
+    }
+
+    runtime = await this.store.loadRuntime(projectId);
     const listed = await this.store.listArtifacts(projectId);
     const approved = new Set(
       listed.filter((a) => a.status === "approved").map((a) => a.type)
@@ -78,7 +124,7 @@ export class PipelineEngine {
       staleDownstream: runtime.staleDownstream,
       canAdvance: ok,
       blockers: missing,
-      nextRecommended: nextStage(runtime.currentStage),
+      nextRecommended: await this.resolveNextStage(projectId, runtime.currentStage),
     };
   }
 
@@ -94,7 +140,19 @@ export class PipelineEngine {
         `Cannot advance from ${runtime.currentStage}. Missing approved: ${missing.join(", ")}`
       );
     }
-    const n = nextStage(runtime.currentStage);
+    // If somehow sitting on backend_codegen without opt-in, skip forward
+    if (
+      runtime.currentStage === "backend_codegen" &&
+      !(await this.wantsBackend(projectId))
+    ) {
+      const skipped = await this.resolveNextStage(projectId, "frontend_codegen");
+      if (!skipped) throw new Error("Already at final stage");
+      runtime.currentStage = skipped;
+      await this.store.saveRuntime(runtime);
+      await this.store.updateProjectMeta(projectId, { currentStage: skipped });
+      return this.getStatus(projectId);
+    }
+    const n = await this.resolveNextStage(projectId, runtime.currentStage);
     if (!n) {
       throw new Error("Already at final stage");
     }

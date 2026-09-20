@@ -7,10 +7,12 @@ description: Low-fidelity wireframes from IA. Generates HTML wireframes with mul
 
 Stage: wireframes. Requires: InformationArchitecture + UserFlows approved.
 
-## External references
+## External skills / references
 
-- [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 126k★ -- collaborative whiteboard, can export wireframe concepts
-- [tldraw/tldraw](https://github.com/tldraw/tldraw) 48k★ -- infinite canvas for diagramming
+- **web-artifacts-builder** — `vendor/anthropic-skills/web-artifacts-builder/SKILL.md`  
+  Patterns for polished interactive HTML artifacts (keep wireframes low-fi structurally).
+- [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) — whiteboard concepts
+- [tldraw/tldraw](https://github.com/tldraw/tldraw) — canvas diagramming
 
 ## Workflow
 

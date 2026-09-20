@@ -1,5 +1,55 @@
 # Changelog
 
+## v0.3.6 (2026-09-20)
+
+### Operator habits（协作默认）
+- `skills/operator-preference`：推荐默认值（中文 / concise / strict / patch / incremental）
+- 新增字段：`prototypeMode`、`docOnlyGuard`、`deliveryMode`
+- `apdr-runtime` / `intake` / `frontend-engineer` 对齐：严格门禁、增量改造、文案护栏、预览/离线交付约定
+
+### Privacy
+- `.gitignore`：默认不发布 `projects/*` 业务工作区（仅保留 demo / conv-test 占位）
+- 屏蔽飞书 CLI 凭证、本机 MCP 绝对路径配置
+- README / LICENSE 去掉实名署名，仅保留公开维护者标识
+
+## v0.3.5 (2026-07-29)
+
+### 竞品分析 / 查资料 / 写报告
+- 统一入口：`skills/competitive-research/SKILL.md`
+- 评审：`docs/research-skills-review.md`
+- 接入：mattpocock `research`、marketing `competitor-profiling` + `customer-research`（适配 APDR MCP）、pm `market-sizing` / `sentiment-analysis` / `swot-analysis`
+- 可选：`tavily-research`、`firecrawl-market-research`（需本机密钥）
+- **不接入**：SEO vs 落地页、站会报告、学术文献流水线
+
+## v0.3.4 (2026-07-29)
+
+### skills.sh 榜单复核与接入
+- 评审文档：`docs/skills-sh-leaderboard-review.md`（官方源，不用 WorkBuddy 改版）
+- **新接入**：`react-best-practices`、`agent-browser` 适配、`tdd` / `improve-codebase-architecture` / `codebase-design`、`find-skills` 适配
+- **加强绑定**：`grill-with-docs` → requirements/PRD；`grill-me` 标注榜单别名 *briumi*；`web-design-guidelines` 标注 *web-design-tay*
+- **不接入主流程**：`microsoft-foundry`（Azure Agent 平台，与产品设计流水线正交）
+
+## v0.3.3 (2026-07-29)
+
+### Backend codegen（可选阶段）
+- 新增流水线阶段 `backend_codegen` → artifact `BackendCodeBundle`
+- Intake **必问**是否需要后端；`ProjectBrief.includeBackend` + `meta.includeBackend`
+- `includeBackend=false` 时 `advance_pipeline` / `get_next_action` 自动跳过该阶段
+- Skill：`skills/backend-engineer/SKILL.md`；用户扩展目录：`skills/backend-skills/`
+
+## v0.3.2 (2026-07-29)
+
+### Document I/O + Feishu
+- 接入 anthropic `docx`/`pdf`/`pptx`/`xlsx`/`doc-coauthoring` → `skills/document-io`
+- 接入官方 `larksuite/cli` 文档类 skills → `skills/feishu-lark`（不入库任何 CLI ID/密钥）
+- `.gitignore` 屏蔽 `.lark-cli/`、`appsecret*`、加密凭证文件
+
+### Skill wave (GitHub 热门接入)
+- 调研并接入：addyosmani/agent-skills、anthropics/skills、phuryn/pm-skills 子集、bergside/awesome-design-skills 起步集
+- 新增横切 `skills/operator-preference/SKILL.md`（多轮门禁协作习惯）
+- 更新 `packages/core` agent definitions + stage playbooks + 各阶段 `SKILL.md`
+- 新增 `scripts/refresh-external-skills.sh`；vendor 目录增加 addy/anthropic/awesome-design/pm-skills
+
 ## v0.3.1 (2026-07-15)
 
 ### Cleanup

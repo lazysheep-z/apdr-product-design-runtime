@@ -55,11 +55,17 @@ Write artifact QualityReport:
 - passed: true if overallScore >= 70 and no critical issues
 - summary: plain-text summary for user review
 
-## Do not
-- Block the pipeline for cosmetic issues — only structural quality problems
-- Skip the report — every project should have a final quality baseline
+## External skills
 
-## References
-- [microsoft/playwright](https://github.com/microsoft/playwright) 91k★ — accessibility audit patterns
-- [dequelabs/axe-core](https://github.com/dequelabs/axe-core) 7k★ — WCAG compliance rubric
-- [vitest-dev/vitest](https://github.com/vitest-dev/vitest) 16k★ — test coverage patterns
+- **verification-before-completion** — `vendor/superpowers/skills/verification-before-completion/SKILL.md`
+- **browser-testing-with-devtools** — `vendor/addy-agent-skills/browser-testing-with-devtools/SKILL.md`
+- **webapp-testing** — `vendor/anthropic-skills/webapp-testing/SKILL.md`
+- **web-design-guidelines** — `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md`
+- **vercel-react-best-practices** — `vendor/vercel-agent-skills/react-best-practices/`（含 `AGENTS.md`）
+- **agent-browser** — `skills/agent-browser/SKILL.md`
+- [microsoft/playwright](https://github.com/microsoft/playwright) — E2E / a11y audit patterns
+- [dequelabs/axe-core](https://github.com/dequelabs/axe-core) — WCAG rubric
+
+## Before claiming pass
+
+Run verification-before-completion: show evidence (scores, coverage gaps, optional browser checks). Do not claim “quality passed” without `QualityReport` written.

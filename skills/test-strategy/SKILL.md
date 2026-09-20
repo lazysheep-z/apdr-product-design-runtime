@@ -9,10 +9,12 @@ Optional enhancement for stage: frontend_codegen. Run after code is generated.
 
 This skill does NOT create a separate pipeline stage. It enhances the CodeBundle artifact.
 
-## External references
+## External skills
 
-- [vitest-dev/vitest](https://github.com/vitest-dev/vitest) 16k★ -- unit and component testing framework
-- [microsoft/playwright](https://github.com/microsoft/playwright) 91k★ -- browser E2E testing
+- **browser-testing-with-devtools** — `vendor/addy-agent-skills/browser-testing-with-devtools/SKILL.md`
+- **webapp-testing** — `vendor/anthropic-skills/webapp-testing/SKILL.md`
+- [vitest-dev/vitest](https://github.com/vitest-dev/vitest) — unit/component
+- [microsoft/playwright](https://github.com/microsoft/playwright) — E2E
 
 ## Workflow
 

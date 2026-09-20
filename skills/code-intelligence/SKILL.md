@@ -76,6 +76,13 @@ bash scripts/install-codegraph.sh
 - 要求用户手动运行 `codegraph init`（由 MCP 自动完成）
 - 在本阶段修改前端代码（属 frontend_codegen）
 
+## 可选：架构加深（老项目 / 混乱代码）
+
+- **improve-codebase-architecture** — `vendor/mattpocock-skills/improve-codebase-architecture/SKILL.md`
+- **codebase-design** — `vendor/mattpocock-skills/codebase-design/SKILL.md`
+
+仅当用户明确要求重构规划或 CodeGraph 显示高度耦合时运行；产出 HTML 报告，**不阻塞** handoff。
+
 ## 外部参考
 
 - [CodeGraph](https://github.com/colbymchenry/codegraph) — 本地代码知识图谱 MCP

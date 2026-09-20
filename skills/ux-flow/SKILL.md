@@ -9,13 +9,15 @@ Stage: `user_flows`. Requires `PRD` status `approved`.
 
 ## External skills
 
-- **baoyu-diagram** — `/baoyu-diagram "<task flow>" --type flowchart|sequence --lang zh`  
-  Generate SVG exports for critical user journeys.
+- **baoyu-diagram** — `/baoyu-diagram "<task flow>" --type flowchart|sequence --lang zh`
+- **pm customer-journey-map** — `vendor/pm-skills/pm-market-research/skills/customer-journey-map/SKILL.md`  
+  End-to-end stages, emotions, pain points (feeds flow design; does not replace Mermaid task flows).
 
 ## Workflow
 
 1. `get_latest_artifact` — `PRD`
-2. For each PRD feature, define:
+2. Optional: customer-journey-map for primary persona journey context.
+3. For each PRD feature, define:
 
    a) **Happy path** — the ideal user journey step by step
       - Every step labeled: action, decision, system response
@@ -33,11 +35,11 @@ Stage: `user_flows`. Requires `PRD` status `approved`.
       - What the user sees vs what the system does vs external services
       - Mermaid sequence diagram showing User ↔ Frontend ↔ API ↔ Database
 
-3. For each critical flow, run `/baoyu-diagram` and save SVG under:
+4. For each critical flow, run `/baoyu-diagram` and save SVG under:
    - `projects/{projectId}/diagram/flows/`
-4. Record SVG paths in `provenance.notes` or flow metadata
-5. `write_artifact` — `UserFlows` with `flows[]` (include `mermaid` per flow in content)
-6. `approve_artifact` gate before IA stage
+5. Record SVG paths in `provenance.notes` or flow metadata
+6. `write_artifact` — `UserFlows` with `flows[]` (include `mermaid` per flow in content)
+7. `approve_artifact` gate before IA stage
 
 ## Do not
 - Replace `UserFlows` JSON with only images — artifact is source of truth

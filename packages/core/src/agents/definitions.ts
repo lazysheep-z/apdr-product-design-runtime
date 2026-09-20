@@ -12,6 +12,19 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     description: "Coordinates pipeline, gates, and artifact versioning",
     capabilityIds: ["govern.artifact.list", "govern.artifact.approve"],
     mcpServers: ["design-artifacts"],
+    skillPath: "skills/apdr-runtime/SKILL.md",
+    externalSkills: [
+      {
+        id: "operator-preference",
+        source: "apdr",
+        vendorPath: "skills/operator-preference/SKILL.md",
+      },
+      {
+        id: "verification-before-completion",
+        source: "superpowers",
+        vendorPath: "vendor/superpowers/skills/verification-before-completion/SKILL.md",
+      },
+    ],
     exitArtifactType: "ProjectBrief",
   },
   {
@@ -23,6 +36,74 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "research"],
     skillPath: "skills/requirements-analyst/SKILL.md",
     externalSkills: [
+      {
+        id: "operator-preference",
+        source: "apdr",
+        vendorPath: "skills/operator-preference/SKILL.md",
+      },
+      {
+        id: "document-io",
+        source: "apdr",
+        vendorPath: "skills/document-io/SKILL.md",
+      },
+      {
+        id: "feishu-lark",
+        source: "apdr",
+        vendorPath: "skills/feishu-lark/SKILL.md",
+      },
+      {
+        id: "idea-refine",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/idea-refine/SKILL.md",
+      },
+      {
+        id: "grill-me",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/grilling/SKILL.md",
+        slashCommand: "/grill-me",
+      },
+      {
+        id: "grill-with-docs",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/grill-with-docs/SKILL.md",
+        slashCommand: "/grill-with-docs",
+      },
+      {
+        id: "competitive-research",
+        source: "apdr",
+        vendorPath: "skills/competitive-research/SKILL.md",
+      },
+      {
+        id: "mattpocock-research",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/research/SKILL.md",
+        slashCommand: "/research",
+      },
+      {
+        id: "competitor-profiling",
+        source: "marketing-skills",
+        vendorPath: "vendor/marketing-skills/competitor-profiling/SKILL.md",
+      },
+      {
+        id: "customer-research",
+        source: "marketing-skills",
+        vendorPath: "vendor/marketing-skills/customer-research/SKILL.md",
+      },
+      {
+        id: "pm-competitor-analysis",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-market-research/skills/competitor-analysis/SKILL.md",
+      },
+      {
+        id: "pm-market-sizing",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-market-research/skills/market-sizing/SKILL.md",
+      },
+      {
+        id: "pm-swot-analysis",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-product-strategy/skills/swot-analysis/SKILL.md",
+      },
       {
         id: "brainstorming",
         source: "superpowers",
@@ -47,10 +128,29 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         slashCommand: "/discover",
       },
       {
-        id: "pm-market-research",
+        id: "pm-competitor-analysis",
         source: "pm-skills",
-        vendorPath: "vendor/pm-skills/pm-market-research",
-        slashCommand: "/plan-market-research",
+        vendorPath: "vendor/pm-skills/pm-market-research/skills/competitor-analysis/SKILL.md",
+      },
+      {
+        id: "pm-user-personas",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-market-research/skills/user-personas/SKILL.md",
+      },
+      {
+        id: "lark-doc",
+        source: "larksuite",
+        vendorPath: "vendor/larksuite-cli/lark-doc/SKILL.md",
+      },
+      {
+        id: "anthropic-docx",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/docx/SKILL.md",
+      },
+      {
+        id: "anthropic-pdf",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/pdf/SKILL.md",
       },
     ],
     exitArtifactType: "RequirementsAnalysis",
@@ -65,6 +165,47 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     skillPath: "skills/prd-writer/SKILL.md",
     externalSkills: [
       {
+        id: "spec-driven-development",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/spec-driven-development/SKILL.md",
+      },
+      {
+        id: "grill-with-docs",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/grill-with-docs/SKILL.md",
+        slashCommand: "/grill-with-docs",
+      },
+      {
+        id: "competitive-research",
+        source: "apdr",
+        vendorPath: "skills/competitive-research/SKILL.md",
+      },
+      {
+        id: "pm-swot-analysis",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-product-strategy/skills/swot-analysis/SKILL.md",
+      },
+      {
+        id: "doc-coauthoring",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/doc-coauthoring/SKILL.md",
+      },
+      {
+        id: "document-io",
+        source: "apdr",
+        vendorPath: "skills/document-io/SKILL.md",
+      },
+      {
+        id: "feishu-lark",
+        source: "apdr",
+        vendorPath: "skills/feishu-lark/SKILL.md",
+      },
+      {
+        id: "lark-doc",
+        source: "larksuite",
+        vendorPath: "vendor/larksuite-cli/lark-doc/SKILL.md",
+      },
+      {
         id: "baoyu-slide-deck",
         source: "baoyu",
         vendorPath: "vendor/baoyu-skills/skills/baoyu-slide-deck/SKILL.md",
@@ -77,10 +218,25 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         slashCommand: "/baoyu-format-markdown",
       },
       {
-        id: "pm-strategy",
+        id: "pm-product-strategy",
         source: "pm-skills",
-        vendorPath: "vendor/pm-skills/pm-product-strategy",
+        vendorPath: "vendor/pm-skills/pm-product-strategy/skills/product-strategy/SKILL.md",
         slashCommand: "/strategy",
+      },
+      {
+        id: "pm-lean-canvas",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-product-strategy/skills/lean-canvas/SKILL.md",
+      },
+      {
+        id: "anthropic-docx",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/docx/SKILL.md",
+      },
+      {
+        id: "anthropic-pptx",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/pptx/SKILL.md",
       },
     ],
     exitArtifactType: "PRD",
@@ -91,7 +247,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     stage: "user_flows",
     description: "Designs task flows and interaction paths",
     capabilityIds: ["ux.flow.render"],
-    mcpServers: ["design-artifacts"],
+    mcpServers: ["design-artifacts", "diagram"],
     skillPath: "skills/ux-flow/SKILL.md",
     externalSkills: [
       {
@@ -99,6 +255,11 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         source: "baoyu",
         vendorPath: "vendor/baoyu-skills/skills/baoyu-diagram/SKILL.md",
         slashCommand: "/baoyu-diagram",
+      },
+      {
+        id: "pm-customer-journey-map",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-market-research/skills/customer-journey-map/SKILL.md",
       },
     ],
     exitArtifactType: "UserFlows",
@@ -109,7 +270,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     stage: "information_architecture",
     description: "Defines sitemap, navigation, and content model",
     capabilityIds: ["ux.ia.generate"],
-    mcpServers: ["design-artifacts"],
+    mcpServers: ["design-artifacts", "diagram"],
     skillPath: "skills/information-architect/SKILL.md",
     externalSkills: [
       {
@@ -129,6 +290,13 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     capabilityIds: ["ux.wireframe.generate"],
     mcpServers: ["design-artifacts", "preview"],
     skillPath: "skills/wireframe-designer/SKILL.md",
+    externalSkills: [
+      {
+        id: "web-artifacts-builder",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/web-artifacts-builder/SKILL.md",
+      },
+    ],
     exitArtifactType: "Wireframes",
   },
   {
@@ -140,6 +308,26 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts"],
     skillPath: "skills/visual-designer/SKILL.md",
     externalSkills: [
+      {
+        id: "frontend-design",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md",
+      },
+      {
+        id: "design-taste-frontend",
+        source: "taste-skill",
+        vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md",
+      },
+      {
+        id: "theme-factory",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/theme-factory/SKILL.md",
+      },
+      {
+        id: "design-system-agentic",
+        source: "awesome-design-skills",
+        vendorPath: "vendor/awesome-design-skills/agentic/SKILL.md",
+      },
       {
         id: "baoyu-imagine",
         source: "baoyu",
@@ -158,8 +346,75 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "research"],
     skillPath: "skills/intake/SKILL.md",
     externalSkills: [
-      { id: "pm-skills-discover", source: "pm-skills", vendorPath: "vendor/pm-skills/pm-product-discovery", slashCommand: "/discover" },
-      { id: "pm-skills-strategy", source: "pm-skills", vendorPath: "vendor/pm-skills/pm-product-strategy", slashCommand: "/strategy" },
+      {
+        id: "operator-preference",
+        source: "apdr",
+        vendorPath: "skills/operator-preference/SKILL.md",
+      },
+      {
+        id: "document-io",
+        source: "apdr",
+        vendorPath: "skills/document-io/SKILL.md",
+      },
+      {
+        id: "feishu-lark",
+        source: "apdr",
+        vendorPath: "skills/feishu-lark/SKILL.md",
+      },
+      {
+        id: "idea-refine",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/idea-refine/SKILL.md",
+      },
+      {
+        id: "grill-me",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/grilling/SKILL.md",
+        slashCommand: "/grill-me",
+      },
+      {
+        id: "competitive-research",
+        source: "apdr",
+        vendorPath: "skills/competitive-research/SKILL.md",
+      },
+      {
+        id: "mattpocock-research",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/research/SKILL.md",
+        slashCommand: "/research",
+      },
+      {
+        id: "pm-skills-discover",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-product-discovery",
+        slashCommand: "/discover",
+      },
+      {
+        id: "pm-skills-strategy",
+        source: "pm-skills",
+        vendorPath: "vendor/pm-skills/pm-product-strategy",
+        slashCommand: "/strategy",
+      },
+      {
+        id: "brainstorming",
+        source: "superpowers",
+        vendorPath: "vendor/superpowers/skills/brainstorming/SKILL.md",
+      },
+      {
+        id: "lark-doc",
+        source: "larksuite",
+        vendorPath: "vendor/larksuite-cli/lark-doc/SKILL.md",
+      },
+      {
+        id: "anthropic-docx",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/docx/SKILL.md",
+      },
+      {
+        id: "anthropic-pdf",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/pdf/SKILL.md",
+      },
     ],
     exitArtifactType: "ProjectBrief",
   },
@@ -171,6 +426,33 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     capabilityIds: ["govern.artifact.approve"],
     mcpServers: ["design-artifacts"],
     skillPath: "skills/design-reviewer/SKILL.md",
+    externalSkills: [
+      {
+        id: "frontend-design",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md",
+      },
+      {
+        id: "design-taste-frontend",
+        source: "taste-skill",
+        vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md",
+      },
+      {
+        id: "design-system-agentic",
+        source: "awesome-design-skills",
+        vendorPath: "vendor/awesome-design-skills/agentic/SKILL.md",
+      },
+      {
+        id: "web-design-guidelines",
+        source: "vercel",
+        vendorPath: "vendor/vercel-agent-skills/web-design-guidelines/SKILL.md",
+      },
+      {
+        id: "agent-browser",
+        source: "vercel",
+        vendorPath: "skills/agent-browser/SKILL.md",
+      },
+    ],
     exitArtifactType: "DesignReviewReport",
   },
   {
@@ -179,10 +461,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     stage: "code_intelligence",
     description:
       "Indexes generated frontend with CodeGraph and produces CodeIntelligenceReport for automated handoff",
-    capabilityIds: [
-      "code.intelligence.index",
-      "code.intelligence.analyze",
-    ],
+    capabilityIds: ["code.intelligence.index", "code.intelligence.analyze"],
     mcpServers: ["design-artifacts", "repo"],
     skillPath: "skills/code-intelligence/SKILL.md",
     externalSkills: [
@@ -190,6 +469,17 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         id: "codegraph",
         source: "codegraph",
         vendorPath: "https://github.com/colbymchenry/codegraph",
+      },
+      {
+        id: "improve-codebase-architecture",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/improve-codebase-architecture/SKILL.md",
+        slashCommand: "/improve-codebase-architecture",
+      },
+      {
+        id: "codebase-design",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/codebase-design/SKILL.md",
       },
     ],
     exitArtifactType: "CodeIntelligenceReport",
@@ -202,6 +492,49 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     capabilityIds: ["govern.artifact.list"],
     mcpServers: ["design-artifacts", "repo"],
     skillPath: "skills/handoff/SKILL.md",
+    externalSkills: [
+      {
+        id: "documentation-and-adrs",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/documentation-and-adrs/SKILL.md",
+      },
+      {
+        id: "mattpocock-handoff",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/handoff/SKILL.md",
+        slashCommand: "/handoff",
+      },
+      {
+        id: "document-io",
+        source: "apdr",
+        vendorPath: "skills/document-io/SKILL.md",
+      },
+      {
+        id: "feishu-lark",
+        source: "apdr",
+        vendorPath: "skills/feishu-lark/SKILL.md",
+      },
+      {
+        id: "lark-doc",
+        source: "larksuite",
+        vendorPath: "vendor/larksuite-cli/lark-doc/SKILL.md",
+      },
+      {
+        id: "lark-wiki",
+        source: "larksuite",
+        vendorPath: "vendor/larksuite-cli/lark-wiki/SKILL.md",
+      },
+      {
+        id: "anthropic-docx",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/docx/SKILL.md",
+      },
+      {
+        id: "doc-coauthoring",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/doc-coauthoring/SKILL.md",
+      },
+    ],
     exitArtifactType: "HandoffDoc",
   },
   {
@@ -219,6 +552,26 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         vendorPath: "vendor/superpowers/skills/writing-plans/SKILL.md",
       },
       {
+        id: "planning-and-task-breakdown",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/planning-and-task-breakdown/SKILL.md",
+      },
+      {
+        id: "frontend-ui-engineering",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/frontend-ui-engineering/SKILL.md",
+      },
+      {
+        id: "frontend-design",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md",
+      },
+      {
+        id: "design-taste-frontend",
+        source: "taste-skill",
+        vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md",
+      },
+      {
         id: "subagent-driven-development",
         source: "superpowers",
         vendorPath: "vendor/superpowers/skills/subagent-driven-development/SKILL.md",
@@ -229,12 +582,67 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
         vendorPath: "vendor/superpowers/skills/test-driven-development/SKILL.md",
       },
       {
+        id: "mattpocock-tdd",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/tdd/SKILL.md",
+        slashCommand: "/tdd",
+      },
+      {
+        id: "vercel-react-best-practices",
+        source: "vercel",
+        vendorPath: "vendor/vercel-agent-skills/react-best-practices/SKILL.md",
+      },
+      {
         id: "using-git-worktrees",
         source: "superpowers",
         vendorPath: "vendor/superpowers/skills/using-git-worktrees/SKILL.md",
       },
+      {
+        id: "code-review-and-quality",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/code-review-and-quality/SKILL.md",
+      },
     ],
     exitArtifactType: "CodeBundle",
+  },
+  {
+    id: "backend_engineer",
+    name: "Backend Engineer",
+    stage: "backend_codegen",
+    description:
+      "Optional API/service codegen from PRD + CodeBundle; skipped when includeBackend is false",
+    capabilityIds: ["code.backend.api.generate", "code.backend.scaffold"],
+    mcpServers: ["design-artifacts", "repo"],
+    skillPath: "skills/backend-engineer/SKILL.md",
+    externalSkills: [
+      {
+        id: "writing-plans",
+        source: "superpowers",
+        vendorPath: "vendor/superpowers/skills/writing-plans/SKILL.md",
+      },
+      {
+        id: "test-driven-development",
+        source: "superpowers",
+        vendorPath: "vendor/superpowers/skills/test-driven-development/SKILL.md",
+      },
+      {
+        id: "mattpocock-tdd",
+        source: "mattpocock",
+        vendorPath: "vendor/mattpocock-skills/tdd/SKILL.md",
+        slashCommand: "/tdd",
+      },
+      {
+        id: "documentation-and-adrs",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/documentation-and-adrs/SKILL.md",
+      },
+      {
+        id: "backend-skills-dropin",
+        source: "apdr",
+        vendorPath: "skills/backend-skills/README.md",
+      },
+    ],
+    exitArtifactType: "BackendCodeBundle",
   },
   {
     id: "quality_evaluator",
@@ -244,6 +652,38 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     capabilityIds: ["eval.artifact.quality", "eval.coverage.feature_flow"],
     mcpServers: ["design-artifacts", "repo"],
     skillPath: "skills/quality-evaluator/SKILL.md",
+    externalSkills: [
+      {
+        id: "verification-before-completion",
+        source: "superpowers",
+        vendorPath: "vendor/superpowers/skills/verification-before-completion/SKILL.md",
+      },
+      {
+        id: "browser-testing-with-devtools",
+        source: "addy-agent-skills",
+        vendorPath: "vendor/addy-agent-skills/browser-testing-with-devtools/SKILL.md",
+      },
+      {
+        id: "webapp-testing",
+        source: "anthropic-skills",
+        vendorPath: "vendor/anthropic-skills/webapp-testing/SKILL.md",
+      },
+      {
+        id: "web-design-guidelines",
+        source: "vercel",
+        vendorPath: "vendor/vercel-agent-skills/web-design-guidelines/SKILL.md",
+      },
+      {
+        id: "vercel-react-best-practices",
+        source: "vercel",
+        vendorPath: "vendor/vercel-agent-skills/react-best-practices/SKILL.md",
+      },
+      {
+        id: "agent-browser",
+        source: "vercel",
+        vendorPath: "skills/agent-browser/SKILL.md",
+      },
+    ],
     exitArtifactType: "QualityReport",
   },
 ];

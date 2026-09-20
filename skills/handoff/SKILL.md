@@ -7,10 +7,13 @@ description: Developer handoff documentation. Generates component docs, build in
 
 Pipeline stage: handoff. Requires: CodeBundle + **CodeIntelligenceReport** + UIDesignSpec approved.
 
-## External references
+## External skills
 
-- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) — routes/components ground truth from code_intelligence stage
-- [storybookjs/storybook](https://github.com/storybookjs/storybook) 90k★ -- component documentation and UI development environment
+- **documentation-and-adrs** — `vendor/addy-agent-skills/documentation-and-adrs/SKILL.md`
+- **document-io** — `skills/document-io/SKILL.md`（可选导出 Word/PDF）
+- **feishu-lark** — `skills/feishu-lark/SKILL.md`（可选发布到飞书 Wiki/Doc；禁止写入密钥）
+- [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph) — routes/components ground truth
+- [storybookjs/storybook](https://github.com/storybookjs/storybook) — optional component docs format
 
 ## Workflow
 

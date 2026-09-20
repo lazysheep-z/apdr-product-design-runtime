@@ -337,6 +337,32 @@ export const CAPABILITY_REGISTRY: CapabilityDefinition[] = [
     stage: "frontend_codegen",
   },
 
+  // ─── Backend Code Generation (optional) ────────────────
+  {
+    id: "code.backend.api.generate",
+    layer: "composite",
+    domain: "code",
+    description: "Generate backend API/service from PRD + frontend CodeBundle (optional stage)",
+    inputs: ["PRD", "CodeBundle"],
+    outputs: ["BackendCodeBundle"],
+    sideEffects: "write_artifact",
+    mcpTool: "write_artifact",
+    humanGate: "optional",
+    stage: "backend_codegen",
+  },
+  {
+    id: "code.backend.scaffold",
+    layer: "atomic",
+    domain: "code",
+    description: "Scaffold backend project structure under projects/{id}/server",
+    inputs: ["project_id", "stack"],
+    outputs: ["scaffold_path"],
+    sideEffects: "write_artifact",
+    mcpTool: null,
+    humanGate: "none",
+    stage: "backend_codegen",
+  },
+
   // ─── Code Intelligence (CodeGraph) ─────────────────────
   {
     id: "code.intelligence.index",

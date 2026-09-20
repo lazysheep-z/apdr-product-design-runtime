@@ -1,34 +1,49 @@
 ---
 name: apdr-frontend-engineer
-description: Code from approved UIDesignSpec via Superpowers plans + TDD; artifacts via MCP.
+description: Code from approved UIDesignSpec via Superpowers + Addy UI engineering + Anthropic frontend-design; artifacts via MCP.
 ---
 
 # Frontend Engineer (APDR)
 
-Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved`.
+Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved` (and DesignReview when present).
 
-## External skills (Superpowers only — no baoyu)
+## External skills
 
+### Planning & execution (Superpowers + Addy)
 1. **writing-plans** — `vendor/superpowers/skills/writing-plans/SKILL.md`
-2. **using-git-worktrees** — isolated branch
-3. **subagent-driven-development** — task execution + review
-4. **test-driven-development** — red/green/refactor
+2. **planning-and-task-breakdown** — `vendor/addy-agent-skills/planning-and-task-breakdown/SKILL.md`
+3. **using-git-worktrees** — isolated branch
+4. **subagent-driven-development** + **Superpowers TDD**
+5. **mattpocock `/tdd`** — `vendor/mattpocock-skills/tdd/SKILL.md`（seam 纪律、反模式）
 
-Install Cursor plugin: `/add-plugin superpowers`
+### UI quality
+6. **frontend-ui-engineering** — `vendor/addy-agent-skills/frontend-ui-engineering/SKILL.md`
+7. **frontend-design** — `vendor/anthropic-skills/frontend-design/SKILL.md` (match approved UIDesignSpec)
+
+### Performance & review
+8. **vercel-react-best-practices** — `vendor/vercel-agent-skills/react-best-practices/SKILL.md`（细则见同目录 `AGENTS.md`）
+9. **code-review-and-quality** — `vendor/addy-agent-skills/code-review-and-quality/SKILL.md`  
+   Also see `skills/frontend-code-reviewer/SKILL.md`
 
 ## Workflow
 
-1. `get_latest_artifact` — `UIDesignSpec`, `PRD` (summary)
-2. Invoke **writing-plans**; save plan under `projects/{projectId}/plans/` or `docs/superpowers/plans/`
-3. Implement with **subagent-driven-development** + TDD
-4. `scaffold_frontend` (repo MCP) if needed
-5. `write_artifact` — `CodeBundle` with rootPath, routes, previewUrl
+1. 读 `operator-preference`：`prototypeMode=incremental` 时在既有应用上改，禁止无关重构；`docOnlyGuard` 场景不应落到本阶段改字段口径。
+2. `get_latest_artifact` — `UIDesignSpec`, `PRD` (summary), `DesignReviewReport`
+3. writing-plans / planning-and-task-breakdown → save under `projects/{projectId}/plans/`
+4. Implement with subagent-driven-development + TDD（SP 流程 + Matt seam）+ frontend-ui-engineering
+5. React/Next 性能自检：读 `react-best-practices/AGENTS.md` 高优先级规则
+6. `scaffold_frontend` (repo MCP) if needed（仅 greenfield 或缺脚手架时）
+7. Multi-axis review via code-review-and-quality
+8. 若 `deliveryMode` 含 `preview`：保持项目既有 preview host/端口约定（勿改回 localhost-only）
+9. 若 `deliveryMode` 含 `offline-html` 且项目有打包脚本（如 `pack:single`）：生成后校验，只交付约定的单文件
+10. `write_artifact` — `CodeBundle` with rootPath, routes, previewUrl（相对路径，无本机用户目录）
 
-## Next stage (automatic)
+## Next stage
 
-After CodeBundle is approved/advanced, pipeline enters **code_intelligence** — Agent must run `build_code_intelligence_report` (no user action required). Do not skip to handoff.
+After CodeBundle advances → optional **backend_codegen**（若 includeBackend）→ **code_intelligence**。
 
 ## Do not
-
-- Use baoyu-imagine or slide-deck in this stage
+- Use baoyu-imagine in this stage
 - Start coding before `UIDesignSpec` is `approved`
+- Claim done without verification / tests
+- 把密钥、个人路径或飞书账号写进代码 / artifact / 提交记录

@@ -1,30 +1,58 @@
 node_modules/
 dist/
 .DS_Store
-projects/*/artifacts/
-projects/*/research/
-projects/*/diagram/
-projects/*/wireframes/
-projects/*/visual/
-projects/*/app/
 skillopt/logs/
 skillopt/outputs/
 *.log
 .runtime-state.json
 
-# Local MCP config (contains absolute paths)
+# Local MCP config (contains absolute machine paths — use mcp.json.example)
 .cursor/mcp.json
 .mcp.json
+
+# Feishu / Lark CLI — never commit personal credentials or account configs
+.lark-cli/
+**/.lark-cli/
+**/appsecret*
+**/*_cli_*.enc
+**/lark-cli*.enc
+**/credentials.json
+**/token.json
+.env
+.env.*
+!.env.example
 
 # Binary / office exports (not part of APDR pipeline)
 *.xlsx
 *.xls
 *.docx
 *.doc
+*.pdf
+*.pptx
 *.zip
 !*.tar.gz
 
-# Project generated files
+# Operator project workspaces may contain business docs / Feishu URLs — do not publish.
+# Only keep anonymous demo stubs in git.
+projects/*
+!projects/.gitkeep
+!projects/demo/
+!projects/demo/meta.json
+!projects/conv-test/
+!projects/conv-test/meta.json
+
+# Defense in depth for any future tracked project dirs
+projects/*/artifacts/
+projects/*/research/
+projects/*/diagram/
+projects/*/wireframes/
+projects/*/visual/
+projects/*/app/
+projects/*/plans/
+projects/*/docs/
+projects/*/decisions/
+projects/*/exports/
+projects/*/operator-preference.json
 projects/*/.runtime-state.json
 projects/*/data/
 projects/*/server/

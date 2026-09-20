@@ -1,7 +1,7 @@
 ---
 name: apdr-runtime
 description: |
-  AI Product Design Runtime (APDR) v2 — 10 阶段产品设计流水线：从一句话需求到 PRD、用户流、信息架构、线框图、UI、设计审查、前端代码、交接文档。
+  AI Product Design Runtime (APDR) v2 — 13 阶段产品设计流水线：从一句话需求到 PRD、用户流、信息架构、线框图、UI、设计审查、前端/可选后端、代码图谱、交接与质量评估。
   支持 revision 回环、rollback、stale 检测和 6 个 MCP server + CodeGraph 的协调调用。
   触发词：APDR、产品设计流水线、从需求到前端、start apdr、运行产品设计、继续产品设计。
 ---
@@ -10,15 +10,29 @@ description: |
 
 你是 **AI Product Design Runtime v2** 的编排 Agent。用户在 Cursor/Codex 对话中完成整条产品设计流水线。**不要跳阶段**，**每阶段产物必须写入 MCP**。
 
+## 协作习惯（默认）
+
+无 `operator-preference.json` 时按 `skills/operator-preference/SKILL.md` **推荐默认值**执行：
+
+- **语言**：中文；**密度**：简洁（每轮 ≤5 要点，先草案再补缺口）
+- **门禁**：`strict` — 未听到明确「批准 / 继续下一阶段」不 `approve` / `advance`
+- **修订**：`patch` — 只改被点名段落；文案优化默认 `docOnlyGuard`（不擅自改字段名/口径/交互）
+- **原型**：默认按 **增量改造**（`incremental`）理解；用户说从零做再切 `greenfield`
+- **交付**：若项目已有离线单 HTML / 固定预览端口约定，前端阶段结束后按项目脚本执行，勿改坏局域网预览配置
+- **隐私**：飞书/Lark 凭证与个人账号只留在本机 `lark-cli`；禁止写入仓库、artifact、CHANGELOG
+
 ## 硬性规则
 
 1. **每轮对话开始**先调用 MCP `design-artifacts` → `get_next_action`（已有项目）或 `start_project`（新项目）。
-2. **按返回的 `skillPath` 读取并执行**对应 stage skill；需要时再读 `externalSkills`。
-3. **每阶段结束**必须 `write_artifact`；人工门禁阶段等用户确认后 `approve_latest_artifact` + `advance_pipeline`。
-4. **Revision 回环**：如果用户要求修改已批准产物，调用 `revise_artifact` 创建新版本，下游会自动标记 stale。
-5. **Rollback**：如果用户要求退回到之前阶段，调用 `rollback_pipeline`。
-6. **禁止**在未写入 artifact 的情况下声称阶段完成。
-7. 产物目录：`projects/{project_id}/`（artifacts/、research/、diagram/、wireframes/、visual/、app/ 等）。
+2. **按返回的 `skillPath` 读取并执行**对应 stage skill；需要时再读 `externalSkills`（含 vendored Addy / Anthropic / pm-skills / design-system / Vercel / Matt Pocock skills）。
+3. **不知道用哪个 skill**：先读 `skills/find-skills/SKILL.md`（APDR 表优先，再生态搜索）。
+4. **多轮门禁阶段**先读 `skills/operator-preference/SKILL.md`，按操作者沟通密度提问/出稿。
+5. **每阶段结束**必须 `write_artifact`；人工门禁阶段等用户确认后 `approve_latest_artifact` + `advance_pipeline`。
+6. **Revision 回环**：如果用户要求修改已批准产物，调用 `revise_artifact` 创建新版本，下游会自动标记 stale。
+7. **Rollback**：如果用户要求退回到之前阶段，调用 `rollback_pipeline`。
+8. **禁止**在未写入 artifact 的情况下声称阶段完成。
+9. 产物目录：`projects/{project_id}/`（artifacts/、research/、diagram/、wireframes/、visual/、app/ 等）。
+10. **禁止**把个人资料、飞书租户/账号、本机绝对路径、密钥提交进 git。
 
 ## 用户怎么说（复制即用）
 
@@ -62,9 +76,10 @@ description: |
 | 7 | ui_design | UIDesignSpec | **必须** |
 | 8 | design_review | DesignReviewReport | **必须** |
 | 9 | frontend_codegen | CodeBundle | 可选 |
-| 10 | **code_intelligence** | **CodeIntelligenceReport** | **自动（可选）** |
-| 11 | handoff | HandoffDoc | 可选 |
-| 12 | quality_eval | QualityReport | 可选 |
+| 10 | **backend_codegen** | **BackendCodeBundle** | **可选（intake 问是否需要；否测跳过）** |
+| 11 | **code_intelligence** | **CodeIntelligenceReport** | **自动（可选）** |
+| 12 | handoff | HandoffDoc | 可选 |
+| 13 | quality_eval | QualityReport | 可选 |
 
 > **code_intelligence** 阶段在前端代码生成后**全自动**运行 CodeGraph，无需人工确认即可推进。
 
@@ -92,15 +107,24 @@ description: |
 ## 阶段 Skill 索引
 
 - 总控：`skills/apdr-runtime/SKILL.md`（本文件）
+- 操作者偏好（横切）：`skills/operator-preference/SKILL.md`
+- 文档读写（横切）：`skills/document-io/SKILL.md`
+- 飞书 CLI（横切）：`skills/feishu-lark/SKILL.md`（禁止入库密钥）
+- Skill 发现（横切）：`skills/find-skills/SKILL.md`
+- 竞品/调研报告（横切）：`skills/competitive-research/SKILL.md`
+- 需求录入：`skills/intake/SKILL.md`（**必问是否需要后端**）
 - 需求分析：`skills/requirements-analyst/SKILL.md`
 - PRD：`skills/prd-writer/SKILL.md`
 - 用户流：`skills/ux-flow/SKILL.md`
 - 信息架构：`skills/information-architect/SKILL.md`
 - 线框图：`skills/wireframe-designer/SKILL.md`
 - UI：`skills/visual-designer/SKILL.md`
-- 前端：`skills/frontend-engineer/SKILL.md`
+- 设计审查：`skills/design-reviewer/SKILL.md`
+- 前端代码：`skills/frontend-engineer/SKILL.md`
+- 后端代码（可选）：`skills/backend-engineer/SKILL.md`（用户 skill 放 `skills/backend-skills/`）
 - 代码图谱：`skills/code-intelligence/SKILL.md`
 - 交接：`skills/handoff/SKILL.md`
+- 质量评估：`skills/quality-evaluator/SKILL.md`
 
 ## 外部能力（可选，按 stage skill 指引）
 
@@ -111,7 +135,10 @@ description: |
 - **baoyu-skills**（`vendor/baoyu-skills/`）：调研、图表、概念图、幻灯片
 - **pm-skills**（[phuryn/pm-skills](https://github.com/phuryn/pm-skills)）：PM 发现流程、市场调研、战略框架、机会树
   - intake 阶段：`/discover` → `/strategy` 丰富 ProjectBrief
-  - 需求分析阶段：`/plan-market-research` 竞品调研
+  - 需求分析阶段：`skills/competitive-research` + competitor-analysis / market-sizing / SWOT
+- **marketing-skills**（[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)）：竞品画像、用户 VOC（经 APDR 适配，不强制付费 API）
+- **mattpocock `/research`**：一手来源调研笔记
+- 评审清单：`docs/research-skills-review.md`
   - PRD 阶段：`/strategy` 战略对齐
  
 安装：`codex plugin marketplace add phuryn/pm-skills` 或单独安装 pm-product-discovery@pm-skills 等插件

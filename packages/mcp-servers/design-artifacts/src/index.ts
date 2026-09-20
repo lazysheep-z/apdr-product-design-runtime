@@ -152,7 +152,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: "start_project",
       description:
-        "Create a new APDR project from natural-language requirements and seed ProjectBrief",
+        "Create a new APDR project from natural-language requirements and seed ProjectBrief. Ask the user whether backend codegen is needed; pass include_backend when known.",
       inputSchema: {
         type: "object",
         properties: {
@@ -168,6 +168,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
           constraints: {
             type: "array",
             items: { type: "string" },
+          },
+          include_backend: {
+            type: "boolean",
+            description:
+              "If true, pipeline runs backend_codegen after frontend. If false, that stage is skipped. Omit when still asking the user at intake.",
           },
         },
         required: ["project_id", "title", "requirements"],
@@ -360,17 +365,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case "start_project": {
-        const { project_id, title, requirements, constraints } = args as {
+        const { project_id, title, requirements, constraints, include_backend } = args as {
           project_id: string;
           title: string;
           requirements: string;
           constraints?: string[];
+          include_backend?: boolean;
         };
         const meta = await engine.initProject({
           id: project_id,
           title,
           description: requirements,
           constraints,
+          includeBackend: include_backend,
         });
         const now = new Date().toISOString();
         const briefContent: ProjectBriefContent = {
@@ -381,6 +388,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           personas: [],
           constraints: constraints ?? [],
           references: [],
+          includeBackend: include_backend,
         };
         const brief: ArtifactEnvelope<ProjectBriefContent> = {
           id: `${project_id}:ProjectBrief:v1`,
@@ -405,9 +413,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           blockers: [],
           canAdvance: true,
         });
+        const backendHint =
+          typeof include_backend === "boolean"
+            ? `includeBackend=${include_backend}`
+            : "尚未设置 includeBackend — intake 阶段必须询问用户是否需要后端代码";
         return textResult(
           [
-            `Created project **${title}** (\`${project_id}\`).`,
+            `Created project **${title}** (\`${project_id}\`). ${backendHint}`,
             "",
             formatNextActionMarkdown(action),
           ].join("\n")

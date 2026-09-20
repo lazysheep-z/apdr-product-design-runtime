@@ -12,6 +12,7 @@ export type PipelineStage =
   | "ui_design"
   | "design_review"
   | "frontend_codegen"
+  | "backend_codegen"
   | "code_intelligence"
   | "handoff"
   | "quality_eval";
@@ -26,6 +27,7 @@ export type ArtifactType =
   | "UIDesignSpec"
   | "DesignReviewReport"
   | "CodeBundle"
+  | "BackendCodeBundle"
   | "CodeIntelligenceReport"
   | "HandoffDoc"
   | "QualityReport";
@@ -58,6 +60,8 @@ export interface ProjectMeta {
   updatedAt: string;
   currentStage: PipelineStage;
   constraints?: string[];
+  /** When true, pipeline runs backend_codegen; when false/undefined, that stage is skipped */
+  includeBackend?: boolean;
 }
 
 export interface RuntimeState {
@@ -88,7 +92,22 @@ export interface CapabilityDefinition {
 export interface ExternalSkillRef {
   /** e.g. baoyu-diagram, brainstorming */
   id: string;
-  source: "baoyu" | "superpowers" | "pm-skills" | "codegraph";
+  source:
+    | "baoyu"
+    | "superpowers"
+    | "pm-skills"
+    | "codegraph"
+    | "addy-agent-skills"
+    | "anthropic-skills"
+    | "awesome-design-skills"
+    | "apdr"
+    | "mattpocock"
+    | "vercel"
+    | "taste-skill"
+    | "larksuite"
+    | "marketing-skills"
+    | "tavily"
+    | "firecrawl";
   /** Repo-relative path to upstream SKILL.md when vendored */
   vendorPath?: string;
   /** Cursor slash command if plugin installed */

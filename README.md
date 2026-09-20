@@ -1,6 +1,6 @@
-# AI Product Design Runtime (APDR) v0.3.1
+# AI Product Design Runtime (APDR) v0.3.6
 
-> Author: **Joker (张超阳)**
+> Maintainer: **Joker** · [lazysheep-z/apdr-product-design-runtime](https://github.com/lazysheep-z/apdr-product-design-runtime)
 
 从一句产品需求到前端代码的 AI 产品设计流水线。支持 **Codex、Cursor、Claude Code** 等任意 MCP 协议兼容工具。
 
@@ -11,7 +11,7 @@
 
 ## 一句话
 
-APDR = **6 个 MCP Server** + **17 个 Skill 文件** + **12 阶段流水线**（含 CodeGraph 全自动代码图谱）
+APDR = **6 个 MCP Server** + **Skill 驱动** + **13 阶段流水线**（含可选后端与 CodeGraph 全自动代码图谱）
 
 AI 对话工具通过 MCP 协议接入后，即可自动完成从需求录入到前端代码生成的整条产品设计流程，你只需在关键节点审阅放行。
 
@@ -30,9 +30,10 @@ AI 对话工具通过 MCP 协议接入后，即可自动完成从需求录入到
 | 7 | ui_design | UIDesignSpec (Token/组件/概念图) | **必须** |
 | 8 | design_review | DesignReviewReport (Token/响应式/a11y) | **必须** |
 | 9 | frontend_codegen | CodeBundle (React/Vite + 测试) | 可选 |
-| 10 | **code_intelligence** | **CodeIntelligenceReport (CodeGraph 索引/路由/组件)** | **自动** |
-| 11 | handoff | HandoffDoc (组件文档/API/部署) | 可选 |
-| 12 | quality_eval | QualityReport (全流程评分/覆盖率) | 可选 |
+| 10 | backend_codegen | BackendCodeBundle（可选；intake 可跳过） | 可选 |
+| 11 | **code_intelligence** | **CodeIntelligenceReport (CodeGraph 索引/路由/组件)** | **自动** |
+| 12 | handoff | HandoffDoc (组件文档/API/部署) | 可选 |
+| 13 | quality_eval | QualityReport (全流程评分/覆盖率) | 可选 |
 
 ## 特性
 
@@ -184,12 +185,20 @@ apdr-product-design-runtime/
 └── skillopt/                  # SkillOpt 配置（可选）
 ```
 
+## 隐私
+
+- 仓库**不包含**个人业务项目、飞书账号、本机绝对路径或 CLI 密钥
+- 本地 MCP 配置请复制 `.cursor/mcp.json.example`，勿提交含本机路径的 `.mcp.json`
+- 飞书能力见 `skills/feishu-lark/SKILL.md`（本机 `lark-cli auth`，凭证不上库）
+
 ## 版本历史
 
 详见 [CHANGELOG.md](CHANGELOG.md)
 
-- **v0.3.0** (2026-06-24) — 11 阶段流水线，7 个新 skill，质量评估
-- **v0.2.0** (2026-06-17) — 8 阶段流水线，5 个 MCP Server，Codex Plugin
+- **v0.3.6** (2026-09-20) — 协作习惯默认值、增量原型/文案护栏、隐私加固
+- **v0.3.5** (2026-07-29) — 竞品调研统一入口
+- **v0.3.0** (2026-06-24) — 11 阶段流水线，质量评估
+- **v0.2.0** (2026-06-17) — 8 阶段流水线，5 个 MCP Server
 - **v0.1.0** (2026-06-10) — 初始版本
 
 ## 相关项目
@@ -201,4 +210,4 @@ apdr-product-design-runtime/
 
 ## 许可
 
-MIT License. Copyright (c) 2026 Joker (张超阳)
+MIT License. Copyright (c) 2026 Joker

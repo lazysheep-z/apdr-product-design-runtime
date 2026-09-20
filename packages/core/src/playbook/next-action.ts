@@ -54,9 +54,29 @@ export function buildNextAction(input: NextActionInput): NextAction {
   let phase: ConversationPhase = "execute";
   let suggestedUserMessage = `请完成当前阶段：${playbook.titleZh}`;
 
-  if (input.currentStage === "frontend_codegen" && outputApproved) {
+  if (input.currentStage === "quality_eval" && outputApproved) {
     phase = "complete";
     suggestedUserMessage = "流水线已完成。可打开 preview 或继续迭代某一阶段。";
+  } else if (input.currentStage === "backend_codegen") {
+    suggestedUserMessage =
+      "若本项目需要后端：按 skills/backend-engineer 生成 BackendCodeBundle；若不需要后端请确认 ProjectBrief.includeBackend=false 后 advance 跳过。";
+    if (input.blockers.length > 0) {
+      phase = "blocked";
+      suggestedUserMessage = `先补齐上游产物：${input.blockers.join(", ")}`;
+    } else if (
+      outputExists &&
+      !outputApproved &&
+      (wfStep?.humanGate === "required" || wfStep?.humanGate === "optional")
+    ) {
+      phase = "review";
+      suggestedUserMessage =
+        `已生成 ${playbook.outputArtifact}。回复「批准」进入下一阶段，或提出修改。`;
+    } else if (input.canAdvance && outputExists) {
+      phase = "advance_ready";
+      suggestedUserMessage = "上游已满足。调用 advance_pipeline 进入下一阶段。";
+    } else if (!outputExists) {
+      phase = "execute";
+    }
   } else if (input.blockers.length > 0) {
     phase = "blocked";
     suggestedUserMessage = `先补齐上游产物：${input.blockers.join(", ")}`;

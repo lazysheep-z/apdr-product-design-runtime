@@ -7,10 +7,15 @@ description: Design quality gate. Checks token consistency, component coverage, 
 
 Stage: design_review. Requires: UIDesignSpec + Wireframes approved.
 
-## External references
+## External skills
 
-- [dequelabs/axe-core](https://github.com/dequelabs/axe-core) 7k★ -- accessibility testing engine, WCAG compliance checks
-- [radix-ui/primitives](https://github.com/radix-ui/primitives) 19k★ -- accessible component patterns reference
+- **frontend-design** — `vendor/anthropic-skills/frontend-design/SKILL.md` (anti-template + hierarchy checks)
+- **design-taste-frontend** — `vendor/taste-skill/design-taste-frontend/SKILL.md` (anti-slop checklist; skip dashboard-only rules when irrelevant)
+- **design-system agentic** — `vendor/awesome-design-skills/agentic/SKILL.md` (WCAG 2.2 AA gates, required states)
+- **web-design-guidelines** — `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md` (fetch latest Vercel Web Interface Guidelines；榜单别名 *web-design-tay*)
+- **agent-browser** — `skills/agent-browser/SKILL.md`（预览交互走查；需本机 CLI）
+- [dequelabs/axe-core](https://github.com/dequelabs/axe-core) — accessibility testing engine
+- [radix-ui/primitives](https://github.com/radix-ui/primitives) — accessible component patterns
 
 ## Workflow
 
@@ -21,22 +26,20 @@ Stage: design_review. Requires: UIDesignSpec + Wireframes approved.
       - Verify every Wireframe region has a corresponding DesignToken category
       - Check color tokens: ensure sufficient palette for all UI states
       - Check spacing tokens: verify scale covers all layout gaps
+      - Flag generic AI-default palettes unless brief justified (frontend-design)
 
    b) Component coverage check
       - Map every IA node / wireframe region to a component in UIDesignSpec
       - Flag any wireframe page that lacks a component mapping
-      - List component variants (default, hover, active, disabled, error)
+      - List component variants (default, hover, active, disabled, error, loading)
 
    c) Responsive check
       - Verify token set includes mobile (320px), tablet (768px), desktop (1024px+)
       - Flag any token that only works at one breakpoint
-      - Reference radix-ui/primitives for responsive component patterns
 
    d) Accessibility check
-      - Verify color contrast ratios (WCAG AA: 4.5:1 text, 3:1 large)
-      - Check focus indicator tokens exist
-      - Reference axe-core patterns for keyboard navigation
-      - Verify semantic HTML structure in wireframe pages
+      - WCAG AA contrast; focus-visible tokens; keyboard-first (agentic gates)
+      - Semantic HTML in wireframe pages
 
 3. Collect issues: severity (critical/major/minor), item, recommendation
 4. Set passed = true only if no critical or major issues remain

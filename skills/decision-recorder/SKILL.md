@@ -5,7 +5,9 @@ description: Records key product and design decisions as Markdown ADR (Architect
 
 # Decision Recorder (APDR)
 
-Records key decisions at each pipeline stage using the MADR format ([adr/madr](https://github.com/adr/madr) 2284★).
+Records key decisions at each pipeline stage using the MADR format ([adr/madr](https://github.com/adr/madr)).
+
+Also follow **documentation-and-adrs** — `vendor/addy-agent-skills/documentation-and-adrs/SKILL.md` for when/why to write ADRs and how to match repo conventions.
 
 Call this skill at the END of each pipeline stage, after writing the stage artifact.
 

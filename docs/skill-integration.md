@@ -70,6 +70,7 @@ flowchart LR
 | prd | 弱（SP spec 偏**技术设计**非产品 PRD） | **保留 APDR `product_writer`**；可从 SP spec 摘录导入 PRD |
 | user_flows / IA / wireframes / ui_design | **无** | 纯 APDR + 你后续 Figma/gstack 等 skill |
 | frontend_codegen | **强** | **主绑定**：`writing-plans` → `using-git-worktrees` → `subagent-driven-development` + `TDD` |
+| backend_codegen（可选） | 中 | `skills/backend-engineer` + 用户 drop-in `skills/backend-skills/*`；`includeBackend=false` 时跳过 |
 
 ### 关键差异（集成时必须处理）
 
@@ -208,8 +209,15 @@ flowchart LR
 
 | Skill 名 | GitHub | Pipeline 阶段 | Agent ID | 状态 |
 |----------|--------|---------------|----------|------|
-| Superpowers | https://github.com/obra/superpowers | intake–req, frontend_codegen | requirements_analyst, frontend_engineer | vendored |
-| baoyu-skills（精选 5） | https://github.com/JimLiu/baoyu-skills | intake–prd, user_flows–ui_design | requirements_analyst, ux_strategist, information_architect, visual_designer, product_writer | integrated |
+| Superpowers | https://github.com/obra/superpowers | intake–req, frontend_codegen, quality | requirements_analyst, frontend_engineer, quality_evaluator | vendored |
+| baoyu-skills（精选） | https://github.com/JimLiu/baoyu-skills | intake–prd, user_flows–ui_design | requirements_analyst, ux_strategist, information_architect, visual_designer, product_writer | vendored |
+| pm-skills（精选） | https://github.com/phuryn/pm-skills | intake, requirements, prd, user_flows | intake_specialist, requirements_analyst, product_writer, ux_strategist | vendored subset |
+| Addy agent-skills（精选） | https://github.com/addyosmani/agent-skills | intake→prd, codegen, review, handoff, quality | 多 agent | vendored subset |
+| Anthropic skills（精选） | https://github.com/anthropics/skills | ui_design, wireframes, codegen, quality | visual_designer, wireframe_designer, frontend_engineer, quality_evaluator | vendored subset |
+| Awesome Design Skills（精选） | https://github.com/bergside/awesome-design-skills | ui_design, design_review | visual_designer, design_reviewer | vendored starter |
+| operator-preference | APDR native | 横切门禁对话 | orchestrator / intake / requirements | done |
+| document-io | anthropics/skills docx/pdf/pptx/xlsx/doc-coauthoring | intake–prd, handoff | intake, requirements, product_writer, handoff | vendored |
+| feishu-lark | larksuite/cli lark-doc/wiki/drive… | intake–prd, handoff | 同上（本机 auth，无密钥入库） | vendored docs only |
 
 ## 集成检查清单
 
@@ -242,7 +250,7 @@ flowchart LR
 | 项目 | 内容 |
 |------|------|
 | 名称 | [CodeGraph](https://github.com/colbymchenry/codegraph) |
-| APDR 阶段 | **`code_intelligence`**（第 10 阶段，在 frontend_codegen 与 handoff 之间） |
+| APDR 阶段 | **`code_intelligence`**（在 `frontend_codegen` / 可选 `backend_codegen` 与 `handoff` 之间） |
 | 产出 | `CodeIntelligenceReport` artifact |
 | 自动化 | repo MCP `build_code_intelligence_report` — init + explore + 结构化 JSON |
 | 安装 | `npm run install-codegraph` 或 `bash scripts/install-codegraph.sh` |
@@ -251,9 +259,11 @@ flowchart LR
 ### 流水线位置
 
 ```
-frontend_codegen → code_intelligence → handoff → quality_eval
-     CodeBundle    CodeIntelligenceReport   HandoffDoc
+frontend_codegen → backend_codegen? → code_intelligence → handoff → quality_eval
+     CodeBundle      BackendCodeBundle   CodeIntelligenceReport   HandoffDoc
 ```
+
+`backend_codegen` 仅在 `ProjectBrief.includeBackend === true` 时执行；否则引擎自动跳过。
 
 ### 源码改动点
 
@@ -270,3 +280,68 @@ frontend_codegen → code_intelligence → handoff → quality_eval
 | repo MCP automation | done |
 | handoff / quality_eval 消费 | done |
 | 用户安装 CodeGraph CLI | 可选（有降级） |
+
+---
+
+## 2026-07 热门 Skill 调研接入（Wave 2）
+
+调研来源：GitHub stars / skills.sh installs；只接对 APDR **阶段推进有增益** 的 skill，跳过无关热门（算命、电商海报、纯 draw.io 应用、整包社媒运营等）。
+
+### 接入决策
+
+| 仓库 | Stars 量级 | 决策 | APDR 用法 |
+|------|------------|------|-----------|
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | ~80k | **P0 精选** | idea-refine / spec-driven / planning / frontend-ui / code-review / browser-testing / documentation-and-adrs |
+| [anthropics/skills](https://github.com/anthropics/skills) | ~164k | **P0 精选** | frontend-design / theme-factory / web-artifacts-builder / webapp-testing（跳过 Anthropic 品牌专属、海报 canvas） |
+| [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | ~24k | **P0 补齐 vendor** | discovery / market-research / strategy 子集（此前仅引用未 vendored） |
+| [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) | ~2k / 高 installs | **P1 精选** | agentic + minimal/clean/professional；更多风格运行时 `npx typeui.sh pull` |
+| [obra/superpowers](https://github.com/obra/superpowers) | ~260k | 已有，**加强** | verification-before-completion → quality_eval；brainstorming 保留 |
+| [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | ~24k | 已有 | 不变：diagram / imagine / url-to-markdown / slide-deck |
+| [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | ~15k | **P2 可选** | 优化 SKILL.md 文案，不进主流程判断 |
+| shadcn-ui / next-ai-draw-io 等 | 高 | **skip** | 非流水线能力；仅参考链接 |
+
+### 阶段 × 外部 skill（执行顺序）
+
+```
+intake:            operator-preference → idea-refine → pm discover/strategy → competitive-research? → SP brainstorming
+requirements:     operator-preference → idea-refine → competitive-research（Matt research + pm competitor + profiling/VOC + SWOT/TAM）→ SP brainstorming → baoyu capture
+prd:              spec-driven-development → grill-with-docs → research report + SWOT → pm lean-canvas/product-strategy → PRD JSON
+user_flows:       customer-journey-map → baoyu-diagram → UserFlows
+wireframes:       HTML template (+ web-artifacts-builder patterns)
+ui_design:        frontend-design → theme-factory → design-system skill → baoyu-imagine?
+design_review:    agentic QA gates + frontend-design anti-template
+frontend_codegen: SP writing-plans + Matt tdd + vercel-react-best-practices + addy UI + TDD + code-review
+backend_codegen:  backend-engineer → skills/backend-skills/*（用户提供）→ BackendCodeBundle
+code_intelligence: CodeGraph + optional improve-codebase-architecture
+handoff:          documentation-and-adrs + ADR 收集
+quality_eval:     verification-before-completion + web-design-guidelines + react-best-practices + agent-browser/webapp testing
+```
+
+详见 `docs/skills-sh-leaderboard-review.md`。
+
+### 刷新 vendored 副本
+
+```bash
+bash scripts/refresh-external-skills.sh
+```
+
+### 明确不接入（热门但无关）
+
+- 八字/紫微、游戏引擎、纯 Power BI、整包社媒发稿、Office Word MCP、仅组件库参考（shadcn）作为主流程依赖
+
+### Wave 2b 补齐（调研子代理 P0）
+
+| 仓库 | Skill | 绑定 |
+|------|-------|------|
+| mattpocock/skills | grilling / grill-me, handoff | intake/requirements；handoff 阶段 |
+| Leonxlnx/taste-skill | design-taste-frontend | ui_design / design_review / codegen（产品 UI 以 anthropic frontend-design 为主） |
+| vercel-labs/agent-skills | web-design-guidelines | design_review / quality_eval |
+
+### Document I/O + 飞书 CLI（2026-07-29）
+
+| 能力 | 来源 | APDR 入口 | 密钥策略 |
+|------|------|-----------|----------|
+| Word/PDF/PPTX/XLSX + 共创 | [anthropics/skills](https://github.com/anthropics/skills) `docx`/`pdf`/`pptx`/`xlsx`/`doc-coauthoring` | `skills/document-io/SKILL.md` | 无；本地文件路径用相对路径 |
+| 飞书云文档/知识库/表格 | [larksuite/cli](https://github.com/larksuite/cli) skills | `skills/feishu-lark/SKILL.md` | **本机** `lark-cli auth`；仓库只存官方 SKILL 文案；`.gitignore` 屏蔽 `.lark-cli/`、`appsecret*`、`*.enc` |
+
+安装 CLI（用户本机）：`npm i -g @larksuite/cli` → `lark-cli config init` → `auth login --domain docs,drive`。

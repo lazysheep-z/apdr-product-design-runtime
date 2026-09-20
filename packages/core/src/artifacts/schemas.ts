@@ -12,6 +12,11 @@ export interface ProjectBriefContent {
   personas: Array<{ name: string; description: string }>;
   constraints: string[];
   references: string[];
+  /**
+   * Whether this project needs backend code generation.
+   * Asked at intake; drives optional `backend_codegen` stage.
+   */
+  includeBackend?: boolean;
 }
 
 export interface RequirementsAnalysisContent {
@@ -103,6 +108,22 @@ export interface CodeBundleContent {
   previewUrl?: string;
 }
 
+/** Backend API / service code bundle from optional backend_codegen stage */
+export interface BackendCodeBundleContent {
+  stack: "node-express" | "node-fastify" | "nestjs" | "python-fastapi" | "java-spring" | "other";
+  rootPath: string;
+  apiBasePath?: string;
+  endpoints: Array<{
+    method: string;
+    path: string;
+    description: string;
+    auth?: string;
+  }>;
+  dataModels?: Array<{ name: string; fields: string[] }>;
+  envVars?: string[];
+  notes?: string;
+}
+
 /** CodeGraph 索引与结构分析结果，供 handoff / quality_eval 自动消费 */
 export interface CodeIntelligenceReportContent {
   indexed: boolean;
@@ -157,6 +178,7 @@ export const ARTIFACT_STAGE_MAP: Record<ArtifactType, string> = {
   UIDesignSpec: "ui_design",
   DesignReviewReport: "design_review",
   CodeBundle: "frontend_codegen",
+  BackendCodeBundle: "backend_codegen",
   CodeIntelligenceReport: "code_intelligence",
   HandoffDoc: "handoff",
   QualityReport: "quality_eval",
@@ -181,6 +203,7 @@ export function createEmptyBrief(
       personas: [],
       constraints: project.constraints ?? [],
       references: [],
+      includeBackend: project.includeBackend,
     },
     provenance: { agent: "system", notes: "initialized" },
     createdAt: now,

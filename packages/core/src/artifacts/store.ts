@@ -176,6 +176,8 @@ export class ArtifactStore {
       "ui_design",
       "design_review",
       "frontend_codegen",
+      "backend_codegen",
+      "code_intelligence",
       "handoff",
       "quality_eval",
     ];
