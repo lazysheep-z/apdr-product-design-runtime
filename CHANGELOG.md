@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.7 (2026-09-21)
+
+### OpenDesign
+- 接入 [nexu-io/open-design](https://github.com/nexu-io/open-design) 精选能力，不入库桌面端
+- `ui_design`：`design-brief` 锁定 token → `UIDesignSpec`
+- `design_review`：critique 五维自评
+- 适配层：`skills/open-design/SKILL.md`
+
 ## v0.3.6 (2026-09-20)
 
 ### Operator habits（协作默认）

@@ -35,7 +35,7 @@ Enable `design-artifacts` first (see `.cursor/mcp.json.example`). Agents must re
 | intake / requirements | operator-preference, document-io, feishu-lark, idea-refine, grill-me, grill-with-docs, **competitive-research**, matt research, marketing competitor-profiling/customer-research, pm-skills（SWOT/TAM/personas）, brainstorming, baoyu capture |
 | prd | spec-driven-development, grill-with-docs, research report + SWOT, doc-coauthoring, document-io/feishu, pm strategy/lean-canvas |
 | user_flows / IA | baoyu-diagram, pm customer-journey-map |
-| ui_design / design_review | anthropic frontend-design, taste-skill, theme-factory, awesome-design-skills, vercel web-design-guidelines, agent-browser |
+| ui_design / design_review | anthropic frontend-design, **open-design**（design-brief / critique）, taste-skill, theme-factory, awesome-design-skills, vercel web-design-guidelines, agent-browser |
 | frontend_codegen | Superpowers plans/TDD + Matt `/tdd` + vercel-react-best-practices + Addy frontend-ui + code-review |
 | backend_codegen（可选） | backend-engineer + `skills/backend-skills/*`；`includeBackend=false` 时跳过 |
 | code_intelligence | CodeGraph + optional improve-codebase-architecture |

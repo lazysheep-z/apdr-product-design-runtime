@@ -212,6 +212,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["Wireframes"],
     externalSkills: [
+      { id: "open-design", vendorPath: "skills/open-design/SKILL.md" },
+      { id: "open-design-brief", vendorPath: "vendor/open-design/design-brief/SKILL.md" },
       { id: "frontend-design", vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md" },
       { id: "theme-factory", vendorPath: "vendor/anthropic-skills/theme-factory/SKILL.md" },
       { id: "design-system-agentic", vendorPath: "vendor/awesome-design-skills/agentic/SKILL.md" },
@@ -219,10 +221,11 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Design tokens, components, screen specs (optional concept images).",
     steps: [
-      "Read `skills/visual-designer/SKILL.md`.",
+      "Read `skills/visual-designer/SKILL.md` and `skills/open-design/SKILL.md`.",
+      "Run OpenDesign design-brief to lock 8 dimensions into tokens (DESIGN.md shape → UIDesignSpec).",
       "Read anthropic frontend-design + theme-factory; pick a design-system skill (agentic/minimal/clean/professional) for token/component rules.",
       "Infer tokens from brand/constraints; map wireframe regions to components.",
-      "Optional baoyu-imagine for hero screens.",
+      "Optional baoyu-imagine or local `od` HTML prototype for hero screens (reference only).",
       "`write_artifact` UIDesignSpec → user must approve → advance.",
     ],
     userTriggers: ["ui设计", "视觉设计", "design system"],
@@ -238,6 +241,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["UIDesignSpec", "Wireframes"],
     externalSkills: [
+      { id: "open-design", vendorPath: "skills/open-design/SKILL.md" },
+      { id: "open-design-critique", vendorPath: "vendor/open-design/design-templates/critique.md" },
       { id: "frontend-design", vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md" },
       { id: "design-system-agentic", vendorPath: "vendor/awesome-design-skills/agentic/SKILL.md" },
       { id: "web-design-guidelines", vendorPath: "vendor/vercel-agent-skills/web-design-guidelines/SKILL.md" },
@@ -247,7 +252,7 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     steps: [
       "Read skills/design-reviewer/SKILL.md.",
       "get_latest_artifact UIDesignSpec and Wireframes.",
-      "Use agentic design-system quality gates + frontend-design anti-template checks.",
+      "Use OpenDesign critique template + agentic design-system quality gates + frontend-design anti-template checks.",
       "Optional: web-design-guidelines audit; agent-browser / browser MCP if preview exists.",
       "Run 4 checks: tokens, components, responsive, a11y.",
       "write_artifact DesignReviewReport.",

@@ -118,8 +118,8 @@ description: |
 - 用户流：`skills/ux-flow/SKILL.md`
 - 信息架构：`skills/information-architect/SKILL.md`
 - 线框图：`skills/wireframe-designer/SKILL.md`
-- UI：`skills/visual-designer/SKILL.md`
-- 设计审查：`skills/design-reviewer/SKILL.md`
+- UI：`skills/visual-designer/SKILL.md`（含 OpenDesign design-brief）
+- 设计审查：`skills/design-reviewer/SKILL.md`（含 OpenDesign critique）
 - 前端代码：`skills/frontend-engineer/SKILL.md`
 - 后端代码（可选）：`skills/backend-engineer/SKILL.md`（用户 skill 放 `skills/backend-skills/`）
 - 代码图谱：`skills/code-intelligence/SKILL.md`
@@ -136,6 +136,7 @@ description: |
 - **pm-skills**（[phuryn/pm-skills](https://github.com/phuryn/pm-skills)）：PM 发现流程、市场调研、战略框架、机会树
   - intake 阶段：`/discover` → `/strategy` 丰富 ProjectBrief
   - 需求分析阶段：`skills/competitive-research` + competitor-analysis / market-sizing / SWOT
+- **OpenDesign**（[nexu-io/open-design](https://github.com/nexu-io/open-design)）：`ui_design` 用 design-brief 锁定 token；`design_review` 用 critique。适配层 `skills/open-design/SKILL.md`。不入库桌面端与 API key。
 - **marketing-skills**（[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)）：竞品画像、用户 VOC（经 APDR 适配，不强制付费 API）
 - **mattpocock `/research`**：一手来源调研笔记
 - 评审清单：`docs/research-skills-review.md`

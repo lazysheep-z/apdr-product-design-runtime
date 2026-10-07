@@ -215,6 +215,7 @@ flowchart LR
 | Addy agent-skills（精选） | https://github.com/addyosmani/agent-skills | intake→prd, codegen, review, handoff, quality | 多 agent | vendored subset |
 | Anthropic skills（精选） | https://github.com/anthropics/skills | ui_design, wireframes, codegen, quality | visual_designer, wireframe_designer, frontend_engineer, quality_evaluator | vendored subset |
 | Awesome Design Skills（精选） | https://github.com/bergside/awesome-design-skills | ui_design, design_review | visual_designer, design_reviewer | vendored starter |
+| OpenDesign（精选） | https://github.com/nexu-io/open-design | ui_design, design_review | visual_designer, design_reviewer | vendored subset（design-brief + critique）；不入库桌面端 |
 | operator-preference | APDR native | 横切门禁对话 | orchestrator / intake / requirements | done |
 | document-io | anthropics/skills docx/pdf/pptx/xlsx/doc-coauthoring | intake–prd, handoff | intake, requirements, product_writer, handoff | vendored |
 | feishu-lark | larksuite/cli lark-doc/wiki/drive… | intake–prd, handoff | 同上（本机 auth，无密钥入库） | vendored docs only |
@@ -308,8 +309,8 @@ requirements:     operator-preference → idea-refine → competitive-research�
 prd:              spec-driven-development → grill-with-docs → research report + SWOT → pm lean-canvas/product-strategy → PRD JSON
 user_flows:       customer-journey-map → baoyu-diagram → UserFlows
 wireframes:       HTML template (+ web-artifacts-builder patterns)
-ui_design:        frontend-design → theme-factory → design-system skill → baoyu-imagine?
-design_review:    agentic QA gates + frontend-design anti-template
+ui_design:        open-design design-brief → frontend-design → theme-factory → design-system skill → baoyu-imagine?
+design_review:    open-design critique + agentic QA gates + frontend-design anti-template
 frontend_codegen: SP writing-plans + Matt tdd + vercel-react-best-practices + addy UI + TDD + code-review
 backend_codegen:  backend-engineer → skills/backend-skills/*（用户提供）→ BackendCodeBundle
 code_intelligence: CodeGraph + optional improve-codebase-architecture

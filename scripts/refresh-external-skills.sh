@@ -92,7 +92,14 @@ echo "== optional tavily / firecrawl =="
 download "$ROOT/tavily-skills/tavily-research/SKILL.md" \
   "https://cdn.jsdelivr.net/gh/tavily-ai/skills@main/skills/tavily-research/SKILL.md" || true
 
+echo "== nexu-io/open-design (subset only) =="
+download "$ROOT/open-design/design-brief/SKILL.md" \
+  "https://raw.githubusercontent.com/nexu-io/open-design/main/skills/design-brief/SKILL.md" || true
+download "$ROOT/open-design/design-templates/critique.md" \
+  "https://raw.githubusercontent.com/nexu-io/open-design/main/design-templates/critique/SKILL.md" || true
+
 echo "Done. Feishu auth stays on the machine via lark-cli; never commit secrets."
+echo "OpenDesign: skills/open-design/SKILL.md (no desktop app, no API keys)."
 echo "Leaderboard review: docs/skills-sh-leaderboard-review.md"
 echo "Research pack review: docs/research-skills-review.md"
 echo "See vendor/pm-skills/README.md and skills/feishu-lark/SKILL.md"

@@ -309,6 +309,16 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     skillPath: "skills/visual-designer/SKILL.md",
     externalSkills: [
       {
+        id: "open-design",
+        source: "open-design",
+        vendorPath: "skills/open-design/SKILL.md",
+      },
+      {
+        id: "open-design-brief",
+        source: "open-design",
+        vendorPath: "vendor/open-design/design-brief/SKILL.md",
+      },
+      {
         id: "frontend-design",
         source: "anthropic-skills",
         vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md",
@@ -427,6 +437,16 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts"],
     skillPath: "skills/design-reviewer/SKILL.md",
     externalSkills: [
+      {
+        id: "open-design",
+        source: "open-design",
+        vendorPath: "skills/open-design/SKILL.md",
+      },
+      {
+        id: "open-design-critique",
+        source: "open-design",
+        vendorPath: "vendor/open-design/design-templates/critique.md",
+      },
       {
         id: "frontend-design",
         source: "anthropic-skills",

@@ -107,7 +107,8 @@ export interface ExternalSkillRef {
     | "larksuite"
     | "marketing-skills"
     | "tavily"
-    | "firecrawl";
+    | "firecrawl"
+    | "open-design";
   /** Repo-relative path to upstream SKILL.md when vendored */
   vendorPath?: string;
   /** Cursor slash command if plugin installed */

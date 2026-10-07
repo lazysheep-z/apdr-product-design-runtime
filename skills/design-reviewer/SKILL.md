@@ -9,6 +9,7 @@ Stage: design_review. Requires: UIDesignSpec + Wireframes approved.
 
 ## External skills
 
+- **open-design critique** — `skills/open-design/SKILL.md` + `vendor/open-design/design-templates/critique.md`（五维自评，不直接改代码）
 - **frontend-design** — `vendor/anthropic-skills/frontend-design/SKILL.md` (anti-template + hierarchy checks)
 - **design-taste-frontend** — `vendor/taste-skill/design-taste-frontend/SKILL.md` (anti-slop checklist; skip dashboard-only rules when irrelevant)
 - **design-system agentic** — `vendor/awesome-design-skills/agentic/SKILL.md` (WCAG 2.2 AA gates, required states)
