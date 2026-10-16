@@ -50,7 +50,7 @@ Conversation entry: call get_next_action after every user turn.
 Start new work: start_project → get_next_action → follow skillPath.
 Human gates: approve_latest_artifact then advance_pipeline.
 
-Tools: start_project, get_next_action, advance_pipeline, approve_latest_artifact, write_artifact, read_artifact, get_pipeline_status.`,
+Tools: start_project, get_next_action, get/set_operator_preference, advance_pipeline, approve_latest_artifact, write_artifact, read_artifact, get_pipeline_status.`,
   }
 );
 
@@ -174,8 +174,52 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             description:
               "If true, pipeline runs backend_codegen after frontend. If false, that stage is skipped. Omit when still asking the user at intake.",
           },
+          delivery_target: {
+            type: "string",
+            enum: ["code", "feishu-doc", "both"],
+            description:
+              "code = full/UI path; feishu-doc = skip wireframes→codegen; both = code path with optional Feishu export",
+          },
+          prototype_mode: {
+            type: "string",
+            enum: ["greenfield", "incremental"],
+          },
+          task_mode: {
+            type: "string",
+            enum: ["full", "copy_only", "patch_ui"],
+            description:
+              "copy_only = docs/copy guard; patch_ui/incremental = skip optional UX stages",
+          },
         },
         required: ["project_id", "title", "requirements"],
+      },
+    },
+    {
+      name: "get_operator_preference",
+      description:
+        "Read operator collaboration/delivery preferences for a project (defaults if missing). No PII.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          project_id: { type: "string" },
+        },
+        required: ["project_id"],
+      },
+    },
+    {
+      name: "set_operator_preference",
+      description:
+        "Update operator preferences (sanitized). Drives stage shortcuts: incremental / copy_only / feishu-doc.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          project_id: { type: "string" },
+          preference: {
+            type: "object",
+            description: "Partial OperatorPreference fields to merge",
+          },
+        },
+        required: ["project_id", "preference"],
       },
     },
     {
@@ -365,12 +409,24 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case "start_project": {
-        const { project_id, title, requirements, constraints, include_backend } = args as {
+        const {
+          project_id,
+          title,
+          requirements,
+          constraints,
+          include_backend,
+          delivery_target,
+          prototype_mode,
+          task_mode,
+        } = args as {
           project_id: string;
           title: string;
           requirements: string;
           constraints?: string[];
           include_backend?: boolean;
+          delivery_target?: "code" | "feishu-doc" | "both";
+          prototype_mode?: "greenfield" | "incremental";
+          task_mode?: "full" | "copy_only" | "patch_ui";
         };
         const meta = await engine.initProject({
           id: project_id,
@@ -378,6 +434,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           description: requirements,
           constraints,
           includeBackend: include_backend,
+          deliveryTarget: delivery_target,
+          prototypeMode: prototype_mode,
+          taskMode: task_mode,
         });
         const now = new Date().toISOString();
         const briefContent: ProjectBriefContent = {
@@ -403,6 +462,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           updatedAt: now,
         };
         await store.writeArtifact(brief);
+        const prefs = await engine.resolvePreference(project_id);
         const action = buildNextAction({
           projectId: project_id,
           currentStage: meta.currentStage,
@@ -412,6 +472,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           staleDownstream: [],
           blockers: [],
           canAdvance: true,
+          operatorPreference: prefs,
         });
         const backendHint =
           typeof include_backend === "boolean"
@@ -426,12 +487,31 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         );
       }
 
+      case "get_operator_preference": {
+        const projectId = String((args as { project_id: string }).project_id);
+        const prefs = await engine.resolvePreference(projectId);
+        return textResult(JSON.stringify(prefs, null, 2));
+      }
+
+      case "set_operator_preference": {
+        const { project_id, preference } = args as {
+          project_id: string;
+          preference: Record<string, unknown>;
+        };
+        const prefs = await store.setOperatorPreference(
+          project_id,
+          preference as Parameters<typeof store.setOperatorPreference>[1]
+        );
+        return textResult(JSON.stringify(prefs, null, 2));
+      }
+
       case "get_next_action": {
         const { project_id, format } = args as {
           project_id: string;
           format?: "markdown" | "json";
         };
         const status = await engine.getStatus(project_id);
+        const prefs = await engine.resolvePreference(project_id);
         const action = buildNextAction({
           projectId: project_id,
           currentStage: status.currentStage,
@@ -441,6 +521,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           staleDownstream: status.staleDownstream,
           blockers: status.blockers,
           canAdvance: status.canAdvance,
+          operatorPreference: prefs,
         });
         if (format === "json") {
           return textResult(JSON.stringify(action, null, 2));
@@ -451,6 +532,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case "advance_pipeline": {
         const projectId = String((args as { project_id: string }).project_id);
         const status = await engine.advanceStage(projectId);
+        const prefs = await engine.resolvePreference(projectId);
         const action = buildNextAction({
           projectId,
           currentStage: status.currentStage,
@@ -460,6 +542,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           staleDownstream: status.staleDownstream,
           blockers: status.blockers,
           canAdvance: status.canAdvance,
+          operatorPreference: prefs,
         });
         return textResult(
           [engine.printStatus(status), "", formatNextActionMarkdown(action)].join(
@@ -475,6 +558,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
         const approved = await engine.approveLatest(project_id, type);
         const status = await engine.getStatus(project_id);
+        const prefs = await engine.resolvePreference(project_id);
         const action = buildNextAction({
           projectId: project_id,
           currentStage: status.currentStage,
@@ -484,6 +568,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           staleDownstream: status.staleDownstream,
           blockers: status.blockers,
           canAdvance: status.canAdvance,
+          operatorPreference: prefs,
         });
         return textResult(
           [

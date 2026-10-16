@@ -36,8 +36,8 @@ Pipeline stage: intake. MCP: design-artifacts, research.
 
 ## Workflow
 
-1. Load/create operator preference（无文件则用推荐默认值：中文 / concise / strict / patch / incremental）。
-2. 用 ≤3 个短问题确认：`prototypeMode`（增量 vs 从零）、沟通密度、是否要后端；其余用默认值。
+1. `get_operator_preference`；无则用默认，并用 `set_operator_preference` 固化。
+2. 用 ≤3 个短问题确认：`prototypeMode`、`deliveryTarget`（code / feishu-doc）、是否后端或 `taskMode=copy_only`；其余用默认值。
 3. User describes idea → run idea-refine（增量改造时可缩短发散，聚焦改动边界）。
 4. If pm-skills available: `/discover` then `/strategy` (or read vendored skills).
 5. Superpowers brainstorming for leftover ambiguities.

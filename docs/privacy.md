@@ -9,7 +9,10 @@ APDR is published as an open-source runtime. Keep **operator workspaces and pers
 | Feishu / Lark credentials | `.lark-cli/`, `appsecret*`, `*_cli_*.enc`, tokens, `open_id` |
 | Machine-local MCP config | `.cursor/mcp.json`, `.mcp.json` with absolute `/Users/...` paths |
 | Business project data | Anything under `projects/` except `demo` / `conv-test` stubs |
+| Operator preference files | `projects/*/operator-preference.json` (gitignored; may contain local notes) |
 | PII | Real names in prefs, emails, phone numbers, private Feishu tenant URLs used as identity |
+
+`set_operator_preference` sanitizes notes (emails, `/Users/...`, Feishu tenant hosts, tokens → `[redacted]`).
 
 ## Safe to commit
 

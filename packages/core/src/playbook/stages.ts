@@ -42,8 +42,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Turn raw product idea into a structured ProjectBrief using PM discovery rigor.",
     steps: [
-      "Read `skills/operator-preference/SKILL.md`; load preference or apply recommended defaults (zh/concise/strict/patch/incremental).",
-      "Ask at most 2–3 short questions: prototypeMode, density, backend; never store personal Feishu account data in repo.",
+      "MCP get_operator_preference; set defaults (zh/concise/strict/patch/incremental) then ask ≤3 questions.",
+      "Confirm prototypeMode, deliveryTarget (code|feishu-doc|both), backend or copy_only; set_operator_preference (no PII).",
       "If user provides Word/PDF/飞书 docs: use document-io or feishu-lark (credentials stay on local lark-cli only).",
       "Invoke addy `idea-refine` to diverge/converge the raw idea into a one-pager direction.",
       "If pm-skills available: invoke `/discover` then `/strategy` (or read vendor/pm-skills skill files).",

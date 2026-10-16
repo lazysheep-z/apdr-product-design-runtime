@@ -1,4 +1,6 @@
-import type { PipelineStage, WorkflowDefinition } from "../types.js";
+import type { ArtifactType, PipelineStage, WorkflowDefinition } from "../types.js";
+import type { OperatorPreference } from "../operator-preference.js";
+import { upstreamOverrideForStage } from "../operator-preference.js";
 
 export const DESIGN_PIPELINE_WORKFLOW: WorkflowDefinition = {
   id: "design_pipeline",
@@ -124,10 +126,13 @@ export function nextStage(current: PipelineStage): PipelineStage | null {
 
 export function canAdvanceStage(
   stage: PipelineStage,
-  approvedTypes: Set<string>
+  approvedTypes: Set<string>,
+  prefs?: OperatorPreference
 ): { ok: boolean; missing: string[] } {
   const step = DESIGN_PIPELINE_WORKFLOW.steps.find((s) => s.stage === stage);
   if (!step) return { ok: false, missing: [] };
-  const missing = step.requiredUpstream.filter((t) => !approvedTypes.has(t));
+  const required: ArtifactType[] =
+    (prefs && upstreamOverrideForStage(stage, prefs)) ?? step.requiredUpstream;
+  const missing = required.filter((t) => !approvedTypes.has(t));
   return { ok: missing.length === 0, missing };
 }

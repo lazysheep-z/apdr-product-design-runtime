@@ -27,7 +27,7 @@ Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved` (and Design
 
 ## Workflow
 
-1. 读 `operator-preference`：`prototypeMode=incremental` 时在既有应用上改，禁止无关重构；`docOnlyGuard` 场景不应落到本阶段改字段口径。
+1. `get_operator_preference`：`incremental`/`patch_ui` 在既有应用上改；`copy_only`/`docOnlyGuard` 只改文案，改字段前先列影响点等确认。遵守 `get_next_action` 交付护栏。
 2. `get_latest_artifact` — `UIDesignSpec`, `PRD` (summary), `DesignReviewReport`
 3. writing-plans / planning-and-task-breakdown → save under `projects/{projectId}/plans/`
 4. Implement with subagent-driven-development + TDD（SP 流程 + Matt seam）+ frontend-ui-engineering

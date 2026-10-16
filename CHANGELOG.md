@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.3.8 (2026-10-16)
+
+### Habit-driven pipeline shortcuts
+- MCP：`get_operator_preference` / `set_operator_preference`（自动脱敏 notes）
+- `get_next_action` 附带路线与交付护栏（文案护栏 / LAN 预览 / 离线单 HTML）
+- 引擎按偏好跳过阶段：
+  - `deliveryTarget=feishu-doc` → PRD 后直达 handoff
+  - `taskMode=copy_only` → 跳过 UX/UI/后端/图谱
+  - `prototypeMode=incremental` / `patch_ui` → 跳过可选 UX
+- 上游门禁可按路线放宽（如增量 codegen 只需 PRD）
+
 ## v0.3.7 (2026-09-21)
 
 ### OpenDesign

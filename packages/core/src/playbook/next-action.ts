@@ -1,5 +1,9 @@
 import { agentForStage } from "../agents/definitions.js";
 import type { PipelineStage, HumanGate } from "../types.js";
+import {
+  deliveryChecklist,
+  type OperatorPreference,
+} from "../operator-preference.js";
 import { getStagePlaybook, workflowStepForStage } from "./stages.js";
 
 export type ConversationPhase =
@@ -28,6 +32,9 @@ export interface NextAction {
   playbook: ReturnType<typeof getStagePlaybook>;
   suggestedUserMessage: string;
   mcpSequence: string[];
+  operatorPreference?: OperatorPreference;
+  deliveryChecklist?: string[];
+  routeHints?: string[];
 }
 
 export interface NextActionInput {
@@ -39,12 +46,14 @@ export interface NextActionInput {
   staleDownstream: PipelineStage[];
   blockers: string[];
   canAdvance: boolean;
+  operatorPreference?: OperatorPreference;
 }
 
 export function buildNextAction(input: NextActionInput): NextAction {
   const playbook = getStagePlaybook(input.currentStage);
   const wfStep = workflowStepForStage(input.currentStage);
   const agent = agentForStage(input.currentStage);
+  const prefs = input.operatorPreference;
   const latestOutput = input.artifacts
     .filter((a) => a.type === playbook.outputArtifact)
     .sort((a, b) => b.id.localeCompare(a.id))[0];
@@ -87,7 +96,7 @@ export function buildNextAction(input: NextActionInput): NextAction {
   ) {
     phase = "review";
     suggestedUserMessage =
-      wfStep?.humanGate === "required"
+      prefs?.gateStyle === "strict" || wfStep?.humanGate === "required"
         ? `请审阅 ${playbook.outputArtifact}。满意后回复「批准」或「继续」。`
         : `已生成 ${playbook.outputArtifact}。回复「批准」进入下一阶段，或提出修改。`;
   } else if (input.canAdvance && outputExists) {
@@ -95,10 +104,30 @@ export function buildNextAction(input: NextActionInput): NextAction {
     suggestedUserMessage = "上游已满足。调用 advance_pipeline 进入下一阶段。";
   } else if (!outputExists) {
     phase = "execute";
-    suggestedUserMessage = `开始${playbook.titleZh}：${playbook.objective}`;
+    if (prefs?.taskMode === "copy_only") {
+      suggestedUserMessage =
+        "文案护栏模式：只改说明/文案，不改字段名、口径、交互。先列改动点，再改代码或文档。";
+    } else if (
+      prefs?.prototypeMode === "incremental" &&
+      input.currentStage === "frontend_codegen"
+    ) {
+      suggestedUserMessage =
+        "增量改造：在既有应用上改；完成后按交付清单做预览/离线 HTML 校验。";
+    } else if (
+      prefs?.deliveryTarget === "feishu-doc" &&
+      input.currentStage === "handoff"
+    ) {
+      suggestedUserMessage =
+        "文档交付模式：整理交接/飞书发布要点；凭证仅本机，不写入仓库。";
+    } else {
+      suggestedUserMessage = `开始${playbook.titleZh}：${playbook.objective}`;
+    }
   }
 
-  const mcpSequence: string[] = ["get_next_action"];
+  const mcpSequence: string[] = [
+    "get_operator_preference",
+    "get_next_action",
+  ];
   if (phase === "execute") {
     mcpSequence.push(
       "get_latest_artifact (upstream)",
@@ -110,6 +139,14 @@ export function buildNextAction(input: NextActionInput): NextAction {
   } else if (phase === "advance_ready") {
     mcpSequence.push("advance_pipeline", "get_next_action");
   }
+
+  const routeHints: string[] = [];
+  if (prefs) {
+    routeHints.push(
+      `route: deliveryTarget=${prefs.deliveryTarget}, prototypeMode=${prefs.prototypeMode}, taskMode=${prefs.taskMode}`
+    );
+  }
+  const checklist = prefs ? deliveryChecklist(prefs) : [];
 
   return {
     phase,
@@ -129,6 +166,9 @@ export function buildNextAction(input: NextActionInput): NextAction {
     playbook,
     suggestedUserMessage,
     mcpSequence,
+    operatorPreference: prefs,
+    deliveryChecklist: checklist,
+    routeHints,
   };
 }
 
@@ -152,6 +192,17 @@ export function formatNextActionMarkdown(action: NextAction): string {
     `## 必读 Skill`,
     `\`${action.skillPath}\``,
   ];
+
+  if (action.routeHints?.length) {
+    lines.push(``, `## 路线`, ...action.routeHints.map((h) => `- ${h}`));
+  }
+  if (action.deliveryChecklist?.length) {
+    lines.push(
+      ``,
+      `## 交付护栏`,
+      ...action.deliveryChecklist.map((c) => `- ${c}`)
+    );
+  }
 
   if (action.playbook.externalSkills.length) {
     lines.push(``, `## 外部 Skills`);

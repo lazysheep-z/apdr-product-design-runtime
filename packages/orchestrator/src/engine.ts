@@ -4,8 +4,11 @@ import {
   STAGE_ORDER,
   agentForStage,
   canAdvanceStage,
+  mergeOperatorPreference,
   nextStage,
+  stagesSkippedByPreference,
   type ArtifactEnvelope,
+  type OperatorPreference,
   type PipelineStage,
   type ProjectMeta,
 } from "@apdr/core";
@@ -40,6 +43,9 @@ export class PipelineEngine {
     description?: string;
     constraints?: string[];
     includeBackend?: boolean;
+    deliveryTarget?: ProjectMeta["deliveryTarget"];
+    prototypeMode?: ProjectMeta["prototypeMode"];
+    taskMode?: ProjectMeta["taskMode"];
   }): Promise<ProjectMeta> {
     const now = new Date().toISOString();
     const meta: ProjectMeta = {
@@ -51,9 +57,35 @@ export class PipelineEngine {
       currentStage: "intake",
       constraints: opts.constraints,
       includeBackend: opts.includeBackend,
+      deliveryTarget: opts.deliveryTarget,
+      prototypeMode: opts.prototypeMode,
+      taskMode: opts.taskMode,
     };
     await this.store.ensureProject(meta);
+    if (
+      opts.deliveryTarget ||
+      opts.prototypeMode ||
+      opts.taskMode ||
+      typeof opts.includeBackend === "boolean"
+    ) {
+      await this.store.setOperatorPreference(opts.id, {
+        ...(opts.deliveryTarget ? { deliveryTarget: opts.deliveryTarget } : {}),
+        ...(opts.prototypeMode ? { prototypeMode: opts.prototypeMode } : {}),
+        ...(opts.taskMode ? { taskMode: opts.taskMode } : {}),
+      });
+    }
     return meta;
+  }
+
+  async resolvePreference(projectId: string): Promise<OperatorPreference> {
+    const prefs = await this.store.getOperatorPreference(projectId);
+    const meta = await this.store.getProjectMeta(projectId);
+    return mergeOperatorPreference({
+      ...prefs,
+      ...(meta.deliveryTarget ? { deliveryTarget: meta.deliveryTarget } : {}),
+      ...(meta.prototypeMode ? { prototypeMode: meta.prototypeMode } : {}),
+      ...(meta.taskMode ? { taskMode: meta.taskMode } : {}),
+    });
   }
 
   /**
@@ -72,34 +104,51 @@ export class PipelineEngine {
   }
 
   /**
-   * Next stage, skipping backend_codegen when the project opted out.
+   * Next stage, skipping backend_codegen and route shortcuts (doc-only / incremental / feishu).
    */
   async resolveNextStage(
     projectId: string,
     from: PipelineStage
   ): Promise<PipelineStage | null> {
+    const prefs = await this.resolvePreference(projectId);
+    const skip = stagesSkippedByPreference(prefs);
     let n = nextStage(from);
-    if (n === "backend_codegen" && !(await this.wantsBackend(projectId))) {
-      n = nextStage("backend_codegen");
+    while (n) {
+      if (n === "backend_codegen" && !(await this.wantsBackend(projectId))) {
+        n = nextStage("backend_codegen");
+        continue;
+      }
+      if (skip.has(n)) {
+        n = nextStage(n);
+        continue;
+      }
+      break;
     }
     return n;
   }
 
   async getStatus(projectId: string): Promise<PipelineStatus> {
     const project = await this.store.getProjectMeta(projectId);
+    const prefs = await this.resolvePreference(projectId);
+    const skip = stagesSkippedByPreference(prefs);
     let runtime = await this.store.loadRuntime(projectId);
 
-    // Auto-skip backend stage when project opted out
-    if (
-      runtime.currentStage === "backend_codegen" &&
-      !(await this.wantsBackend(projectId))
+    // Auto-skip current stage when route prefs say so (or backend opted out)
+    let guard = 0;
+    while (
+      guard++ < STAGE_ORDER.length &&
+      (skip.has(runtime.currentStage) ||
+        (runtime.currentStage === "backend_codegen" &&
+          !(await this.wantsBackend(projectId))))
     ) {
-      const skipped = await this.resolveNextStage(projectId, "frontend_codegen");
-      if (skipped) {
-        runtime.currentStage = skipped;
-        await this.store.saveRuntime(runtime);
-        await this.store.updateProjectMeta(projectId, { currentStage: skipped });
-      }
+      const skipped = await this.resolveNextStage(
+        projectId,
+        runtime.currentStage
+      );
+      if (!skipped || skipped === runtime.currentStage) break;
+      runtime.currentStage = skipped;
+      await this.store.saveRuntime(runtime);
+      await this.store.updateProjectMeta(projectId, { currentStage: skipped });
     }
 
     runtime = await this.store.loadRuntime(projectId);
@@ -107,7 +156,11 @@ export class PipelineEngine {
     const approved = new Set(
       listed.filter((a) => a.status === "approved").map((a) => a.type)
     );
-    const { ok, missing } = canAdvanceStage(runtime.currentStage, approved);
+    const { ok, missing } = canAdvanceStage(
+      runtime.currentStage,
+      approved,
+      prefs
+    );
     const agent = agentForStage(runtime.currentStage);
 
     return {
@@ -129,12 +182,17 @@ export class PipelineEngine {
   }
 
   async advanceStage(projectId: string): Promise<PipelineStatus> {
+    const prefs = await this.resolvePreference(projectId);
     const runtime = await this.store.loadRuntime(projectId);
     const listed = await this.store.listArtifacts(projectId);
     const approved = new Set(
       listed.filter((a) => a.status === "approved").map((a) => a.type)
     );
-    const { ok, missing } = canAdvanceStage(runtime.currentStage, approved);
+    const { ok, missing } = canAdvanceStage(
+      runtime.currentStage,
+      approved,
+      prefs
+    );
     if (!ok) {
       throw new Error(
         `Cannot advance from ${runtime.currentStage}. Missing approved: ${missing.join(", ")}`

@@ -1,4 +1,4 @@
-# AI Product Design Runtime (APDR) v0.3.7
+# AI Product Design Runtime (APDR) v0.3.8
 
 > Maintainer: **Joker** · [lazysheep-z/apdr-product-design-runtime](https://github.com/lazysheep-z/apdr-product-design-runtime)
 
@@ -195,6 +195,7 @@ apdr-product-design-runtime/
 
 详见 [CHANGELOG.md](CHANGELOG.md)
 
+- **v0.3.8** (2026-10-16) — 偏好 MCP、增量/文案/飞书文档路线跳过、交付护栏
 - **v0.3.7** (2026-09-21) — 接入 OpenDesign（design-brief / critique）
 - **v0.3.6** (2026-09-20) — 协作习惯默认值、增量原型/文案护栏、隐私加固
 - **v0.3.5** (2026-07-29) — 竞品调研统一入口

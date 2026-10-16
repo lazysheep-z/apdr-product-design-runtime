@@ -26,7 +26,9 @@ npm run orchestrator -- advance --project <id>
 
 Enable `design-artifacts` first (see `.cursor/mcp.json.example`). Agents must read/write artifacts through MCP, not ad-hoc files in `projects/`.
 
-**Conversation drivers:** `start_project`, `get_next_action`, `approve_latest_artifact`, `advance_pipeline`
+**Conversation drivers:** `start_project`, `get_next_action`, `get/set_operator_preference`, `approve_latest_artifact`, `advance_pipeline`
+
+Route shortcuts (via operator preference): `incremental` / `patch_ui` skip optional UX; `copy_only` docs guard; `feishu-doc` skips wireframes→codegen.
 
 ## External skills
 

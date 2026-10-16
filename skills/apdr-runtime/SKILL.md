@@ -17,9 +17,12 @@ description: |
 - **语言**：中文；**密度**：简洁（每轮 ≤5 要点，先草案再补缺口）
 - **门禁**：`strict` — 未听到明确「批准 / 继续下一阶段」不 `approve` / `advance`
 - **修订**：`patch` — 只改被点名段落；文案优化默认 `docOnlyGuard`（不擅自改字段名/口径/交互）
-- **原型**：默认按 **增量改造**（`incremental`）理解；用户说从零做再切 `greenfield`
-- **交付**：若项目已有离线单 HTML / 固定预览端口约定，前端阶段结束后按项目脚本执行，勿改坏局域网预览配置
-- **隐私**：飞书/Lark 凭证与个人账号只留在本机 `lark-cli`；禁止写入仓库、artifact、CHANGELOG
+- **原型**：默认 **增量**（`incremental`）→ 引擎跳过可选 UX 阶段；从零做再设 `greenfield`
+- **文案任务**：`taskMode=copy_only` 或 `docOnlyGuard` → 只改文案，不改字段/口径/交互
+- **文档交付**：`deliveryTarget=feishu-doc` → PRD 后跳到 handoff（不跑线框/前端）
+- **交付**：`get_next_action` 会带交付护栏；离线单 HTML / LAN 预览按 `deliveryMode` + `previewPort` 校验
+- **偏好**：优先 MCP `get/set_operator_preference`（不入库个人资料）
+- **隐私**：飞书凭证只留本机；禁止写入仓库、artifact、CHANGELOG
 
 ## 硬性规则
 

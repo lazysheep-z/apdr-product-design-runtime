@@ -16,3 +16,12 @@ export {
 } from "./agents/definitions.js";
 export { STAGE_PLAYBOOKS, getStagePlaybook, workflowStepForStage } from "./playbook/index.js";
 export { buildNextAction, formatNextActionMarkdown, type NextAction, type ConversationPhase } from "./playbook/index.js";
+export {
+  DEFAULT_OPERATOR_PREFERENCE,
+  mergeOperatorPreference,
+  sanitizePreferenceNotes,
+  stagesSkippedByPreference,
+  upstreamOverrideForStage,
+  deliveryChecklist,
+  type OperatorPreference,
+} from "./operator-preference.js";

@@ -62,6 +62,12 @@ export interface ProjectMeta {
   constraints?: string[];
   /** When true, pipeline runs backend_codegen; when false/undefined, that stage is skipped */
   includeBackend?: boolean;
+  /** Ultimate delivery: code app, Feishu/docs, or both */
+  deliveryTarget?: "code" | "feishu-doc" | "both";
+  /** greenfield vs patch existing prototype */
+  prototypeMode?: "greenfield" | "incremental";
+  /** full pipeline vs copy-only / UI patch shortcut */
+  taskMode?: "full" | "copy_only" | "patch_ui";
 }
 
 export interface RuntimeState {

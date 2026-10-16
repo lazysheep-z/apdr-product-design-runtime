@@ -2,9 +2,14 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { ArtifactEnvelope, ArtifactType, PipelineStage, ProjectMeta, RuntimeState } from "../types.js";
 import { ARTIFACT_STAGE_MAP, createEmptyBrief } from "./schemas.js";
+import {
+  mergeOperatorPreference,
+  type OperatorPreference,
+} from "../operator-preference.js";
 
 const RUNTIME_FILE = ".runtime-state.json";
 const META_FILE = "meta.json";
+const PREFERENCE_FILE = "operator-preference.json";
 
 export class ArtifactStore {
   constructor(private readonly projectsRoot: string) {}
@@ -160,6 +165,43 @@ export class ArtifactStore {
       await this.markDownstreamStale(projectId, fromStage);
     }
     return updated;
+  }
+
+  /**
+   * Load operator preference; missing file → recommended defaults.
+   */
+  async getOperatorPreference(projectId: string): Promise<OperatorPreference> {
+    const p = path.join(this.projectDir(projectId), PREFERENCE_FILE);
+    try {
+      const raw = await fs.readFile(p, "utf-8");
+      return mergeOperatorPreference(JSON.parse(raw) as Partial<OperatorPreference>);
+    } catch {
+      return mergeOperatorPreference();
+    }
+  }
+
+  /**
+   * Persist operator preference (sanitized). Never store credentials or absolute user paths.
+   */
+  async setOperatorPreference(
+    projectId: string,
+    partial: Partial<OperatorPreference>
+  ): Promise<OperatorPreference> {
+    const current = await this.getOperatorPreference(projectId);
+    const merged = mergeOperatorPreference({ ...current, ...partial });
+    await fs.mkdir(this.projectDir(projectId), { recursive: true });
+    await fs.writeFile(
+      path.join(this.projectDir(projectId), PREFERENCE_FILE),
+      JSON.stringify(merged, null, 2),
+      "utf-8"
+    );
+    // Mirror key route fields onto project meta for engine skip logic
+    await this.updateProjectMeta(projectId, {
+      deliveryTarget: merged.deliveryTarget,
+      prototypeMode: merged.prototypeMode,
+      taskMode: merged.taskMode,
+    });
+    return merged;
   }
 
   async markDownstreamStale(
