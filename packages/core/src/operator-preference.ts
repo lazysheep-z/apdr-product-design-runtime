@@ -49,7 +49,7 @@ export const DEFAULT_OPERATOR_PREFERENCE: OperatorPreference = {
 };
 
 const SENSITIVE =
-  /(\b[\w.+-]+@[\w.-]+\.\w+\b)|(\/Users\/[^\s"']+)|(mingzhe\.feishu\.cn)|(open_id|app_secret|appsecret|ghp_[A-Za-z0-9]+)/gi;
+  /(\b[\w.+-]+@[\w.-]+\.\w+\b)|(\/Users\/[^\s"']+)|([\w-]+\.feishu\.cn)|(open_id|app_secret|appsecret|ghp_[A-Za-z0-9]+|github_pat_[A-Za-z0-9_]+)/gi;
 
 /**
  * Strip personal identifiers from preference notes before persist.

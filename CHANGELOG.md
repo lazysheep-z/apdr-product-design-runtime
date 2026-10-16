@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.8.1 (2026-10-16)
+
+### Privacy scrub
+- Remove personal absolute path from `docs/BAOYU-SETUP.md`
+- Sanitizer uses generic `*.feishu.cn` (no tenant hostname)
+
 ## v0.3.8 (2026-10-16)
 
 ### Habit-driven pipeline shortcuts

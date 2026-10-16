@@ -3,7 +3,7 @@
 ## 一、仓库内已完成的安装
 
 ```bash
-cd "/Users/chaoyang/Documents/工作文件/爬虫获取新闻_20260318/产品相关mcp架构"
+cd /path/to/apdr-product-design-runtime
 bash scripts/install-baoyu-skills.sh   # 更新 vendor/baoyu-skills
 ```
 

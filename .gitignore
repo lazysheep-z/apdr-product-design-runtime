@@ -9,6 +9,7 @@ skillopt/outputs/
 # Local MCP config (contains absolute machine paths — use mcp.json.example)
 .cursor/mcp.json
 .mcp.json
+.codex/
 
 # Feishu / Lark CLI — never commit personal credentials or account configs
 .lark-cli/
