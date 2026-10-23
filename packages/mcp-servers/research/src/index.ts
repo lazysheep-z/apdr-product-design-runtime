@@ -18,7 +18,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { resolveProjectsRoot, textResult } from "@apdr/mcp-shared";
+import { resolveProjectsRoot, textResult, runLocalTool, convertDocumentSchema } from "@apdr/mcp-shared";
 
 const server = new Server(
   { name: "apdr-research", version: "0.2.0" },
@@ -27,9 +27,10 @@ const server = new Server(
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
+    convertDocumentSchema,
     {
       name: "search_web",
-      description: "Search the web for competitive intelligence or domain research. Returns structured results with title, snippet, URL.",
+      description: "Unavailable placeholder: no search provider configured. Use the host's real web search; never treat this tool as research evidence.",
       inputSchema: {
         type: "object",
         properties: {
@@ -41,7 +42,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: "fetch_url",
-      description: "Fetch a URL and convert its content to markdown for reference capture",
+      description: "Unavailable placeholder: no URL fetch implementation. Use the host browser or baoyu capture; this tool writes no placeholder files.",
       inputSchema: {
         type: "object",
         properties: {
@@ -81,6 +82,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 }));
 
 server.setRequestHandler(CallToolRequestSchema, async (req) => {
+  if (req.params.name === "convert_document") {
+    try { return textResult(JSON.stringify(await runLocalTool("convert", req.params.arguments ?? {}), null, 2)); }
+    catch (error) { return textResult(JSON.stringify({status:"failed",message:String(error)}), true); }
+  }
   // ─── research_note ─────────────────────────────────
   if (req.params.name === "research_note") {
     const args = req.params.arguments as {
@@ -142,24 +147,18 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
       query: string;
       max_results?: number;
     };
-    // Stub: integrate real search (SerpAPI / Bing / Tavily) in M1
     return textResult(
       JSON.stringify(
         {
-          note: "Web search stub — integrate SerpAPI/Bing/Tavily for real results.",
+          status: "unavailable",
+          note: "No search provider configured. Use host web search or user-provided sources; do not cite this response as evidence.",
           query,
           max_results: max_results ?? 5,
-          results: [
-            {
-              title: "Agent-inferred or user-provided context",
-              snippet: `Search query: "${query}". Use browser or baoyu-url-to-markdown for deeper research.`,
-              url: null,
-            },
-          ],
+          results: [],
         },
         null,
         2
-      )
+      ), true
     );
   }
 
@@ -169,25 +168,8 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
       url: string;
       project_id?: string;
     };
-    // Stub: use @mozilla/readability or headless browser for real conversion
-    const result: Record<string, unknown> = {
-      note: "URL fetch stub — use baoyu-url-to-markdown or fetch+Turndown for real content.",
-      url,
-    };
-    if (project_id) {
-      result.project_id = project_id;
-      try {
-        const researchDir = path.join(resolveProjectsRoot(), project_id, "research");
-        await fs.mkdir(researchDir, { recursive: true });
-        const safeName = url.replace(/https?:\/\//, "").replace(/[^a-z0-9]+/g, "-").slice(0, 60);
-        await fs.writeFile(
-          path.join(researchDir, `${safeName}.md`),
-          `# Fetched: ${url}\n\n> Placeholder — replace with real content.\n\n**Source**: ${url}\n\n`,
-          "utf-8"
-        );
-      } catch { /* silent */ }
-    }
-    return textResult(JSON.stringify(result, null, 2));
+    return textResult(JSON.stringify({ status:"unavailable", url, project_id,
+      note:"No URL fetch implementation. Use host browser or baoyu capture; no source content was fetched and no placeholder file was written." }, null, 2), true);
   }
 
   return textResult(`Unknown tool: ${req.params.name}`, true);

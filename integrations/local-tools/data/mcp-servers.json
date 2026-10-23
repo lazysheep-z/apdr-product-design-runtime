@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "mode": "project-local-stdio-bridge",
+  "playwright": {
+    "package": "@playwright/mcp",
+    "version": "0.0.83",
+    "entrypoint": "node_modules/@playwright/mcp/cli.js",
+    "args": ["--browser", "chrome", "--isolated", "--no-webmcp", "--block-service-workers"],
+    "allowedTools": ["browser_navigate", "browser_snapshot", "browser_take_screenshot", "browser_console_messages", "browser_resize", "browser_click", "browser_type", "browser_fill_form", "browser_select_option", "browser_press_key", "browser_hover", "browser_wait_for", "browser_close"]
+  }
+}

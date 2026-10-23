@@ -708,10 +708,24 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
   },
 ];
 
+// Bind executable checks without duplicating the existing vendored skills.
+for (const agent of AGENT_REGISTRY) {
+  if (["design_review", "frontend_codegen", "quality_eval"].includes(agent.stage)) {
+    if (!agent.mcpServers.includes("preview")) agent.mcpServers.push("preview");
+    agent.externalSkills ??= [];
+    if (!agent.externalSkills.some(skill => skill.id === "webapp-testing")) agent.externalSkills.push({
+      id: "webapp-testing", source: "anthropic-skills", vendorPath: "vendor/anthropic-skills/webapp-testing/SKILL.md",
+    });
+  }
+  if (agent.stage === "prd" && !agent.mcpServers.includes("research")) agent.mcpServers.push("research");
+  if (agent.externalSkills) agent.externalSkills = agent.externalSkills.filter((skill, index, all) => all.findIndex(x => x.vendorPath === skill.vendorPath) === index);
+}
+
 export function getAgent(id: string): AgentDefinition | undefined {
   return AGENT_REGISTRY.find((a) => a.id === id);
 }
 
 export function agentForStage(stage: string): AgentDefinition | undefined {
-  return AGENT_REGISTRY.find((a) => a.stage === stage);
+  return AGENT_REGISTRY.find((a) => a.stage === stage && a.id !== "orchestrator")
+    ?? AGENT_REGISTRY.find((a) => a.stage === stage);
 }

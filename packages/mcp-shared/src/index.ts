@@ -27,3 +27,5 @@ export {
   runCodegraph,
   type BuildCodeIntelligenceInput,
 } from "./codegraph.js";
+
+export { localProjectDir, localProjectFile, localToolsStatus, runLocalTool, localPreviewToolSchemas, convertDocumentSchema } from "./local-tools.js";

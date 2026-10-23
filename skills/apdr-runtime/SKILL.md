@@ -66,7 +66,7 @@ description: |
 修改 PRD / 重新设计 UI / 退回到需求分析
 ```
 
-## 对话流程（12 阶段）
+## 对话流程（13 阶段）
 
 | # | 阶段 | 产出物 | 门禁 |
 |---|------|--------|------|
@@ -168,3 +168,11 @@ description: |
 
 使用 `.cursor/mcp.json` 配置（已含 5 个 MCP server）。分发前运行 `npm run build` 编译全部包。
 详细集成见 `docs/CURSOR-CONVERSATION.md` 与 `scripts/setup-cursor.sh`。
+
+## 本地工具与证据（2026-10）
+
+按 `get_next_action.toolGuidance` 的条件选择工具，不为使用工具而新增阶段。文档附件可用 research `convert_document`；可执行页面可用 preview `local_tools_status`、`list_browser_tools`、`run_browser_checks`、`audit_accessibility`。细节按需读 `docs/local-tools.md`。
+
+只改文案或飞书文档交付时，不强制跑完整浏览器/a11y流程。检查结果保存到本项目 evidence/，将项目相对路径与被测产物版本写入 artifact 的 provenance.notes；旧证据不能代表修订后状态。工具不可用如实标注，不替代人工审批。
+
+优化 APDR 框架本身时，不为满足阶段规则而创建业务项目或推进现有项目；用隔离测试验证框架改动即可。

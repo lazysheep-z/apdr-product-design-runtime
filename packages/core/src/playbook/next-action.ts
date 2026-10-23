@@ -5,6 +5,7 @@ import {
   type OperatorPreference,
 } from "../operator-preference.js";
 import { getStagePlaybook, workflowStepForStage } from "./stages.js";
+import { localToolGuidance, localEvidenceRules, type ToolGuidance } from "./local-capabilities.js";
 
 export type ConversationPhase =
   | "setup"
@@ -35,6 +36,8 @@ export interface NextAction {
   operatorPreference?: OperatorPreference;
   deliveryChecklist?: string[];
   routeHints?: string[];
+  toolGuidance: ToolGuidance[];
+  evidenceRules: string[];
 }
 
 export interface NextActionInput {
@@ -50,10 +53,18 @@ export interface NextActionInput {
 }
 
 export function buildNextAction(input: NextActionInput): NextAction {
-  const playbook = getStagePlaybook(input.currentStage);
+  const basePlaybook = getStagePlaybook(input.currentStage);
+  const playbook = { ...basePlaybook, externalSkills: [...basePlaybook.externalSkills] };
   const wfStep = workflowStepForStage(input.currentStage);
   const agent = agentForStage(input.currentStage);
   const prefs = input.operatorPreference;
+  if (["design_review", "frontend_codegen"].includes(input.currentStage)) {
+    playbook.externalSkills.push({id:"webapp-testing",vendorPath:"vendor/anthropic-skills/webapp-testing/SKILL.md"});
+  }
+  playbook.externalSkills = playbook.externalSkills.filter((skill, index, all) => all.findIndex(x => x.vendorPath === skill.vendorPath) === index);
+  if (prefs?.deliveryTarget === "feishu-doc" || prefs?.taskMode === "copy_only") {
+    playbook.externalSkills = playbook.externalSkills.filter(skill => !["webapp-testing", "browser-testing-with-devtools", "agent-browser"].includes(skill.id));
+  }
   const latestOutput = input.artifacts
     .filter((a) => a.type === playbook.outputArtifact)
     .sort((a, b) => b.id.localeCompare(a.id))[0];
@@ -169,6 +180,8 @@ export function buildNextAction(input: NextActionInput): NextAction {
     operatorPreference: prefs,
     deliveryChecklist: checklist,
     routeHints,
+    toolGuidance: phase === "execute" ? localToolGuidance(input.currentStage, prefs) : [],
+    evidenceRules: [...localEvidenceRules],
   };
 }
 
@@ -212,6 +225,12 @@ export function formatNextActionMarkdown(action: NextAction): string {
       );
     }
   }
+
+  if (action.toolGuidance.length) {
+    lines.push("", "## 本阶段可执行工具（按条件使用，不新增门禁）");
+    for (const tool of action.toolGuidance) lines.push(`- ${tool.server}.${tool.tool}：${tool.when} 证据：${tool.evidence}`);
+  }
+  lines.push("", "## 证据与技能边界", ...action.evidenceRules.map(rule => `- ${rule}`));
 
   if (action.blockers.length) {
     lines.push(``, `## 阻塞`, action.blockers.map((b) => `- ${b}`).join("\n"));

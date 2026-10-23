@@ -1,5 +1,11 @@
 # Skill Integration Tracker
 
+## 2026-10：从技能引用到可执行工具
+
+现有 webapp-testing / web-design-guidelines 已与核验版本一致，复用而不重复安装。新增 preview MCP 的 local_tools_status、list_browser_tools、run_browser_checks、audit_accessibility，以及 research MCP 的 convert_document。get_next_action 按阶段和交付路线输出条件化调用指引；同版本证据可复用，门禁不变。需求录入修正为 intake_specialist 优先，技能路径去重。
+
+规则快照固定版本并保留 MIT 许可；只采用适合本项目的规则。纯文档不强制页面检查。未实现的搜索/抓取工具明确 unavailable，不再把占位文本当研究结果。完整适配与复测见 [local-tools.md](local-tools.md)。
+
 ## Superpowers（已分析）
 
 | 项目 | 内容 |

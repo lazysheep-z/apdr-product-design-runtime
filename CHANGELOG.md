@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.3.9 (2026-10-23)
+
+### Evidence-driven local tools
+- Existing preview MCP now exposes local tool status, browser checks and axe accessibility audits; research MCP supports local document conversion with source hashes.
+- Add pinned Playwright MCP, axe and MarkItDown adapters, with local-only checks, isolated browser sessions, bounded execution and project-relative evidence.
+- Route tools by stage and task type; document-only and copy-only work does not require browser checks. Preserve human approval gates.
+- Fix intake agent selection, deduplicate external skills and reuse evidence only for the tested artifact version.
+- Unimplemented research search/fetch tools explicitly report unavailable instead of producing placeholder evidence.
+- Include installation guidance, a pinned MIT-licensed interface checklist and 11 isolated regression tests.
+
+### Distribution privacy
+- Exclude local draft exports, evidence, business workspaces, credentials, machine configuration and backups from distribution.
+- Synchronize root package and lockfile versions. Rebuild and reconnect running MCP clients after updating; optional local dependencies require separate installation.
+
 ## v0.3.8.1 (2026-10-16)
 
 ### Privacy scrub

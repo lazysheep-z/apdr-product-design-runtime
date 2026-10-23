@@ -1,4 +1,8 @@
 node_modules/
+.local-tool-backups/
+draft_*_folder/
+projects/*/evidence/
+integrations/local-tools/.venv-tools/
 dist/
 .DS_Store
 skillopt/logs/

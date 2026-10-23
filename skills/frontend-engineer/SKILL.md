@@ -40,6 +40,8 @@ Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved` (and Design
 
 ## Next stage
 
+有本地可运行页面时，使用 preview `run_browser_checks` 对本次变更做实际交互/截图验证，并用 `audit_accessibility` 检查相关页面；先查 `local_tools_status`、`list_browser_tools`，不要猜工具参数。只读本地适配器不支持 POST/API 写入测试，完整集成测试仍按项目脚本执行。证据相对路径与代码/页面版本写入 CodeBundle 的 provenance.notes。纯文案变更按影响面验证，不强制完整扫描；既有 LAN 预览约定不变，可从本机环回地址访问同一服务取证。
+
 After CodeBundle advances → optional **backend_codegen**（若 includeBackend）→ **code_intelligence**。
 
 ## Do not

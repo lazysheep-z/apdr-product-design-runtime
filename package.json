@@ -1,6 +1,6 @@
 {
   "name": "ai-product-design-runtime",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "private": true,
   "description": "AI Product Design Runtime — from requirements to frontend",
   "workspaces": [

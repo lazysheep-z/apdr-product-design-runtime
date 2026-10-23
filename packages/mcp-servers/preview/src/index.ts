@@ -16,7 +16,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { spawn } from "node:child_process";
 import path from "node:path";
-import { resolveProjectsRoot, textResult } from "@apdr/mcp-shared";
+import { resolveProjectsRoot, textResult, localToolsStatus, runLocalTool, localPreviewToolSchemas } from "@apdr/mcp-shared";
 
 /** In-memory registry of running preview servers */
 const servers: Map<string, { pid: number; url: string; type: string; dir: string }> = new Map();
@@ -33,6 +33,7 @@ const server = new Server(
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
+    ...localPreviewToolSchemas,
     {
       name: "register_preview_url",
       description: "Register a known preview URL for a project page (manual tracking)",
@@ -83,6 +84,14 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 }));
 
 server.setRequestHandler(CallToolRequestSchema, async (req) => {
+  const kind = { list_browser_tools: "catalog", run_browser_checks: "browser", audit_accessibility: "accessibility" } as const;
+  if (req.params.name === "local_tools_status" || req.params.name in kind) {
+    try {
+      const result = req.params.name === "local_tools_status" ? await localToolsStatus()
+        : await runLocalTool(kind[req.params.name as keyof typeof kind], req.params.arguments ?? {});
+      return textResult(JSON.stringify(result, null, 2), "status" in result && result.status === "failed");
+    } catch (error) { return textResult(JSON.stringify({status:"failed",message:String(error)}), true); }
+  }
   // ─── register_preview_url ──────────────────────────
   if (req.params.name === "register_preview_url") {
     const { project_id, page_id, url, type } = req.params.arguments as {

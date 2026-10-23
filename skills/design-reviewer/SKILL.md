@@ -13,7 +13,7 @@ Stage: design_review. Requires: UIDesignSpec + Wireframes approved.
 - **frontend-design** — `vendor/anthropic-skills/frontend-design/SKILL.md` (anti-template + hierarchy checks)
 - **design-taste-frontend** — `vendor/taste-skill/design-taste-frontend/SKILL.md` (anti-slop checklist; skip dashboard-only rules when irrelevant)
 - **design-system agentic** — `vendor/awesome-design-skills/agentic/SKILL.md` (WCAG 2.2 AA gates, required states)
-- **web-design-guidelines** — `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md` (fetch latest Vercel Web Interface Guidelines；榜单别名 *web-design-tay*)
+- **web-design-guidelines** — `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md`；默认使用同目录 `references/command.md` 固定规则，不自动拉 main。中文文案、用户规范与既有设计系统优先；框架专属规则仅在适用时检查。
 - **agent-browser** — `skills/agent-browser/SKILL.md`（预览交互走查；需本机 CLI）
 - [dequelabs/axe-core](https://github.com/dequelabs/axe-core) — accessibility testing engine
 - [radix-ui/primitives](https://github.com/radix-ui/primitives) — accessible component patterns
@@ -47,6 +47,10 @@ Stage: design_review. Requires: UIDesignSpec + Wireframes approved.
 5. Write artifact DesignReviewReport
 
 ## Do not
+有可执行原型时，先确认 preview `local_tools_status`，再用 `list_browser_tools` / `run_browser_checks` 检查相关主路径与状态，`audit_accessibility` 留下真实扫描报告。默认可见隔离 Chrome；仅显式的隔离自动测试使用 headless。外部 webapp-testing 的 /tmp 与 headless 示例不得覆盖项目的交付约定。
+
+把本轮报告相对路径、页面/产物版本、未覆盖项记入 DesignReviewReport 的 provenance.notes；不以检查无报错替代人工批准。没有原型则做规格审查并注明浏览器未覆盖，不为检查而新造页面。参见 `docs/local-tools.md`。
+
 - Advance to codegen before DesignReviewReport.passed is true
 - Approve if critical accessibility issues exist
 - Flag cosmetic preferences as issues -- only structural quality
