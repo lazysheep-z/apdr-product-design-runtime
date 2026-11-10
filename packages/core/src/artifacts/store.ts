@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { reviewApprovalBlockers } from "./quality.js";
 import path from "node:path";
 import type { ArtifactEnvelope, ArtifactType, PipelineStage, ProjectMeta, RuntimeState } from "../types.js";
 import { ARTIFACT_STAGE_MAP, createEmptyBrief } from "./schemas.js";
@@ -98,6 +99,10 @@ export class ArtifactStore {
   }
 
   async writeArtifact<T>(artifact: ArtifactEnvelope<T>): Promise<ArtifactEnvelope<T>> {
+    if (artifact.status === "approved") {
+      const blockers = reviewApprovalBlockers(artifact.type, artifact.content);
+      if (blockers.length) throw new Error(`Cannot approve review: ${blockers.join(" ")}`);
+    }
     const file = this.artifactPath(artifact.projectId, artifact.id);
     await fs.writeFile(file, JSON.stringify(artifact, null, 2), "utf-8");
     const state = await this.loadRuntime(artifact.projectId);

@@ -1,5 +1,35 @@
 # Skill Integration Tracker
 
+## 2026-11：本地 UI、触屏与反模板模块
+
+适配入口：`skills/design-toolkit/SKILL.md`。用户要求集成的 UI UX Pro Max、Mobile UI/UX Pro Max、Impeccable 与 Refero 开源模块均固定版本保存在 vendor；Anthropic frontend-design 和 Taste 已更新为固定的官方快照，完整文件与许可均保留，未另装重复全局技能。来源 commit、原始路径和文件 SHA 见 `vendor/design-sources.lock.json`。
+
+| 来源 | 本地路径 | 许可 | 默认能力 |
+| --- | --- | --- | --- |
+| referodesign/refero_skill | `vendor/refero/` | MIT，保留 LICENSE | 参考研究方法；字体/颜色/动效/图标/文案/工艺/反模板模块 |
+| nextlevelbuilder/ui-ux-pro-max-skill | `vendor/ui-ux-pro-max/` | MIT，保留 LICENSE 与数据来源/资源许可元数据 | Python 标准库离线检索、设计系统建议、触控规则 |
+| noumanzindani/mobile-app-uiux-pro-max-skill | `vendor/mobile-uiux-pro-max/` | Apache-2.0，保留 LICENSE/NOTICE | 原生平台规则、组件状态、触控与静态启发式验证 |
+| pbakaus/impeccable | `vendor/impeccable/` | Apache-2.0，保留 LICENSE/NOTICE.md | APDR 本地规则评审、可选本地 detector；原始 launcher/参考文档保留 |
+
+阶段绑定同时更新 agent registry、stage playbook 与对应 SKILL：user_flows 用研究方法；ui_design 用研究+设计库；design_review 用触屏+反模板；frontend_codegen 用批准设计与平台规则；quality_eval 核对同版本证据。`get_next_action` 可发现这些路径。APDR 控制 artifact/门禁，外部技能按职责取用，不争夺唯一设计主导权。
+
+Refero 付费服务、订阅、截图图库和 API 服务端不包含在这些本地模块中；不自动配置远程 MCP 或令牌。在线工具可见且账号可用时才补充真实检索，否则依据用户参考、现有系统和本地资料，并如实注明证据边界。
+
+Impeccable engine-v0.1.18 是可选平台依赖，不包含在源码发布中；安装后通过固定 manifest 校验 SHA-256。通过 scripts/design-tools.mjs 调用时校验后运行，不临时联网下载。detect 可对相关 Web 源文件执行扫描；保留上游 critique/audit/distill/polish playbook，完整 critique 的双评估仍按上游授权要求运行。未新增 hooks，未改全局 Skills 或远程 MCP。
+
+上游文件按原始字节保留，APDR 的优先级、平台区分、局部任务范围、证据与主观禁用规则适配均在新入口及其 references 中。后续刷新需审阅新版本，按 lock 固定来源，不能用 main 静默覆盖适配层。
+
+
+### 5 个 UI Skills 的调用分工
+
+- UI UX Pro Max：触屏 Web/后台的风格、配色、字体与实现规则离线检索。
+- Mobile UI/UX Pro Max：手机/平板原生平台、状态与触控规范及静态检查。
+- Anthropic frontend-design：基于具体产品的视觉方向；官方 SKILL 与 Apache-2.0 许可已配对保存。
+- Taste：新版 page/app 双路径；方向库、组件资产、源码 lint、多宽度检查脚本均已安装。使用显式项目输出路径与项目级历史。
+- Impeccable：critique/audit/distill/polish 方法与可执行 detect；浏览器、实机和静态扫描证据分别记录。
+
+统一工具入口：`node scripts/design-tools.mjs status`；其他命令见 `skills/design-toolkit/references/libraries.md`。浏览器入口额外检测请求宽度与实际布局视口不一致，保留原始报告并输出 apdr-report.json，避免移动布局被撑大后的漏报。后台与宣传页采用对应规则；Web、iOS、Android 的点击单位分别处理。已批准品牌与产品事实优先，检测器的主观风格规则需要审阅。
+
 ## 2026-10：从技能引用到可执行工具
 
 现有 webapp-testing / web-design-guidelines 已与核验版本一致，复用而不重复安装。新增 preview MCP 的 local_tools_status、list_browser_tools、run_browser_checks、audit_accessibility，以及 research MCP 的 convert_document。get_next_action 按阶段和交付路线输出条件化调用指引；同版本证据可复用，门禁不变。需求录入修正为 intake_specialist 优先，技能路径去重。
@@ -352,3 +382,7 @@ bash scripts/refresh-external-skills.sh
 | 飞书云文档/知识库/表格 | [larksuite/cli](https://github.com/larksuite/cli) skills | `skills/feishu-lark/SKILL.md` | **本机** `lark-cli auth`；仓库只存官方 SKILL 文案；`.gitignore` 屏蔽 `.lark-cli/`、`appsecret*`、`*.enc` |
 
 安装 CLI（用户本机）：`npm i -g @larksuite/cli` → `lark-cli config init` → `auth login --domain docs,drive`。
+
+## 通用产品质量规则
+
+`skills/product-quality/SKILL.md` 同时绑定需求、PRD、用户流/IA、UI、设计审查、实现、交接与质量评估；覆盖规则和测试说明见 `docs/quality-workflow.md`。框架只保存通用方法，不保存其业务来源记录。

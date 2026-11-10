@@ -68,3 +68,10 @@ vendor/*/screenshots/
 vendor/*/.github/
 vendor/*/.githooks/
 vendor/*/assets/
+
+# Platform engines are installed locally from pinned upstream releases.
+vendor/impeccable/skills/impeccable/scripts/bin/
+
+# Also ignore local dependency links in isolated validation checkouts.
+integrations/local-tools/node_modules
+integrations/local-tools/.venv-tools

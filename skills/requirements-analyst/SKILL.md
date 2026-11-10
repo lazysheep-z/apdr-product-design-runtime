@@ -37,3 +37,8 @@ Pipeline stage: `requirements_analysis`. MCP: `design-artifacts` (required).
 - Skip `write_artifact`
 - Start PRD before `RequirementsAnalysis` is `approved`
 - Use baoyu image skills in this stage
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

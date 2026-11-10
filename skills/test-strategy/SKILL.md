@@ -5,7 +5,7 @@ description: Generates test plans for generated frontend code. Covers unit, comp
 
 # Test Strategy (APDR)
 
-Optional enhancement for stage: frontend_codegen. Run after code is generated.
+Enhances frontend_codegen / quality_eval and independent version testing; existing products do not require a new code-generation pipeline.
 
 This skill does NOT create a separate pipeline stage. It enhances the CodeBundle artifact.
 
@@ -28,7 +28,7 @@ This skill does NOT create a separate pipeline stage. It enhances the CodeBundle
       - File: src/**/*.test.ts
 
    b) Component tests (vitest + testing-library)
-      - Every React component in the codebase
+      - Components with material changed behavior or risk
       - States: default, loading, empty, error, edge
       - User interactions: click, type, submit
       - File: src/components/**/*.test.tsx
@@ -51,9 +51,14 @@ This skill does NOT create a separate pipeline stage. It enhances the CodeBundle
 
 ## Do not
 - Skip E2E tests for critical user journeys
-- Generate tests for generated code without running them
+- Claim tests passed without executing them; mark unavailable execution as blocked
 - Use Cypress -- prefer Playwright for cross-browser E2E
 
 ## References
 - [vitest-dev/vitest](https://github.com/vitest-dev/vitest) 16k★
 - [microsoft/playwright](https://github.com/microsoft/playwright) 91k★
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

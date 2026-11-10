@@ -37,11 +37,13 @@ Route shortcuts (via operator preference): `incremental` / `patch_ui` skip optio
 | intake / requirements | operator-preference, document-io, feishu-lark, idea-refine, grill-me, grill-with-docs, **competitive-research**, matt research, marketing competitor-profiling/customer-research, pm-skills（SWOT/TAM/personas）, brainstorming, baoyu capture |
 | prd | spec-driven-development, grill-with-docs, research report + SWOT, doc-coauthoring, document-io/feishu, pm strategy/lean-canvas |
 | user_flows / IA | baoyu-diagram, pm customer-journey-map |
-| ui_design / design_review | anthropic frontend-design, **open-design**（design-brief / critique）, taste-skill, theme-factory, awesome-design-skills, vercel web-design-guidelines, agent-browser |
+| ui_design / design_review | **design-toolkit**（UI UX Pro Max、Mobile UI/UX Pro Max、frontend-design、Taste page/app、Impeccable detector/审查）, **open-design**（design-brief / critique）, theme-factory, awesome-design-skills, vercel web-design-guidelines, agent-browser |
 | frontend_codegen | Superpowers plans/TDD + Matt `/tdd` + vercel-react-best-practices + Addy frontend-ui + code-review |
 | backend_codegen（可选） | backend-engineer + `skills/backend-skills/*`；`includeBackend=false` 时跳过 |
 | code_intelligence | CodeGraph + optional improve-codebase-architecture |
 | handoff / quality | documentation-and-adrs, document-io/feishu, verification-before-completion, browser/webapp/agent-browser, react-best-practices |
+
+本地 UI 工具状态：`node scripts/design-tools.mjs status`。按设备和页面类型读取 `skills/design-toolkit/SKILL.md`；完整 Impeccable critique 的子代理流程按其上游规则和现有用户授权执行。
 
 Curated docs: `docs/skill-integration.md`. Refresh vendors: `bash scripts/refresh-external-skills.sh`.
 
@@ -64,3 +66,7 @@ Do not bypass human gates on PRD, RequirementsAnalysis, or UIDesignSpec unless u
 ## Privacy
 
 See `docs/privacy.md`. Never commit Feishu credentials, personal account ids, or local project workspaces with business data.
+
+## Reusable product quality
+
+Read `skills/product-quality/SKILL.md` for product rules, UI regression and version testing. Preserve the current project scope and privacy boundary; never copy operator or customer records into the framework. Independent audits do not create or approve a fictitious pipeline.

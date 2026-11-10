@@ -58,3 +58,8 @@ Pipeline stage: handoff. Requires: CodeBundle + **CodeIntelligenceReport** + UID
 - [storybookjs/storybook](https://github.com/storybookjs/storybook) 90k★
 - [shadcn-ui/ui](https://github.com/shadcn-ui/ui) 117k★ -- component design patterns
 - [microsoft/playwright](https://github.com/microsoft/playwright) 91k★ -- E2E test patterns
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

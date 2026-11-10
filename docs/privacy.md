@@ -23,3 +23,7 @@ APDR is published as an open-source runtime. Keep **operator workspaces and pers
 ## Feishu usage
 
 Document import/publish goes through `skills/feishu-lark/SKILL.md`. Auth stays on the operator’s machine. Artifacts may store a **document URL** after publish, not account identifiers.
+
+## Reusable workflow lessons
+
+Keep only abstract product, UI and testing rules in the framework. Do not copy raw conversation history, real project names or identifiers, customer or operator records, private document links, business fixtures, screenshots, audit exports or personal paths into skills, tests, examples or release notes. Keep third-party license attribution intact. Scan the Git index before publishing; optional private deny lists stay outside the repository.

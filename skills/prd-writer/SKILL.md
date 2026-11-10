@@ -31,3 +31,8 @@ Stage: `prd`. Requires `RequirementsAnalysis` status `approved`.
 - Treat slide-deck as canonical PRD
 - Let strategy canvases replace PRD JSON
 - Write AC without happy + error paths
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

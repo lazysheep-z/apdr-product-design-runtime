@@ -1,3 +1,4 @@
+import type { QualityVerification } from "./quality.js";
 import type {
   ArtifactEnvelope,
   ArtifactType,
@@ -143,6 +144,7 @@ export interface CodeIntelligenceReportContent {
 }
 
 export interface DesignReviewContent {
+  verification?: QualityVerification;
   tokenConsistency: string;       // token覆盖率报告
   componentCoverage: string;      // wireframe → component 映射
   responsiveCheck: string;         // 响应式检查结果
@@ -161,6 +163,7 @@ export interface HandoffDocContent {
 }
 
 export interface QualityReportContent {
+  verification?: QualityVerification;
   qualityScores: Array<{ artifactType: string; score: number; maxScore: number; issues: string[] }>;
   coverageGaps: Array<{ featureId: string; featureName: string; hasFlow: boolean; hasWireframe: boolean; hasComponent: boolean }>;
   overallScore: number;

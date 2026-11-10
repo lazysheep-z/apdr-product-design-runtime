@@ -5,6 +5,11 @@ description: UserFlows artifact with task flows, error paths, permission flows, 
 
 # UX Strategist (APDR)
 
+## 真实流程参考与本地降级
+
+需要参考操作流程时读 `skills/design-toolkit/SKILL.md` 及其 research 参考。已有 Refero 在线工具时可查 Flows/Screens；否则用现有产品、用户提供或公开参考，按本地方法提炼步骤、异常、恢复和确认。记录真实来源；仅有工艺规则时标明缺少外部案例，不虚构 Refero 结果。不改变当前阶段的 UserFlows 结构和人工门禁。
+
+
 Stage: `user_flows`. Requires `PRD` status `approved`.
 
 ## External skills
@@ -49,3 +54,7 @@ Stage: `user_flows`. Requires `PRD` status `approved`.
 ## References
 - [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 126k★ — flow visualization
 - [phuryn/pm-skills](https://github.com/phuryn/pm-skills) 19k★ — user research patterns
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

@@ -36,6 +36,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "research"],
     skillPath: "skills/requirements-analyst/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
       {
         id: "operator-preference",
         source: "apdr",
@@ -164,6 +165,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts"],
     skillPath: "skills/prd-writer/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
       {
         id: "spec-driven-development",
         source: "addy-agent-skills",
@@ -250,6 +252,17 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "diagram"],
     skillPath: "skills/ux-flow/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
+      {
+        id: "design-toolkit",
+        source: "apdr",
+        vendorPath: "skills/design-toolkit/SKILL.md",
+      },
+      {
+        id: "refero-design-local",
+        source: "refero",
+        vendorPath: "vendor/refero/skills/refero-design/SKILL.md",
+      },
       {
         id: "baoyu-diagram",
         source: "baoyu",
@@ -273,6 +286,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "diagram"],
     skillPath: "skills/information-architect/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
       {
         id: "baoyu-diagram",
         source: "baoyu",
@@ -308,6 +322,27 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts"],
     skillPath: "skills/visual-designer/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
+      {
+        id: "design-toolkit",
+        source: "apdr",
+        vendorPath: "skills/design-toolkit/SKILL.md",
+      },
+      {
+        id: "refero-design-local",
+        source: "refero",
+        vendorPath: "vendor/refero/skills/refero-design/SKILL.md",
+      },
+      {
+        id: "ui-ux-pro-max",
+        source: "ui-ux-pro-max",
+        vendorPath: "vendor/ui-ux-pro-max/SKILL.md",
+      },
+      {
+        id: "mobile-uiux-pro-max",
+        source: "mobile-uiux-pro-max",
+        vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md",
+      },
       {
         id: "open-design",
         source: "open-design",
@@ -437,6 +472,22 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts"],
     skillPath: "skills/design-reviewer/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
+      {
+        id: "design-toolkit",
+        source: "apdr",
+        vendorPath: "skills/design-toolkit/SKILL.md",
+      },
+      {
+        id: "impeccable-local-review",
+        source: "impeccable",
+        vendorPath: "vendor/impeccable/skills/impeccable/SKILL.md",
+      },
+      {
+        id: "mobile-uiux-pro-max",
+        source: "mobile-uiux-pro-max",
+        vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md",
+      },
       {
         id: "open-design",
         source: "open-design",
@@ -513,6 +564,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "repo"],
     skillPath: "skills/handoff/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
       {
         id: "documentation-and-adrs",
         source: "addy-agent-skills",
@@ -566,6 +618,27 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "repo", "preview"],
     skillPath: "skills/frontend-engineer/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
+      {
+        id: "design-taste-frontend",
+        source: "taste-skill",
+        vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md",
+      },
+      {
+        id: "design-toolkit",
+        source: "apdr",
+        vendorPath: "skills/design-toolkit/SKILL.md",
+      },
+      {
+        id: "ui-ux-pro-max",
+        source: "ui-ux-pro-max",
+        vendorPath: "vendor/ui-ux-pro-max/SKILL.md",
+      },
+      {
+        id: "mobile-uiux-pro-max",
+        source: "mobile-uiux-pro-max",
+        vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md",
+      },
       {
         id: "writing-plans",
         source: "superpowers",
@@ -673,6 +746,17 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     mcpServers: ["design-artifacts", "repo"],
     skillPath: "skills/quality-evaluator/SKILL.md",
     externalSkills: [
+      { id: "product-quality", source: "apdr", vendorPath: "skills/product-quality/SKILL.md" },
+      {
+        id: "design-toolkit",
+        source: "apdr",
+        vendorPath: "skills/design-toolkit/SKILL.md",
+      },
+      {
+        id: "impeccable-local-review",
+        source: "impeccable",
+        vendorPath: "vendor/impeccable/skills/impeccable/SKILL.md",
+      },
       {
         id: "verification-before-completion",
         source: "superpowers",

@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.0 (2026-11-10)
+
+- Bind reusable product rules, UI regression and testing evidence to stage playbooks and agent discovery without adding stages.
+- Cover date/filter semantics, tree aggregation, navigation cache state, save/log persistence, actual exports and task re-downloads.
+- Separate scores, test coverage, fixes, retests, approval and release; reject failed review approvals and validate optional version-linked verification.
+- Include the previously local design-toolkit integrations, pinned upstream sources and platform-aware tool checks.
+- Add anonymous regression tests and an index-based privacy check; keep private workspaces and raw audit records outside distribution.
+
+
 ## v0.3.9 (2026-10-23)
 
 ### Evidence-driven local tools

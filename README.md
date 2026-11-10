@@ -1,4 +1,4 @@
-# AI Product Design Runtime (APDR) v0.3.8
+# AI Product Design Runtime (APDR) v0.4.0
 
 > Maintainer: **Joker** · [lazysheep-z/apdr-product-design-runtime](https://github.com/lazysheep-z/apdr-product-design-runtime)
 
@@ -213,3 +213,7 @@ apdr-product-design-runtime/
 ## 许可
 
 MIT License. Copyright (c) 2026 Joker
+
+## Product, UI and testing quality
+
+See [the integrated quality workflow](docs/quality-workflow.md) for reusable product rules, UI regression, version testing and evidence boundaries. The existing 13 stages and human gates are retained.

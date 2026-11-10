@@ -1,0 +1,2550 @@
+{
+  "checkedAt": "2026-11-02",
+  "sources": [
+    {
+      "id": "refero",
+      "repo": "referodesign/refero_skill",
+      "commit": "2382e518f90096df607196b9a635da2d1bc142f9"
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "3a13158ff1f32156cbe144108de48eda2ecaed9a"
+    },
+    {
+      "id": "mobile-uiux-pro-max",
+      "repo": "noumanzindani/mobile-app-uiux-pro-max-skill",
+      "commit": "9501388411dca7439cd2a7a066a6cf41b39808d1"
+    },
+    {
+      "id": "impeccable",
+      "repo": "pbakaus/impeccable",
+      "commit": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285"
+    },
+    {
+      "id": "taste-skill",
+      "repo": "Leonxlnx/taste-skill",
+      "commit": "12af471f627f866411b4bd785b19646d3672784c"
+    },
+    {
+      "id": "anthropic-frontend-design",
+      "repo": "anthropics/skills",
+      "commit": "ca45fc496a3436251f191354091d557da31c15b5"
+    }
+  ],
+  "files": [
+    {
+      "source": "refero",
+      "upstreamPath": "LICENSE",
+      "path": "vendor/refero/LICENSE",
+      "sha256": "7b5d57a0e210289fa900a0e2ab0513442e439e9d20b96f0cf5cba0e1b31b665e",
+      "gitBlob": "2c7d699d6123a4dc9ea5ec7dfbc2939963e6ef01"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "README.md",
+      "path": "vendor/refero/README.md",
+      "sha256": "fc5c1c8492059a7ab02c1308bce7de2fde1b13193b00a34fda2cd2252666882b",
+      "gitBlob": "a933cb0de704cbe7cc40b5c6f5ff6663683fe88a"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "VERSION",
+      "path": "vendor/refero/VERSION",
+      "sha256": "f5e5c9534532840fcd45bb002e69ed85c61dba2753450e26b448b7df1481e24d",
+      "gitBlob": "21e8796a09d4f26935ffc4879147879a153f0193"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/SKILL.md",
+      "path": "vendor/refero/skills/refero-design/SKILL.md",
+      "sha256": "4a4a7a0b72a2fa0a454903debe6e872ada79a724cb452fe2113d266c2f0c6978",
+      "gitBlob": "9ac6970ce8e02fbc90e9bda4c2750daf1462f45c"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/agents/openai.yaml",
+      "path": "vendor/refero/skills/refero-design/agents/openai.yaml",
+      "sha256": "3338bfb63fae7c4d61a35599e2e626b1e0fa0f31728ae206af95298b919b9754",
+      "gitBlob": "c297148ea06f663edf6b4373629f2592d2f49222"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/anti-ai-slop.md",
+      "path": "vendor/refero/skills/refero-design/references/anti-ai-slop.md",
+      "sha256": "433b5639b17ceec877ce827799c2c2e1ca3dbc05a00540e87db3ad95e78f914e",
+      "gitBlob": "38c4e7c259d552580a039c71296d53ab338e9e91"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/color.md",
+      "path": "vendor/refero/skills/refero-design/references/color.md",
+      "sha256": "1f212d3fad2866a1f4c6ba4123eb014889be589d2450fb3ebbcb0295542c8f3a",
+      "gitBlob": "a31577c9bde4abef69ac145fb2db6c55762d5117"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/copywriting.md",
+      "path": "vendor/refero/skills/refero-design/references/copywriting.md",
+      "sha256": "a133d1775ac82bcd24a4f50e2acb29ba921cfc4a831da3fc3cda9012f53ef505",
+      "gitBlob": "19ecfbc58e92ec05de5f5246bec07e9feae474d4"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/craft-details.md",
+      "path": "vendor/refero/skills/refero-design/references/craft-details.md",
+      "sha256": "bc6b016a3ff336f491c148195635e7b8fca7bae247168798170919746d6cb44a",
+      "gitBlob": "46800a370bdf6017ed1c9711f54b4dbc1e1625dc"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/example-workflow.md",
+      "path": "vendor/refero/skills/refero-design/references/example-workflow.md",
+      "sha256": "c0b4aefdbab428bfbcc53b0185ff08ad9c0827dbb038ea12a80ec8b12c237a1a",
+      "gitBlob": "994b045482b28fd5e144e99da392d4fd3b2f3759"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/icons.md",
+      "path": "vendor/refero/skills/refero-design/references/icons.md",
+      "sha256": "32a83ed4aea58cb164320ec08afbc826b6de9b2248d7a12fc0a67f2ad75dc0ee",
+      "gitBlob": "d0d18432daa6123d0adbf8555c9cd2701129e87f"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/mcp-tools.md",
+      "path": "vendor/refero/skills/refero-design/references/mcp-tools.md",
+      "sha256": "ab5e19417802c4a4e3be720c5c6acfdb5c97c3e4634b8b6d8b594db880bfb02f",
+      "gitBlob": "f05e53bec83fb526af811b3d33cf9fb94caee567"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/motion.md",
+      "path": "vendor/refero/skills/refero-design/references/motion.md",
+      "sha256": "6ab9c171f61badd47cd4ca4d981295982b17317841be38d8efe816aef1ffeea6",
+      "gitBlob": "1de84487bf4bd5fdd0627b041529c5a71962e774"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/typography.md",
+      "path": "vendor/refero/skills/refero-design/references/typography.md",
+      "sha256": "5c2211d3e432571225015c41f7a24693ecc61a6c84a33d44088aed2d19f6fdcb",
+      "gitBlob": "9f2a914559193d6daf3c448ab38bf12577c8eecd"
+    },
+    {
+      "source": "refero",
+      "upstreamPath": "skills/refero-design/references/visual-workflow.md",
+      "path": "vendor/refero/skills/refero-design/references/visual-workflow.md",
+      "sha256": "0647bfdfeb503649263a81f3dbc23ffd6f257a5d41ca5fb8921ed9bf1fdfde5a",
+      "gitBlob": "18fa7c2d96ab2f5e10482e8a03012150df257fce"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "path": "vendor/ui-ux-pro-max/SKILL.md",
+      "sha256": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9",
+      "gitBlob": "41f8e2fd7f8c568228d0b55186ebe3f7b4007377"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/app-interface.csv",
+      "path": "vendor/ui-ux-pro-max/data/app-interface.csv",
+      "sha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08",
+      "gitBlob": "95e328c807a23be02c9c32c736d0fa19109c6076"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/catalog-summary.json",
+      "path": "vendor/ui-ux-pro-max/data/catalog-summary.json",
+      "sha256": "4ca9ee8697984ed678a69a3bfbb788fb7f826d564f22cae5d094df8879517217",
+      "gitBlob": "184d9619c19c15e930abb7dbb783f20a6e7798d0"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/charts.csv",
+      "path": "vendor/ui-ux-pro-max/data/charts.csv",
+      "sha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a",
+      "gitBlob": "c6f4f875fd5b34379f24dbb541539492366a1058"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/colors.csv",
+      "path": "vendor/ui-ux-pro-max/data/colors.csv",
+      "sha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c",
+      "gitBlob": "5d2bf7389105f8a824b504b57cc93c00dc1d7e0a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/data-provenance.json",
+      "path": "vendor/ui-ux-pro-max/data/data-provenance.json",
+      "sha256": "e82fb33ed49375a300e93d9c11ccd1c1493c999e84ee7ee295e527634786e2e0",
+      "gitBlob": "e41d2e553bdc7e5a8e6d16f5daab565faf372188"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/google-font-licenses.json",
+      "path": "vendor/ui-ux-pro-max/data/google-font-licenses.json",
+      "sha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a",
+      "gitBlob": "3ac2c34e80665bc902e265c52ab6c27b1654524c"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/google-fonts.csv",
+      "path": "vendor/ui-ux-pro-max/data/google-fonts.csv",
+      "sha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03",
+      "gitBlob": "d7f87e3e0159b1caba083b9954793d9852256aa0"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/icons.csv",
+      "path": "vendor/ui-ux-pro-max/data/icons.csv",
+      "sha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc",
+      "gitBlob": "cfc3f1eccd7e5aee15d8d70f86d8fa17ba737958"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/landing.csv",
+      "path": "vendor/ui-ux-pro-max/data/landing.csv",
+      "sha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0",
+      "gitBlob": "34858160aa2789c49dca274d48bb116d51dd3f0a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/motion.csv",
+      "path": "vendor/ui-ux-pro-max/data/motion.csv",
+      "sha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb",
+      "gitBlob": "8e0ca9ceb0e4cd4832aee60ac74713e1e1830de8"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+      "path": "vendor/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+      "sha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236",
+      "gitBlob": "ec1d76b8117ccbfdce5df214bf0d993e41a75318"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/products.csv",
+      "path": "vendor/ui-ux-pro-max/data/products.csv",
+      "sha256": "42473f75e8dde5987bdf89ce55d8c168091b80a356cae691dd60247d80720b70",
+      "gitBlob": "9f40f1d1f9743c4a81603076dfbfd115bbb55246"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/react-performance.csv",
+      "path": "vendor/ui-ux-pro-max/data/react-performance.csv",
+      "sha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734",
+      "gitBlob": "425a8e76c6b3bae40e8c633ffbf7ad6222c9f73a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/angular.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/angular.csv",
+      "sha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553",
+      "gitBlob": "5a1878dbee2b3c55c6468cbb18699b84d1a8c4d2"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/astro.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/astro.csv",
+      "sha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6",
+      "gitBlob": "1fd2492420b20a0b311295ab883597fadb8245a6"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/avalonia.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/avalonia.csv",
+      "sha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258",
+      "gitBlob": "c67f4117105865587eda9020c57d8c209f3a929a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/flutter.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/flutter.csv",
+      "sha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0",
+      "gitBlob": "731805c4076bd9f2755ca4bd7def5be6f6df7e9c"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+      "sha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee",
+      "gitBlob": "9089eb0fc821ff0c8d135f8ee503be345e8fcb84"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/javafx.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/javafx.csv",
+      "sha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869",
+      "gitBlob": "744bd80f437f12bfb5bb9c84630a58022604675a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+      "sha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a",
+      "gitBlob": "8daa0b8f9a2ca3f0f1711664d9d677cd1c38dd9e"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/laravel.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/laravel.csv",
+      "sha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9",
+      "gitBlob": "ed11b0fba457e02857f996d1542fb0b8e1271756"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/nextjs.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/nextjs.csv",
+      "sha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4",
+      "gitBlob": "acdaf097dff26ba0d3b22ab4544bf6169c87afd4"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+      "sha256": "9c0179d559abe39ad63b958b54cb29c82be1dd20706430476096ea8967bfa328",
+      "gitBlob": "f6b8000e106aaf421a61da45134e35c8f03e18c6"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+      "sha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176",
+      "gitBlob": "ceab9cf3358d2788af0bd7dc14cb3fab769740d0"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/react-native.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/react-native.csv",
+      "sha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5",
+      "gitBlob": "a5aea45dc1d0341b11ee42076a86db842d4d2a19"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/react.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/react.csv",
+      "sha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1",
+      "gitBlob": "fe8f001e695a978733449e04e99d7135af0f1bf3"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/shadcn.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/shadcn.csv",
+      "sha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51",
+      "gitBlob": "0e8bedf3084e7a40d6310bcd3011c437efcb1700"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/svelte.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/svelte.csv",
+      "sha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db",
+      "gitBlob": "51684fe70448e15333cd16207db7da8aea0508e6"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/swiftui.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/swiftui.csv",
+      "sha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623",
+      "gitBlob": "ea9b95e8922e663b2adf27a7346e2c2f44c7a215"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/threejs.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/threejs.csv",
+      "sha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b",
+      "gitBlob": "f62286320038beabbdc5e11e07ca2818d8e959a4"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/uno.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/uno.csv",
+      "sha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48",
+      "gitBlob": "9cab32326b4ad3a3cf43451a3c24553a41126cc1"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/uwp.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/uwp.csv",
+      "sha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c",
+      "gitBlob": "04a84ea092a7657fef11e5daa97982be52dc6f59"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/vue.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/vue.csv",
+      "sha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95",
+      "gitBlob": "83997c515775170f22b638635aae0a67a46dfc87"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/winui.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/winui.csv",
+      "sha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85",
+      "gitBlob": "107ecead11728a83ec0ea10d815a9d1f43a35792"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/stacks/wpf.csv",
+      "path": "vendor/ui-ux-pro-max/data/stacks/wpf.csv",
+      "sha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7",
+      "gitBlob": "4e88d6750833a74f85ba487cf2b8f4ff6ebd2f4a"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/styles.csv",
+      "path": "vendor/ui-ux-pro-max/data/styles.csv",
+      "sha256": "a93a4d9d7025856575d7b7583bda020be9043013432c5af7c58af9dbdfb206b7",
+      "gitBlob": "d1eb2c216e453005ffa8232ffb94491c183afe3c"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/typography.csv",
+      "path": "vendor/ui-ux-pro-max/data/typography.csv",
+      "sha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8",
+      "gitBlob": "70d107d107de30150863c965767320ec33ef29ad"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/ui-reasoning.csv",
+      "path": "vendor/ui-ux-pro-max/data/ui-reasoning.csv",
+      "sha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a",
+      "gitBlob": "8931d4c809f8e22ddac00ce612ce0c35f34a59b6"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "path": "vendor/ui-ux-pro-max/data/ux-guidelines.csv",
+      "sha256": "ff81ec613f70ba9fc3fcce52dbe4ae35d44b2079dbe6dc066d2d6e38c28facd5",
+      "gitBlob": "4e7d52b296537a03513b18b2c3f2b946cc802051"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/references/pro-rules.md",
+      "path": "vendor/ui-ux-pro-max/references/pro-rules.md",
+      "sha256": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23",
+      "gitBlob": "b2ce233287e37ec9ca13476c4014b922e9d5a0e9"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/references/quick-reference.md",
+      "path": "vendor/ui-ux-pro-max/references/quick-reference.md",
+      "sha256": "0609bc7c89dacb40472465d8fc14257b56b2c43439660fc8d6fa3b8c022e1876",
+      "gitBlob": "7acc7e7540ca6981d878a90aae4455c1638e2385"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/scripts/core.py",
+      "path": "vendor/ui-ux-pro-max/scripts/core.py",
+      "sha256": "7a4a109c200ab363c0e0fd9a5545f03dc665d5e15e4ab28fef893d5663cd30b4",
+      "gitBlob": "82ebc78d513873d61511b149c35e9bd4e2ce5528"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/scripts/design_system.py",
+      "path": "vendor/ui-ux-pro-max/scripts/design_system.py",
+      "sha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103",
+      "gitBlob": "d5fe1575f00d839f919603bd09b44fe7e9def4fb"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/scripts/reasoning_contract.py",
+      "path": "vendor/ui-ux-pro-max/scripts/reasoning_contract.py",
+      "sha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913",
+      "gitBlob": "63652a666b130c249ea1e2954316f1ac8a5a73d5"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/scripts/search.py",
+      "path": "vendor/ui-ux-pro-max/scripts/search.py",
+      "sha256": "d6aeb52ed42b158cb0c1bb47c9ef931f3bb4daf413bcf2390320b13f887e69fd",
+      "gitBlob": "752bc1c0ed669b4021346f28c16a89e7f62e8043"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": ".claude/skills/ui-ux-pro-max/scripts/validate_data.py",
+      "path": "vendor/ui-ux-pro-max/scripts/validate_data.py",
+      "sha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
+      "gitBlob": "8b6c7941f6ad3e51cb9d412b11185133e7763001"
+    },
+    {
+      "source": "ui-ux-pro-max",
+      "upstreamPath": "LICENSE",
+      "path": "vendor/ui-ux-pro-max/LICENSE",
+      "sha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014",
+      "gitBlob": "1e71cbf26660f31903807d099fe902c098fc7e4c"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "LICENSE",
+      "path": "vendor/mobile-uiux-pro-max/LICENSE",
+      "sha256": "4251121c3eb124349d4dc3f8ca25698ee57f31dd46270bfc1a71dda730be10c3",
+      "gitBlob": "4a18df15d46c19fd93430dbc62567bec6806c18b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "NOTICE",
+      "path": "vendor/mobile-uiux-pro-max/NOTICE",
+      "sha256": "b0b67cf5330e37f74b1a01d041fc8d70445de2253ae730c6dc37d3e813bf8067",
+      "gitBlob": "8917157b8e1bd39ac946b21c0ee2782526c78772"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "README.md",
+      "path": "vendor/mobile-uiux-pro-max/README.md",
+      "sha256": "e356ef381a1337d11e9e8fc1b9e1af6626557caa1694952ed890b47369238bd0",
+      "gitBlob": "8921368b95d0d7703aa3362c69803b19d4108261"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "SKILL.md",
+      "path": "vendor/mobile-uiux-pro-max/SKILL.md",
+      "sha256": "925856894f46ee6cf9e5e36f80bdf965c5387940306a36ef429aa297f4f2efc3",
+      "gitBlob": "3c3199e686d039251071d41a82171c3cd13c86f8"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "VERSION",
+      "path": "vendor/mobile-uiux-pro-max/VERSION",
+      "sha256": "40b8eb4000a913a7791090535f291d3d369874162a89ef3c9e3d4e887a1b9e79",
+      "gitBlob": "1d0ba9ea182b0f7354f3daf12120744ec5e0c2f8"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/motion-system.md",
+      "path": "vendor/mobile-uiux-pro-max/design-system/motion-system.md",
+      "sha256": "10d47f672d15f61ad49b30c73967b269a84e120991575da96296dfb40e9a2c29",
+      "gitBlob": "221c2f5dea11ba2584005845d75109548e2344b3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/spacing-system.md",
+      "path": "vendor/mobile-uiux-pro-max/design-system/spacing-system.md",
+      "sha256": "5ad1cd5d4b4c3860f314e49eff7c48410178daaaf2c6941a2d0dd3da00bd6f9e",
+      "gitBlob": "2717f4fdc8012018d6828491fdcb9bb64416f3f4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/token-spec.md",
+      "path": "vendor/mobile-uiux-pro-max/design-system/token-spec.md",
+      "sha256": "1a00cb4e3471f7989065ad718f6ada445eab463010252e2a17fc682a68b3e387",
+      "gitBlob": "55842d88497d98c3035dafb0fb4576a8d7b2f531"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/$metadata.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/$metadata.json",
+      "sha256": "3d30ed9a442654fdf888d1ceceb8dcd780aff4f26c561c61da902116c5ca24e5",
+      "gitBlob": "83ef198b68202fff807a75aa6e8b693824a4a257"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/$themes.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/$themes.json",
+      "sha256": "523b9e21f2fecfa70c94451ad86f5cf791710915bde19de138cb6b337718ef6d",
+      "gitBlob": "5db2446c969b9b3d58415a5b6a5a05080357a366"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/primitives/color.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/primitives/color.json",
+      "sha256": "d462f6fb8b9c4a1d103ad654ac6b4176348769bd4b9652cac17d3c844290d64d",
+      "gitBlob": "90f496bd6dad53fd99dbf55b40fede7d30cdaccd"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/primitives/dimension.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/primitives/dimension.json",
+      "sha256": "7d04eb255ac42bf5ffe9b5810879ac4b7127af8400c9ebded829754b1a440a71",
+      "gitBlob": "3c3b474c4f8f9d8288802b6e585653ecb9f6fe58"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/semantic/spacing.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/semantic/spacing.json",
+      "sha256": "8d0d3f6356ff45dbea1ceee92e07b0c23a33b39b149ff02fd57906bba5cf8223",
+      "gitBlob": "6958b0f94932c78a574e6f5c695d33af8bbae4b2"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/themes/dark.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/themes/dark.json",
+      "sha256": "69c406c7cc0669a11b4ab159f87c269a5530c25fef2086784aa2e76beae55ff6",
+      "gitBlob": "1f2967d27ad9ce1a828b2438642aaabb5f2031d9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/tokens/themes/light.json",
+      "path": "vendor/mobile-uiux-pro-max/design-system/tokens/themes/light.json",
+      "sha256": "b001ab369682ac8a9c4d0eb377fa2e8bf9a38849a81108d55be1eed43aca1f98",
+      "gitBlob": "081ccbe1f4b28e89cc24e10275938649c0b27bb3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "design-system/type-scale.md",
+      "path": "vendor/mobile-uiux-pro-max/design-system/type-scale.md",
+      "sha256": "92a8593388e08105f0843ab9a38eb42a72d5994aebd1f6f3630245386f3cc011",
+      "gitBlob": "1fcb1589c885bf02e59c479e554de94728dc8b72"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/_index.md",
+      "sha256": "52d629892528bf31cbd7845de5feb45c66cd5078d94d17745d7b3314a3b8c22c",
+      "gitBlob": "81a3aeeebea60181f8e48a92e07929cc17158662"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/adaptive.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/adaptive.md",
+      "sha256": "551bc84f78b69091b4af6ff66d6ba47d6ded005b1f4c76ce4b5ffd25f6b3394a",
+      "gitBlob": "1d014964f19b868af6b653499ba034463f320509"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/components.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/components.md",
+      "sha256": "6b23c411f9bc2b74edc9f9fbda422ffabeebdb4752db8c6fddb7f8a726d243f5",
+      "gitBlob": "b5204ded1a874a20e3e279fbd4314b27a228b871"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/snippets/button.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/snippets/button.md",
+      "sha256": "baf1adad95e9b847437ae798694b041b5d8164cb254484bef5562447ba20d71f",
+      "gitBlob": "c305b689c20d2535bc30c419dea2556b4d2d2781"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/snippets/list.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/snippets/list.md",
+      "sha256": "a4ff7643810926b0c6a601bdea8635f98a3aacb2419eb200236ac0290ecd004d",
+      "gitBlob": "e53a32929e7cea5282116735fe04251a4817fcb9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/snippets/safe-area.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/snippets/safe-area.md",
+      "sha256": "49b3dd27d8658647f83437549ee63850e787dd5cd734f74e5e066cc6d4685a22",
+      "gitBlob": "f46c1a1ba015f015126b39d37163cd91cc6f4dcb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/snippets/sheet.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/snippets/sheet.md",
+      "sha256": "8c5e7c002c72abda8baad55971aa15f69e24dc3c4fbc74364da7da3bd08a0264",
+      "gitBlob": "2f79c27658f8a642e1f70ff108a72a813578e53a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/snippets/theme.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/snippets/theme.md",
+      "sha256": "19b86bdaccc146a13726f6b01cc9315b8c450b7607d9ae5ff4c977a79a410f7a",
+      "gitBlob": "018a433a76462404d70a1d6424e9bf34a238ec0d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/states.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/states.md",
+      "sha256": "92ad2610a5eefb9c43b18f849e5a5524a398269eab698cda8dff5e8762d8c2fd",
+      "gitBlob": "9c545997aac22d404849a017474d48a7395809e9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/flutter/tokens.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/flutter/tokens.md",
+      "sha256": "5e681fb4d2bc80c8e156f866a883364f18e330a925c93917fe8e4f31240fa1b8",
+      "gitBlob": "400cde6f471003c21f2210d3c2ac18b0d8b0e649"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/_index.md",
+      "sha256": "8f4ecc897d040056d59d339e47a7addaeafd096af283cd0d68e602f66f0e687a",
+      "gitBlob": "992b221d7ba321a6bff107599946bde38a146f44"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/adaptive.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/adaptive.md",
+      "sha256": "f6b9b58a7788ead3e491e07531bda1779326523b4b471331af4abce0bc91948b",
+      "gitBlob": "78d20aa2411378337a43ae6063d3c87d981e18d9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/components.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/components.md",
+      "sha256": "c58b210b2715fb8fdb370858a58b88a38a15a5b7956273064555624c992d6aa9",
+      "gitBlob": "3017d8270e6f4a6e93063334155bd1c2d3aca363"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/snippets/button.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/snippets/button.md",
+      "sha256": "0bf374cc5027723f348fbd0d7aec98e2e6306848269d800e8248fa5f40674141",
+      "gitBlob": "56f5fbc32e561eb81d7e68f24b718f62ea15cb13"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/snippets/list.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/snippets/list.md",
+      "sha256": "1ee2fe0be3a13f106ce2fd7a45a723b9d9fcbb8cd0273ef2c9922c6f229d18aa",
+      "gitBlob": "6f8995c4f8d61d0d60a8ee4daa1d4e59f284509a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/snippets/safe-area.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/snippets/safe-area.md",
+      "sha256": "327eed9694b4f1874417593177946f7a38c1a34c80d47dd42caaf5b0e15da6dd",
+      "gitBlob": "16539705483e84c0bc617af7bd464646b4879645"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/snippets/sheet.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/snippets/sheet.md",
+      "sha256": "49c871e119646d0d164f504b72d7ca03b99bebf49c6d8b4e95367611e070ade3",
+      "gitBlob": "9f83407dd159d784e4608b9631a769bc154978fe"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/snippets/theme.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/snippets/theme.md",
+      "sha256": "969e7dd1bedd709542b1d28569635f475ddd6ad010de795bf264ef97520611e3",
+      "gitBlob": "e0671c3cc280d45bafec73ee8cbdccd132231fd2"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/states.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/states.md",
+      "sha256": "427f5b2fc90027bffd5be9d088b6ab0220b55691e9b8f0f2cb5b1a730927f2cb",
+      "gitBlob": "3cc5ee47be1182ba221deb9e2cb0c92107a5ab55"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/ionic/tokens.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/ionic/tokens.md",
+      "sha256": "d95c1a199cad338220a210bfcca9a2dd20698dcab07f5357f2ea453dbb924c33",
+      "gitBlob": "204115ca64fd47e1a3da3672947533178ad7f45b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/_index.md",
+      "sha256": "9bb6aa0b5878f6d8d0773a7258061364e5899d88e01c92a2a9bd283599ffd864",
+      "gitBlob": "e9046248f32cf28ce42d34a39e3b4b15019fe9bf"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/adaptive.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/adaptive.md",
+      "sha256": "f47e75e3673831dfe5a1b3bdef7a0c076db8669b9ce5c2ad569c7ec2897a6264",
+      "gitBlob": "0128fa02ee5f619d4a3263b1943429d2883fa6d1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/components.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/components.md",
+      "sha256": "d60d67e6b550b7a702a807e44f1437c8d6760971ec868b6aea33809dfcad750c",
+      "gitBlob": "ed2d88b2fd2b94112065f941828b616767a532f3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/snippets/button.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/snippets/button.md",
+      "sha256": "e718f2760718e0abbe6c17aea673675355b0f9698fb54a4e80249c183eea604d",
+      "gitBlob": "ac155e0b8ba0aac5cd1e966508e1991ad880ca85"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/snippets/list.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/snippets/list.md",
+      "sha256": "d97a7e75425a7773432edb39a566f193b01223b101c54d529504c07c13b8ac07",
+      "gitBlob": "5b4ec441b77d84cee8f33b08273d949dc1b1508b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/snippets/safe-area.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/snippets/safe-area.md",
+      "sha256": "8594c4bbd88eaddb92305a344431d9bb63677a8bfded52d3807c153e3c9fc715",
+      "gitBlob": "95c0597cc61c2a5b96f5e3c8489ed5293eb8220a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/snippets/sheet.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/snippets/sheet.md",
+      "sha256": "8e183d31adf627735695a0f6ec738a1d2bbf49107439025935a7dca3004d62f4",
+      "gitBlob": "ad44cf2f0bc6a85f91b33f19995538100477ae0c"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/snippets/theme.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/snippets/theme.md",
+      "sha256": "cd3dbe8395e8ff222e9214059ecad6852a9f8f0de1fa863059f6c84d87d3f43e",
+      "gitBlob": "a4639575c92645b2439a2a4d7a9ea9fca994c0b4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/states.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/states.md",
+      "sha256": "e25fc454d315cf4f2b380f9c5d8323b9776f9c0a7b95d3c534dbc973da095cff",
+      "gitBlob": "8ac75bc3fa2ef0df482f310c349490e4bc9d9071"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/jetpack-compose/tokens.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/jetpack-compose/tokens.md",
+      "sha256": "5f57d897baefd8a4e61fd0e74c7d8deff0743c7396847d407464a2eee9209ea8",
+      "gitBlob": "ec19c3396010ec6c057273077c95d8587e2eaa3d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/_index.md",
+      "sha256": "938aedaeba457098b41a2d1e80625d0328097a0589b8b40c347175550fe02517",
+      "gitBlob": "3c3142ca303e54f267514a7dae48713f248fc13e"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/adaptive.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/adaptive.md",
+      "sha256": "1e65cc5a10cec9d06bb4524db80ab2bee9d77124977828414297592d23bc51bc",
+      "gitBlob": "1716474958e543ee8a4b2c488ac923e41055dae0"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/components.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/components.md",
+      "sha256": "42e802b04fa149377ebb40dff8b12888215661041756ed07dba0cff43d4450fe",
+      "gitBlob": "d6023f6c45c873afef520880dda40813fd81dcc3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/snippets/button.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/snippets/button.md",
+      "sha256": "ce456c72980d53115ecc49362e6481430e453e62629b4e2db2c19e4a21c4d764",
+      "gitBlob": "b53cb6f50eb9751167505d326937fe44f8c77a8a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/snippets/list.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/snippets/list.md",
+      "sha256": "01f9dfd65f919e608cc02749f7f221edb1f292545055c80d66f5bc3a63a08454",
+      "gitBlob": "935d94fcacd835c1055ea7c1dbae97d0f47ce5cc"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/snippets/safe-area.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/snippets/safe-area.md",
+      "sha256": "323231d94547e2a7c411c63ce46c16e3946c2202f4aada938fab9c17bcc06d34",
+      "gitBlob": "749823fa4d59585fa895de59956fdce9ce81a959"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/snippets/sheet.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/snippets/sheet.md",
+      "sha256": "c6f51cb3c20618c01643624d19bdb2488cf7b99412dddbc0928a083cc3118f85",
+      "gitBlob": "bfe42452bb980b0d70891c29e32e6e614f7e8322"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/snippets/theme.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/snippets/theme.md",
+      "sha256": "d2d4f43dcd5e01d8ec386590fb9819eee338c0d138ea14ddc149809ddcee4017",
+      "gitBlob": "0bd4b29d18f106c38202c0c387855fb54ca640fb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/states.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/states.md",
+      "sha256": "d7fdb402eb93b2d635b8c04e6ed13935886889d2aa57c5a97b137955a4c6a1c0",
+      "gitBlob": "e41c80101cd443ef48fcad0c246486c87beb6cc1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/react-native/tokens.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/react-native/tokens.md",
+      "sha256": "335d019edee73a7e7b3428c97e4f53209f9cf037cdf7fdbc538e9557955c87e8",
+      "gitBlob": "7ed2221550ef55ff067ffcff4f2e1254402e2392"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/_index.md",
+      "sha256": "6e6e0a14a9d29fc08ac0b180e285fa30b3e48bd6601c1c1c4294cbeacf50d451",
+      "gitBlob": "ea05262a00ba74d8661fd50479b1263c8314ac26"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/adaptive.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/adaptive.md",
+      "sha256": "b2999d4882329b4407a428220c8a4e0538cb5eb3194fab9d357969236495d99b",
+      "gitBlob": "461742ccf291e3e9a2b51771c4eb59d38f1f777b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/components.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/components.md",
+      "sha256": "5db40a69d97093064efd9e8a8f7c1f81f9f6bf17f9dcc2db0874591b2cc060b6",
+      "gitBlob": "16bcec89ad95c85cb9ae9ed81898821247de34f6"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/snippets/button.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/snippets/button.md",
+      "sha256": "1d925d81f467b6507b534c69723b09bc3dae9913b3dd6a1fd8948026f7f883a9",
+      "gitBlob": "6e8935e1e31378317406b601119f69272e032754"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/snippets/list.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/snippets/list.md",
+      "sha256": "f0de4bef1543994bfebab7c3a9610c77997561d3ecabc6e90b1af93814000638",
+      "gitBlob": "062c65d14d93b13b8206ea0c3815e4aff00391b4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/snippets/safe-area.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/snippets/safe-area.md",
+      "sha256": "cfe63f2a296581c2517255d3ea349cb513ad53c935f0ba844dd17c6563879a79",
+      "gitBlob": "a1cd499ec800e073ce9945cdadde58704cb5448f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/snippets/sheet.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/snippets/sheet.md",
+      "sha256": "a7589088a4004ecc4e8c5b13b92055d09abc1d067da3a722a64e6c1f7a2d26cb",
+      "gitBlob": "21e6625141280fafd1956cc788a168ac5533a8b5"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/snippets/theme.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/snippets/theme.md",
+      "sha256": "8f5b76877c41b666a349fb80fa41017a014de19e635cd98e283221fc7c933466",
+      "gitBlob": "6e2a841ed78259de10d8178456ede51e92935dfb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/states.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/states.md",
+      "sha256": "57af3ebc1d03c19a9cfc1cade2f1be00d840497bea43ee9844489631ecb0a6d1",
+      "gitBlob": "872a45d1419456faf910adfb89f956e5803ccdcc"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "frameworks/swiftui/tokens.md",
+      "path": "vendor/mobile-uiux-pro-max/frameworks/swiftui/tokens.md",
+      "sha256": "0c130cf3ad8670b2a1ccf2713930378c71f476db7434d395046685aefd9bfbed",
+      "gitBlob": "7f0f903336e0c50c55fa5aa588909cb2365618d0"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/_index.md",
+      "sha256": "ac222809fd2d05b6282dbad5e592e3dba1aa4a0ac6b93461c4b63df7677d304e",
+      "gitBlob": "51ab99836386a9dc65de7a85e29d2f5819fd76c3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/accessibility.md",
+      "sha256": "4d315481a1c608eb48ba582b9d981b51cbdad7e5df3d336cb754f70aa9845504",
+      "gitBlob": "73cbdb1ab415b3ce3c952a08190dc15bbef56329"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/components.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/components.md",
+      "sha256": "0b00bf940e599045b8e40f46bacd7d51f80a79f085d6ea08cdfaa17eaa81c0a0",
+      "gitBlob": "9747a05c45b6ef59a672e75686a3432fc7ef4a48"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/copy-and-tone.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/copy-and-tone.md",
+      "sha256": "ab40c530d29ea68231b9b6ef1ed3a47744b9c001e61c8e82d248df58ef902265",
+      "gitBlob": "5f1d37a8e79f65a1e78b61ede195b509f366e13f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/patterns.md",
+      "sha256": "44cd274e3e18d224b38de256a6ff2a66f2f4292f2c3580fe52854735382b600c",
+      "gitBlob": "12d06a61d0915bcf2421b4a7cd2cd5b190b6fc66"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/pitfalls.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/pitfalls.md",
+      "sha256": "9217e68f22a45dae3df05ecf828a43c7da23935594248d61431b1d10671ed924",
+      "gitBlob": "11cec25c827088131fcc21f22ae2f1b571d123a9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/ecommerce-marketplace/trust-and-safety.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/ecommerce-marketplace/trust-and-safety.md",
+      "sha256": "573e489760d54270d28a0f6180fb8f917fbfa947addd7e4d40dfc0c035c13086",
+      "gitBlob": "42112b6bd1c013674c8a30f4201abc5d10fac082"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/_index.md",
+      "sha256": "ad44ba1bd0d34264dfe875ae924c3c11a41d4bfc29e7b809d5f4932c2c8a4980",
+      "gitBlob": "d4dc020c9a7da4d101650386459c7241cb9cb229"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/accessibility.md",
+      "sha256": "842535810e67744a8f133e24eb6e9c07b3e45a1afaff26d637e251a231f6f75b",
+      "gitBlob": "50524b44dd81a56bf22d062b667395d0749f1aee"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/components.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/components.md",
+      "sha256": "8ab550782b2122911da29b6920dcdb7ffc0ef1b0b07b1449ecc2dc4bf219b7d3",
+      "gitBlob": "4ee058e8257c00edac5c1ee68034d02aa9985a0d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/copy-and-tone.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/copy-and-tone.md",
+      "sha256": "82bfa2e175721d537b36efa47754294fa2cf2f288b720645586182d58465f0bf",
+      "gitBlob": "c0b8a4e94bde3aa46518b3cd0b5fabf15fa8d3cf"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/patterns.md",
+      "sha256": "ae96ee30795b381748baa4e8115f5abd20ef87d9a0eeb69794113c1ed792859e",
+      "gitBlob": "49d7c1238c28d05da309189487bc1347e528c4da"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/pitfalls.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/pitfalls.md",
+      "sha256": "51077c30bfaa88204e072909784a2bc4a8400d4a90e8ad6926bc910bfeb1a30c",
+      "gitBlob": "ee66b883dca3e974ac62197dcdcda755adb38315"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/finance-banking/trust-and-safety.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/finance-banking/trust-and-safety.md",
+      "sha256": "f1229d9c1e7b6885e5919ed028559a82d29c34e185f5c42345a0260b86270045",
+      "gitBlob": "e58476e7ad67fa194290482be3549745a909cf9d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/_index.md",
+      "sha256": "c3f500032d6d71a7626ffd8c9aa5c5cca72217267adb8c497fc4363c5373d635",
+      "gitBlob": "b7ca3cdb6c86d1de6792f1191275ad12a816d4c0"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/accessibility.md",
+      "sha256": "65c6568e76ec0abe4a51efcfddec8e92d216df00d5ea21e6d9b1964128e78ad8",
+      "gitBlob": "b3efba1cc7c9be494e4e710506f6d1c1987f9460"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/components.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/components.md",
+      "sha256": "2d40968f04d01e91912dbd01903bd82794dc8d7fecb977bc10aab64f10584152",
+      "gitBlob": "54855835818b1adaca30208dec636977ff7cf20a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/copy-and-tone.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/copy-and-tone.md",
+      "sha256": "2dc1e402fedaf044538c8b51ca1efc0de085a468fdf119e875c1b198b72639da",
+      "gitBlob": "19071de34b01da7ae15ea85726bb1291b9226a55"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/patterns.md",
+      "sha256": "0629ddafa00d8f66e618fc195f96b3b6d512d331136551731a8daa3e706cadcd",
+      "gitBlob": "4866f8add6a2358ec267ac64e1bda86da41d70e8"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/pitfalls.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/pitfalls.md",
+      "sha256": "a68d1ce73614d222008598b275d0ba72cccb31342ca1dbdce36b41f8ac3674bd",
+      "gitBlob": "e1963dca8fda7808ebd42b0dbfd6330a7ee2c972"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/healthcare/trust-and-safety.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/healthcare/trust-and-safety.md",
+      "sha256": "7ba43fb065f4f4ea48d1f4ef89c6d39cc8dbba3e22635a2a2d4073645c0002e0",
+      "gitBlob": "569b850106febd015c89a51c3128f196edbe56b1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/_index.md",
+      "sha256": "10dd2694d53cdc2d43172c73afd0e526c7cc361742618be6c56d9ff6676c6953",
+      "gitBlob": "cc49f95dfe528ff1d7dd9a4b48e41b5012261f22"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/accessibility.md",
+      "sha256": "0ee43384f60a25ab288001ff921b3ebe3f911700a597ae1195d0302c88d2d879",
+      "gitBlob": "3878a27862fffdd39070f341376d58b91d19de95"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/components.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/components.md",
+      "sha256": "5902087e5cc440a133be59caf03d293059320899f5753eb76e6b52e7b6492aa1",
+      "gitBlob": "073a9c0c1241d0a9e61d621b700e99d8e7a5e793"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/copy-and-tone.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/copy-and-tone.md",
+      "sha256": "a078fc387f8937a0739416aaec401773a9aced05f59e4949393b72bb50647c3f",
+      "gitBlob": "6cc16187ad9863f795aba1bdac8f0f3b3fb30b1e"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/patterns.md",
+      "sha256": "1ae1ad4efb64ed695f034734a4a3e65f5d27aae5679045328c5a37c48d0a9f88",
+      "gitBlob": "328634edf24905aab7af7e7e129bc6c3d769e4d6"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/pitfalls.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/pitfalls.md",
+      "sha256": "a6d511e533ef437c019e42e989bc9829bc8f5a892cbe98cfa46a98badb2ebdab",
+      "gitBlob": "cdf04b26c41fcb58486d7242fbdbc6b760e07027"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/productivity/trust-and-safety.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/productivity/trust-and-safety.md",
+      "sha256": "0e87e9b8aaa4b6327f918985bff0011222eccdb043902bb41ff678babc6be4e9",
+      "gitBlob": "db8353f022f11ba5d9ac118bdcbf8c9969f95649"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/_index.md",
+      "sha256": "4f5881dfecbf57446c17aa9c3c47c05cc9f67aed7d4a23fd2710ce680c52f8ae",
+      "gitBlob": "ee2cf3a731296cbf494dcc184fd03696dffbe4b7"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/accessibility.md",
+      "sha256": "da2cff2a51cc60c41fcaa3f10c282b9914dd19b643af365df94274413e482d14",
+      "gitBlob": "d75b35bce0a0c005db42ae547d2b8bc4d2e6abdd"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/components.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/components.md",
+      "sha256": "675db8451367d5878f15a1f44d196527dead6f1a3057b4e7754e151699e09563",
+      "gitBlob": "4216312b4081778b2d915f00151e08e84e9eca87"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/copy-and-tone.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/copy-and-tone.md",
+      "sha256": "bb8a13ea24b4fb8662d58e4d67c425d22c93034570a7c60763681e73d6b5d8d7",
+      "gitBlob": "9e3c94078c268a7cacb173eae1ff706864ed4883"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/patterns.md",
+      "sha256": "fa495de814e06f58b53c73958003dac7b142b17945f967d5dfec81c152794506",
+      "gitBlob": "e06b01d3ef6224123a8666f3414891f0db6b957d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/pitfalls.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/pitfalls.md",
+      "sha256": "c6038a734955ea6137f42cb925a7c94aa197d571362faa14a2db1f59a3fc36cb",
+      "gitBlob": "80a6dd7fb5d0bee2e89a2f87c1a174f004118175"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "industries/social-messaging/trust-and-safety.md",
+      "path": "vendor/mobile-uiux-pro-max/industries/social-messaging/trust-and-safety.md",
+      "sha256": "8c2f6584506d5659124be0c3beaac299683a2b043564ae390e66d1e1e44610b3",
+      "gitBlob": "fcae7ad02c17e75e7fcfd360f9bd6221881d373f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/_index.md",
+      "sha256": "59f658ec7d24d805ca6aeb2b57d72442700f888612ca1b0ea4c62d24b64c88a4",
+      "gitBlob": "a2e5214f039ef69fdbb69a29a9a21ad9555eb19f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/checkout-patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/checkout-patterns.md",
+      "sha256": "8a5b59552ca7f08e88a6360b9507a6ba542a38053ed481b1aaa6085cdc38e69a",
+      "gitBlob": "f04a397e7a12de4ca15904df9e3d74fed5e83b65"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/empty-error-offline.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/empty-error-offline.md",
+      "sha256": "61002bd70141d660256eade452eb0c10e0e1af7826b95a1a7d6af813f98c8ea8",
+      "gitBlob": "be8ce716078371416cc21459ab042725050a35e1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/feed-patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/feed-patterns.md",
+      "sha256": "550ede3f262800e9267312e4adab3167865d725a911890e3c5dc6e9bdc7c87b0",
+      "gitBlob": "40c3d197b77bbb6d9efaf1f0d5d6cb5a95a74b6f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/form-flows.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/form-flows.md",
+      "sha256": "e4a6e031fd6ad3d544b45014b5f2479f6f4b9c88354593c06af33e8e90d6f8b7",
+      "gitBlob": "219ac57437f9371f61c6959c40b5850fd3ca0879"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/list-detail.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/list-detail.md",
+      "sha256": "24b60ba8547c6b1296ade42027f9213ce229230a4f350e2cb6b734b6d252e7b6",
+      "gitBlob": "3e85515b45f904358c51f0e01c7baabaae704d00"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/navigation-patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/navigation-patterns.md",
+      "sha256": "f9f00c124c47153247a6f395ff8bc8a4f10fe8ca94dd9d0726bd4353adb37bec",
+      "gitBlob": "b368ecdcdc18b27519d4acfd367b8c4840838a38"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/onboarding-patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/onboarding-patterns.md",
+      "sha256": "4042cd7173f0b45b74d0b59656fdc28221c3072761e769ae77402436d6feb2c8",
+      "gitBlob": "80471fba1546a4591bcbc69312447f3c920c9791"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "patterns/search-patterns.md",
+      "path": "vendor/mobile-uiux-pro-max/patterns/search-patterns.md",
+      "sha256": "024fc2608bd29348969c69081001f97cd9709ddd23bbca1d3790d078ddaad221",
+      "gitBlob": "2716c34bc78e4e53d6022d6ceebbe9b7fa0afc6c"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/_index.md",
+      "sha256": "f84dc03bb259afeef1bc3fe3634abd62199d4bea00a2c6a1ba675b29a737cb67",
+      "gitBlob": "cb669984dc5727ace8026a83620888a5741bcbf7"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/accessibility-review.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/accessibility-review.md",
+      "sha256": "22e90d41767f6ea7e3d5641623b24676a8d866f2606d1a623744b4a89b8b2e37",
+      "gitBlob": "0d622ad242f5c02ffc8029fac0bd70a871d4743f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/animation-review.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/animation-review.md",
+      "sha256": "21b6777692d8e619ff5b40565a4890432d6a1c4e8409a7ec3b6629b7b7224764",
+      "gitBlob": "81377bfd0738955635b5318625785f5c96023aac"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/audit-screen.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/audit-screen.md",
+      "sha256": "9d293b1ba93a0cde939e54bd11ace33139a734610d020c73ad628e1d10e1a0cf",
+      "gitBlob": "0c99b19a3409e79c55095df6d1112fd37fdebbe1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/authentication-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/authentication-generator.md",
+      "sha256": "9b44d03eab1561ce2968e79f58de4be5fd135c23b72d8ab960c20768acac7f19",
+      "gitBlob": "73969185f927c96de8587155b0f059cc730bb75f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/chat-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/chat-generator.md",
+      "sha256": "1b581beffb985277921cd9e3e1cc6d77a39339beb66caf329300cace5acccb84",
+      "gitBlob": "b504d44bd6c73c3a16ab9290408413f556d629cf"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/checkout-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/checkout-generator.md",
+      "sha256": "1adeb585c23bcae2d9a7d7d5115b7903203d9914423284159dbaf326afd84563",
+      "gitBlob": "1519c52d19587b724ba9ef5dd08d9c8d88fd7e21"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/component-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/component-generator.md",
+      "sha256": "b455f82e141fa9d071dbf7728c8f237c676d7983d305083e037c36039479e875",
+      "gitBlob": "f342fb4e8ea4a5c28df8963036a031580e238b6d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/dashboard-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/dashboard-generator.md",
+      "sha256": "cc94719d854eca8412f0183b68c5187c4142998c6a433e3ac2468ddf8f78117b",
+      "gitBlob": "4094b28e64fb20b26274657be5c49f432f9f220e"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/design-system-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/design-system-generator.md",
+      "sha256": "722edeb679be2b401368ccbed8572635930255cb382066ac4b7ffa057de5f21b",
+      "gitBlob": "3021023f3c900deb675d5191b29da5fe32dafb18"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/generate-screen.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/generate-screen.md",
+      "sha256": "295b10c245d5cc35ead3034f7454681d56c1ae6d64894b30dc44915f9c12a8f2",
+      "gitBlob": "af10a8144fc2f4edcf17abb4713286e7c70a9d5a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/improve-screen.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/improve-screen.md",
+      "sha256": "a9a5406d130c06282d2d6e21f1624a5b4f9f4da1de3b15d5c19b97047c1ffbdf",
+      "gitBlob": "338df3e4fb45db3319e32aad7ff84c8b627582a5"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/onboarding-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/onboarding-generator.md",
+      "sha256": "b29522cbbdad12feaf66eba3f45bb91d3f37f720fb6487e3145e4b337629af85",
+      "gitBlob": "c8cea3c3799bcb186e7c569388673c14e81bd529"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/profile-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/profile-generator.md",
+      "sha256": "000b3eb82744b3ca6f698abe0542181f1759d4120f5ac76e3102cb02f34deb81",
+      "gitBlob": "136e455bc224993cde416d151bf4dbb0d12f952a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/settings-generator.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/settings-generator.md",
+      "sha256": "646ad73e98d01f38ea9931869fc4f35f6b10a83f7db781218065a6fab0d96269",
+      "gitBlob": "349a9dd61a8a0b347d91993ae8f70ecebd24f81f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "prompts/ux-review.md",
+      "path": "vendor/mobile-uiux-pro-max/prompts/ux-review.md",
+      "sha256": "e04f1e2b9bd86c5b7746d16f8ac8467d84c1cbe09a9421f9f2ee1cca63b3f798",
+      "gitBlob": "fa361f216ce05cb06e4a9f04612dcf0a687b4176"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/_index.md",
+      "sha256": "a8b0bc487db14b9801b592ed99b16311c36efd9d127ab427ddbcb4796a74f41e",
+      "gitBlob": "ea9ffffc28d4a06e729cb97e04e56efcc1f0e457"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/checklists/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/checklists/accessibility.md",
+      "sha256": "29031e89cee5c35702b9eff6938fb9cf9997bb9e202d9511f5b66ec73e8b129f",
+      "gitBlob": "dc5d282b80f803dcb69cf0a51ad86780b2c6c328"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/checklists/states.md",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/checklists/states.md",
+      "sha256": "2efcd758f4a08625366a0b90da90096cb7e9ec2f6a8c1d6d0bd07140a5f72580",
+      "gitBlob": "46b7f9f9fbd9d622be3c071b35d39d3fc73bdba6"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/_common.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/_common.py",
+      "sha256": "7bbc18991c00e0b0bba4bbc5e57da783407ba10743e6a0f012e024d913d46dd2",
+      "gitBlob": "f877676b0143998b2f505752e88dbe4ae934c0f4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/contrast_check.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/contrast_check.py",
+      "sha256": "f0987cdd5c8a8d03347d50e61e815c78f2e91bbb38dd0dd9f12dd1f652998259",
+      "gitBlob": "ccaa6cef1a13eb259929dbc08ba08cb3768b0461"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/dynamic_type_check.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/dynamic_type_check.py",
+      "sha256": "f10f5215f0181b7dbd46fffe3bd3367e20f2a4be4189380e43622e244aab4f24",
+      "gitBlob": "2c5f9cf616dad2ead1b48a6885647c6375c963f2"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/rtl_check.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/rtl_check.py",
+      "sha256": "a618ab09ab1d483fcc9db73f13bc32bbccbcde8c8a92b2d7e441cdf79169a6f2",
+      "gitBlob": "36385a01e619432b9207e16ca81a6c2847091ac1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/run_all.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/run_all.py",
+      "sha256": "41f4a8b259424d648e3c7ab08d88be1ce8d5512113be05258567a183696d0f0e",
+      "gitBlob": "fea89200cecb18d4eaedc42b807c1839c4c65b8b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/state_coverage.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/state_coverage.py",
+      "sha256": "76b7a64855d9e192817ee4caf7dafa78e9cc773c4428317d74547145de26330f",
+      "gitBlob": "73203f4ebb2bc3a008ac6a46be3d18b28f5ef680"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/target_size_lint.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/target_size_lint.py",
+      "sha256": "32b6209de1245d9f2530137dfcf23a6b00eef89e9135ac798f319fbae56ba228",
+      "gitBlob": "ba429db70e05a40c0324850f2b28c21dcab4def1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/tests/fixtures/bad_screen.dart",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/tests/fixtures/bad_screen.dart",
+      "sha256": "a653b312557bc4014990a1d6f3765588c78367df33303b05e869f0c9ac4887e1",
+      "gitBlob": "52e3263aa2496ac711ddbc62e76e88fbdae68f19"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/tests/fixtures/good_screen.dart",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/tests/fixtures/good_screen.dart",
+      "sha256": "8d43f23d1443cbd3971f558e246542b8df1ac17b12c68474d304d328301ebea2",
+      "gitBlob": "77349dbffc748b8af93f8d2341a8249421f6fabd"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/tests/fixtures/spacing_edge.dart",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/tests/fixtures/spacing_edge.dart",
+      "sha256": "ff3166b3dfb91fd86d9310292027da6dd0f21290b3fa6f03fd64df8edd77942a",
+      "gitBlob": "619aaac6ad135fcc182af9bd1b8d863730ac9729"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/tests/test_validators.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/tests/test_validators.py",
+      "sha256": "e03aec2302f85d5a0238ef1b5d243fdb3ba0245b1cec77bdd2c09078cd2c7906",
+      "gitBlob": "fd1f2664c4a10e92c5dd7386bbba220e1c7e8502"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "quality-checks/validators/token_lint.py",
+      "path": "vendor/mobile-uiux-pro-max/quality-checks/validators/token_lint.py",
+      "sha256": "58220704c4a84af1c8858c39b17d20d5f54d574bdc18e5b11bab3eab1ae80378",
+      "gitBlob": "6b49bf67aea00467e1f1d47e72b2fa8a3818ecfe"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/_index.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/_index.md",
+      "sha256": "aa10a39a3eae83be25a5b17a6a663093543bc5f3c79d3cfb2c0fab23ac782fc1",
+      "gitBlob": "2604e3d391fbc2370b30b17a4f8cce12844c82b2"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/avatars.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/avatars.md",
+      "sha256": "9f90179778e8f3a88c294a3379735308e1aae0211cbed3e41575831f05bf0a38",
+      "gitBlob": "398b2eea2de236e8eb37a8556894f73175d32478"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/badges.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/badges.md",
+      "sha256": "64fb1925edcf2a8b19eff6314b0c1a7e588d47cf2d61148fbed92ca90051b1e9",
+      "gitBlob": "816a2fbb7736a9fa9a5e191842e29a895a63d6af"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/bottom-sheets.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/bottom-sheets.md",
+      "sha256": "164058db61468e06c9942703d88ff1bb7b96942b3a506a9a8a01856e8e906fa0",
+      "gitBlob": "c32a2cf8ea171309e720d247b5a93d11ec041569"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/buttons.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/buttons.md",
+      "sha256": "fd8ffa90a29b887da5b1348b997fb93341b90e8a12f2225af58c943da1ab7a8e",
+      "gitBlob": "3995b7224b3b89a35c59e6dfa5b61473dfbb0f4f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/cards.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/cards.md",
+      "sha256": "68bac0683e176d8fa0713a0df089c5b1f7366f5c2c29cddd31e649cd5a95a67a",
+      "gitBlob": "884fe58854b3123b11c64aa08a600392a6dd928f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/charts.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/charts.md",
+      "sha256": "0149096ebe8b6d36a95c169addd24bcc5f6106106f73180be741d0b367f6d767",
+      "gitBlob": "971e45821b9a998b73899509bf7527d6c7928a4a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/chips.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/chips.md",
+      "sha256": "94e737e14b9f057e65f67893aeeb41784fab6c8b0203286365bce484b877b240",
+      "gitBlob": "1ffcc5bca616508841f979b4c983c483ef642deb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/dialogs.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/dialogs.md",
+      "sha256": "94538efb9c09c0baee1edff9b17023f9fa8f11ea276e3cefd7702d817725bf1b",
+      "gitBlob": "dabce20acf20b6d235472be763c63ef9d27cde3b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/forms.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/forms.md",
+      "sha256": "70653d1e64643d26e2c0dd76a41f780a487525ef8ef3318a02092f5462eb4605",
+      "gitBlob": "591c7e1863bfbcaa8ae1798cc264fbdd0f5a55ee"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/lists.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/lists.md",
+      "sha256": "648abe0bd2e58b2827156269c37708319fa050b5c2b37e37bd0bca307536cad5",
+      "gitBlob": "edc5a06e5548b66a5f8c75057d2d57074640c260"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/navigation.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/navigation.md",
+      "sha256": "9da09d38952a0257711030573fc1e1138be1b03e4231feb7d6be825b2af7da62",
+      "gitBlob": "64ea596386428dc38d278e6b30e15fc309a9159e"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/progress.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/progress.md",
+      "sha256": "dbbcde9f28731efcec83485ea213f6ba1c9af620d5831e319b94518830e8872c",
+      "gitBlob": "78286f581466aa336154757fb350949b9077e6b1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/search.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/search.md",
+      "sha256": "c926fe13aa3ff6844fc4889d9d18ac58e2a3d8419b067234b04fbe0e4293bc7f",
+      "gitBlob": "89153c32feb17ef89a92edc1c7d36f0339c1c0f4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/components/tables.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/components/tables.md",
+      "sha256": "c44345cbcaae54a39a451a4ead17c7e0b114d2b8f6b5e0630dec29cda3066858",
+      "gitBlob": "562d180b1ca525ead4bdd75ef77d9cc57d9b7016"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/authentication.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/authentication.md",
+      "sha256": "ae5058e5d5a7f28d9817a7a1f79f65b9ebdc18e9f0cac887bf522b3a753ccea5",
+      "gitBlob": "c04dbb77a302074139f03351fc8e3d0e428366d0"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/biometrics.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/biometrics.md",
+      "sha256": "4f8e24b6e70b3ad1883eea6ea096cf7ab93eb2412b3a9e2d04b6398cb25388d3",
+      "gitBlob": "19792834abf157585d7f82dc6980dc89d603fa30"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/camera.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/camera.md",
+      "sha256": "aa522c15a761fd3754d265512489db85b45241808bf44a7a15e90a781d486a08",
+      "gitBlob": "52ecc70b3487f406ed317c5bb1de07156c5de1be"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/chat.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/chat.md",
+      "sha256": "4c3d342a406d94a9f5c60bac694689abdb821329b568c31d4faedc91d7fd3d40",
+      "gitBlob": "67adc92765b92c3cd923eb759e8d6173daa4b5fa"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/maps.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/maps.md",
+      "sha256": "98b36c5296f0a7e365b4385b31d908ab8aaa2d19ea00899b5f3257721b355ac2",
+      "gitBlob": "b9b874648def16155cbb628d7b00c2bb5ae8b1c3"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/media.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/media.md",
+      "sha256": "9bf3db1de52b2e7673ea849022b20682d6297f2076e6b28774c2ad6004d60305",
+      "gitBlob": "c942be0882e559509499561cf85f5be0987195aa"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/onboarding.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/onboarding.md",
+      "sha256": "03cdc0322df1b0fd43332cc517b8ddd8d8a296c2c3410287f9ddf5ab2492ce76",
+      "gitBlob": "df382ec765db00923b93d261b164b7796525c341"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/payments.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/payments.md",
+      "sha256": "ff00e028a7377283ded314d8afb2243b0d197ccb2e40100a339fe5173d8921af",
+      "gitBlob": "911adf4705a643cdefa04198b4020c01a71c4ca4"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/profile.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/profile.md",
+      "sha256": "4ce18b1b28af77e5a87e13d7ecc0b6d8a0e47dd44f83fb5aef68835b06a54169",
+      "gitBlob": "c4ab5506957af8b8700e22eef9dc246a6712c366"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/domain/widgets.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/domain/widgets.md",
+      "sha256": "3e430f5788d0ddf4b9e895b7c8b36dcb3aefa5c584b677db9549a7453f02ba48",
+      "gitBlob": "cf514fb908c3f9abffbf60e1076a0a74062e50dd"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/color.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/color.md",
+      "sha256": "bdf37ce48ab86f921f7612455d8ba952da594bf1a6e0fea03ca0835463723f06",
+      "gitBlob": "446d03c788fcfbe5fc39873ba0308225ebe4f921"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/density.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/density.md",
+      "sha256": "0e30a528d12f474db2e3c2c3135e902cd4210195beea642a0f51c166ab810e23",
+      "gitBlob": "c6b9f584b0f12e2d25c2fcf8adb7746074e3784f"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/elevation.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/elevation.md",
+      "sha256": "8448abab99530645d06963fd9714d405618301dcc310b8e83b0358d281dec175",
+      "gitBlob": "6991b0776316ef4f4ee37c061b0ff909c8b07f64"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/grid.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/grid.md",
+      "sha256": "b2804d03116ebac66843849594a0a43eb750275b687fcc5598e535b27f27341b",
+      "gitBlob": "c8e12c69497c659de9fdaaf3fa3af4f44f48e8e9"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/icon.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/icon.md",
+      "sha256": "3452a81efec6cd8b0db2a6844ed26a0871de40d3b862a830db4b58d62a44599a",
+      "gitBlob": "de0450fcceadefa4f2d0d091ddafdf7c7a950544"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/shape.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/shape.md",
+      "sha256": "ec9f67a6c724468229b06e97a1f6b2ac555e487d4758c71f588952e9858083c6",
+      "gitBlob": "30e987ade73f71e3affb5d96a14d0f737df4b8d1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/spacing.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/spacing.md",
+      "sha256": "35a1a983e3b6adab974479f7deda4bc877948c8894d6b12ad8037a8c83a4b0b7",
+      "gitBlob": "35beba5d2fbfd14bd3212fa1cb1b63082767f4eb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/foundations/typography.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/foundations/typography.md",
+      "sha256": "af2219342b5692705ecc5f3715d8435fed4678e789f0cb80093681205fdb5477",
+      "gitBlob": "3a28b3a445b2c2b21ab055b79f356152b41c594a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/interaction/gestures.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/interaction/gestures.md",
+      "sha256": "7038412ec4ffb5af6155047ada7bc08701ab328a933843ffe6c1bf772010cd04",
+      "gitBlob": "c727dcf39785b8d7d3288ec06256a871499ce80d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/interaction/haptics.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/interaction/haptics.md",
+      "sha256": "8ce329a6c50286c1e95eb416512ddfc54b8ba38e97937050df55963831963245",
+      "gitBlob": "0a58867ea32173548cdf0cdabc7c353ec7c71deb"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/interaction/micro-interactions.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/interaction/micro-interactions.md",
+      "sha256": "5de3302351bead76ce245e1f8cd5ca647b55c1edb89b7ce286939a08c80c8d4f",
+      "gitBlob": "23d37274a62199d2a5910dc960b49bb3c8b74094"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/interaction/motion.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/interaction/motion.md",
+      "sha256": "1437e066d773112227f5866f636909d98a03a652914ffb7d2da82fefe35cc7cb",
+      "gitBlob": "9c2363a1a6cb980e6a930cd1ac958a46cab6b73d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/interaction/states.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/interaction/states.md",
+      "sha256": "c9990ccf357edd0f215a36cbfab3304fe8a6e7a107e2419aaf8ac2db044184cf",
+      "gitBlob": "2e27e122256c4f400f084576f6f8c03932835bb6"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/accessibility.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/accessibility.md",
+      "sha256": "6f5ea1000d2261716face2b5c8d8a51dd21cc47acae649a57910054e78f08501",
+      "gitBlob": "59f68cd5273d712f376da803f719eaf81e649a38"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/dark-mode.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/dark-mode.md",
+      "sha256": "f68b3c6604d540fec98d24eb028e1e5b6f8d654abf0a04d7d13edfa347f06d2e",
+      "gitBlob": "a4ebc397cd6dd452f34a0acbfae5f23d16ec5dd7"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/localization-rtl.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/localization-rtl.md",
+      "sha256": "fbc98aec412c9faee26fc6809ebe6f5cc574739ca35ea68f0f6f077c04d5b357",
+      "gitBlob": "e0a5a72166ae8ea5f2e7d3491f0a2a180d26fffc"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/notifications.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/notifications.md",
+      "sha256": "57d0213b7356ba011a2aec51f5f5e92531249f663a9d74bcba09eec97e0a265c",
+      "gitBlob": "f5850b9cf305a2254fd31063280302d336f8ef03"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/offline.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/offline.md",
+      "sha256": "dce9a0ca3a2cbd77dcfd07d2421c4037579bf4567518370d43afdea778c489b4",
+      "gitBlob": "10bb8e0d6f81da89f036cdfbfe10764dea30b62b"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/performance.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/performance.md",
+      "sha256": "8213087fd735bdd71cad214bdc1bb35670f49be8a644aba837625bfd5b99a859",
+      "gitBlob": "3d2d04f2351851ca25544c4b639d7c6635ce09a1"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/permissions.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/permissions.md",
+      "sha256": "489663c60b107d625277e0902ce3610cc3bfb73148f6e4a4adb895c10cfa5bbc",
+      "gitBlob": "9d4affc71b8b73f75e6105cddd804f78a581984d"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/platform-conventions.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/platform-conventions.md",
+      "sha256": "ce2f6197c3fcaaf99f97b37c57b9ce9f667dc0bd376fcc80df6f9560ee983c4b",
+      "gitBlob": "74e92f6179cdee89f4984143f747a36b5400280a"
+    },
+    {
+      "source": "mobile-uiux-pro-max",
+      "upstreamPath": "rules/system/settings.md",
+      "path": "vendor/mobile-uiux-pro-max/rules/system/settings.md",
+      "sha256": "6465a85cf52575ee3b5d3c2215ab6a8664926ca0a3dae75326bfe65f8e5d7554",
+      "gitBlob": "be02d9caf7d03146052dfb467cd6b2b25f9125e6"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/SKILL.md",
+      "path": "vendor/impeccable/skills/impeccable/SKILL.md",
+      "sha256": "fab04b31f946573b00a8559db1fc070f8ea5825254d491c2b13156e5661a86d7",
+      "gitBlob": "c0dd2530c9968963b1f63bf50b227c4a33996e3b"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/agents/impeccable_asset_producer.toml",
+      "path": "vendor/impeccable/skills/impeccable/agents/impeccable_asset_producer.toml",
+      "sha256": "4dbdb0cfdc2466961da6b22d200f3ec7bf8bb47c27448a2e6e3c03cdbf589831",
+      "gitBlob": "91eeca4cce0e62881149b094e758f814510649c3"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/agents/impeccable_documenter.toml",
+      "path": "vendor/impeccable/skills/impeccable/agents/impeccable_documenter.toml",
+      "sha256": "e7778229d8f31433fc11e29dd2caac8e85281e27ea5c9410474703bb0185100f",
+      "gitBlob": "a39f92774a4eb7ff2349de664d4c0123e38d2f08"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/agents/impeccable_finish_reviewer.toml",
+      "path": "vendor/impeccable/skills/impeccable/agents/impeccable_finish_reviewer.toml",
+      "sha256": "1b80232e22d52b06a7278b9ca1f24f871a181c62cd91f4b18728807e7cf49dbd",
+      "gitBlob": "124b0c4e4418308288b731f78d134e28093ade33"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/agents/impeccable_manual_edit_applier.toml",
+      "path": "vendor/impeccable/skills/impeccable/agents/impeccable_manual_edit_applier.toml",
+      "sha256": "4b01f4eb8a49fb00bc88248735c3b5442beb1791ec71d98e6d203f268a24010b",
+      "gitBlob": "ae18e0742b1d0a2ca0d950407e53c36294ce2af2"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/agents/openai.yaml",
+      "path": "vendor/impeccable/skills/impeccable/agents/openai.yaml",
+      "sha256": "ce9967ad70f99cf04456f3347c266723c2fbbb600267d10a822b7cd20562c321",
+      "gitBlob": "e86d8a955ee9527dc9acfa70ded41f8c54aea435"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/adapt.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/adapt.md",
+      "sha256": "9807cdc112b8bcbdeff9cd2516cda4d07129f1d47f29df4d57645344f34950c1",
+      "gitBlob": "de4631d7e8f14b3c193175b87302b6ccc814e34c"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/adapt.native.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/adapt.native.md",
+      "sha256": "2455a2613e1fa29b986521c73cbad9424ccda70ef6cbe505779dbca5e16272a2",
+      "gitBlob": "435c40a6f416809d88cef92c09f0331c65fddec8"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/android.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/android.md",
+      "sha256": "43780abcf10ac12a569d98001ae38af2b337727a0f7ce66268246ac1d54b5d34",
+      "gitBlob": "32a5cf7ccfd78afe659f10f80cca6bbb3ef7de69"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/animate.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/animate.md",
+      "sha256": "d658c48ffbe0031e8e3b318996cad6ceafe29e40aa50d5bb25e4bf1d6839dc7c",
+      "gitBlob": "c8fb9e038bb74a125646b64c49bc39711f63e8f4"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/audit.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/audit.md",
+      "sha256": "5ba9e3a090fc4c4d212c8cbfa5a48f7454ceb10fa81a284b4a7b4e8351ece2f1",
+      "gitBlob": "13bf0d7c71802a48af4863c08ee3ed898f72c4b2"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/audit.native.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/audit.native.md",
+      "sha256": "2898eff507738f9102107809e671df3e69f889dee30073030fe96fb2483d8ea3",
+      "gitBlob": "af725765fb65a02375815060fe825da390f2d051"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/bolder.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/bolder.md",
+      "sha256": "05b78fb0595e4d5afbf5f17470c84e89cf82f205fea3a6e9b6d8d779b7c4aab1",
+      "gitBlob": "c11a146b502cb46f6d5ad3f11ba0f6ff75c0e4d7"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/clarify.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/clarify.md",
+      "sha256": "173dd66abe65633910dcb04a51f40d6ff2a793f87088f022a02fc4cad24dd133",
+      "gitBlob": "4506a31c95e02b2ad918367a0ef4461643d51532"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/colorize.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/colorize.md",
+      "sha256": "bc5f71f1129d0f2c310d913d07c8dc609a1d25644121bd78c308f42d52a0b9e9",
+      "gitBlob": "02fa661efac9229d6e869a20ef8ee928d4b986a0"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/component-review.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/component-review.md",
+      "sha256": "10489e5265e49a4ef2737cd0e674c149ed41e1f703efe922e53ea3c91e833427",
+      "gitBlob": "a3c35c92999ecde66f53c96fb287d8adaa0e17f3"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/craft-floor.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/craft-floor.md",
+      "sha256": "808a50e0e6c74617a07b0eaf7fd80f58d8e48a13f48e47c658c7534b1724e5c2",
+      "gitBlob": "fd7280103f7ef4b009b38ce58f594c44c0f04caa"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/craft.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/craft.md",
+      "sha256": "9205e222bc6565b37fb504ceec93233c2d2a456802b69d16e6b1c44723907c4c",
+      "gitBlob": "dbbc9402c07cdab21f2b6eb69279b8435fecfd7f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/critique.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/critique.md",
+      "sha256": "c210c9506877c6c8d88880a337fddd95d4315daf70ed6bc631ee6520481f1a0c",
+      "gitBlob": "07ae4a854ede894de3320f42e50743c1ab4681fb"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/degraded/asset-producer.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/degraded/asset-producer.md",
+      "sha256": "cf726ce0c7dd1005078fbf560745d4114afe363319648cc9de42d1536370d117",
+      "gitBlob": "a7c26afe2ceba0cbcfb7c7092e183b26f0b6af81"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/degraded/documenter.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/degraded/documenter.md",
+      "sha256": "17b6328d809c86622789dcbe1bb1b12ec8937118ef6aa4b37bfd9130d79a205c",
+      "gitBlob": "d1640cc06f909cd6bda8c44ad70f85351bab7387"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/degraded/finish-reviewer.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/degraded/finish-reviewer.md",
+      "sha256": "3e6cb6f54c2a4796940ce81b0cc3e9c1cfc2eed6445146088e6405a40cb44347",
+      "gitBlob": "b5023c11fe6065f36a73b5b9872261c96dcf6cf6"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/degraded/manual-edit-applier.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/degraded/manual-edit-applier.md",
+      "sha256": "357b19acc7ef688c337a4f020633a49db23c84620b13636f9ff20d3ab934df1a",
+      "gitBlob": "7f2bdb65d1c708e32c56b6dd3c2695208692a901"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/delight.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/delight.md",
+      "sha256": "098a891028ce59c212b747d3c70468dd750aff7053a703d1336045ed31e0da7c",
+      "gitBlob": "60a8e83ee48d50901acfa886d3ec4bc72b40ec6f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/distill.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/distill.md",
+      "sha256": "8b9283510e38f0d190652f300ea0793acfb5a514b38b991fdc0a289bade83391",
+      "gitBlob": "2537473ced43e94d5081b61fdced2a4ff602c885"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/doctor.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/doctor.md",
+      "sha256": "33aff200de6f76a74b333d7ae4f7d2f4fc2a0da4c1a57264567d88eb8f33b52b",
+      "gitBlob": "6d680a49f238e891fb0af054d0d1899104b3528f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/document.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/document.md",
+      "sha256": "7e7e97388cac7b5af7afa5b6fec19a6576c89ce6a998c973cb007b8e5494a8c9",
+      "gitBlob": "45721a6f0aabedaa48a7b05a29c2025e6b52dbc2"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/extract.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/extract.md",
+      "sha256": "5477ae97189e5c1236cee71a25a5ae50014429a5a2e6da28355c8021a6cdeddd",
+      "gitBlob": "7c9d009c5a573dd15332b4431f6f0044374d25b7"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/generate.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/generate.md",
+      "sha256": "11385badfb532196cec249e73bac2b7f58ada033ed8c4b02b9f0d64ddb46f0dc",
+      "gitBlob": "7fe7a49886003677fdecad79a528f368b13d7f0f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/harden.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/harden.md",
+      "sha256": "4167eb7fc456cdfe09ff0ac2dbcb5e59cee57e590137aab6cc8ec08aafb6d775",
+      "gitBlob": "894f06127525ae2d802e4d73c345031e6076a68f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/hooks.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/hooks.md",
+      "sha256": "ed38f149e04740707942465a2b2c75851b773fd52a2b52132c2a8e7f4b07f9dc",
+      "gitBlob": "6d6679153689ab3c7d08b2a9cac23c9b1a4c2917"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/init.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/init.md",
+      "sha256": "51349b3a32c7f907102dd680d8e2df9da27082caf46ee15c673be7ce14a5363b",
+      "gitBlob": "fe5422cc811fb8c93989dc9a4ec7b24afbc91a69"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/ios.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/ios.md",
+      "sha256": "40c87038b5f75147a5952a96237acf312a327bf70c1bcd8e0a5f064625ae9668",
+      "gitBlob": "c6244dfe32176e5718d86211b7d1eb5601eb0860"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/layout.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/layout.md",
+      "sha256": "0bc7d7971b3edf2acd0580e847458dc6d84129d90715b452799ace3bed815c7c",
+      "gitBlob": "aa547c742fc373bc459bdbb7977683441aa48ec0"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/live-setup.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/live-setup.md",
+      "sha256": "2b5b2fbf5f658f34ea1997fb1aeebe01604d05187f75c6a4f1f55a5bc78520a4",
+      "gitBlob": "6e10f00f7f2a789da582f38cdaef89de39ead266"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/live.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/live.md",
+      "sha256": "8735aa99406752a1d4bf903051ee9e9e6e3be1f4821c044b1f63d2a0556a6935",
+      "gitBlob": "045a3fb385552c55805fec252ae73ddeba9fc15b"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/mode-operate.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/mode-operate.md",
+      "sha256": "7a52dd7a94ee75f6ae89542c86a1b6e1d306812b16e0d9dbf12d4acad44d148b",
+      "gitBlob": "833775ba85f03bf65a4c1b23e39192f7653414e6"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/mode-persuade.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/mode-persuade.md",
+      "sha256": "21e78c8a77badb3f83290cd4577ed3b24bd4dd3b57136d7da75733d4f3ee9ac0",
+      "gitBlob": "9c152d67064fb8453a7eaa89de20c35fc115b085"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/mode-read.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/mode-read.md",
+      "sha256": "a569989e6a3d6453b4c45e9474e162a15cc54e11732ac6baa7990a6e7cccc0b5",
+      "gitBlob": "b30c4c9139e3094bd35c60738decb6109326153f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/new-work.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/new-work.md",
+      "sha256": "4d9410bf9dfdb0890769a2f45e634be809392ac293abd91ee9553e8eabb18fe5",
+      "gitBlob": "54619a178ab4c80131f277f8a8525a52f7b318bb"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/onboard.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/onboard.md",
+      "sha256": "a2b8fd01ea12139b39b3285393f805bb8c326e11b2234dbff4c26c17b4e9c280",
+      "gitBlob": "f2e1c15af24976fbddb6770719fae66172268ff4"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/operate.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/operate.md",
+      "sha256": "a9d2203acd45ca33a13d5c68b02b23ed512425ac15f0e8438318ed124b43729d",
+      "gitBlob": "524f2c3ae9fa497284e9699f3ca5320cce5d05cf"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/optimize.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/optimize.md",
+      "sha256": "092c85e5a644e6e528aaff0f341ee1ed57e012c195162fef0a5fc97605f9bb73",
+      "gitBlob": "a4e55099ff738571c1fc46c66f27b015dc05339e"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/overdrive.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/overdrive.md",
+      "sha256": "0a0d4ae6eea720c6d6e1c073fc77192d7c2100f78a44d9a8d262ddf22270cf4d",
+      "gitBlob": "9f8fc8eec3b07156b670a2561d1f74c17ccdd9f2"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/polish.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/polish.md",
+      "sha256": "81666fc7f783b4e3514db6554e713dc0479bd9cdedb06e93d15f8b579aae869a",
+      "gitBlob": "f93170f773cac058f51e289603aed7575d62a6a2"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/quieter.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/quieter.md",
+      "sha256": "9e03b55c6bbdd4acba28cfa9c3b74ba1a4448cdbd35a7200990ab460c6eecaa0",
+      "gitBlob": "61ea5c7027b54ef7354f55d591b6df8e1fc11dd8"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/region-map.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/region-map.md",
+      "sha256": "778cedc9199b407d3e23fa1041e38d548b00b1101a33517aa2a2eb299f9d0edc",
+      "gitBlob": "7b7685cf59a7ee8fa9361d4f0b986ec0ba5b48ad"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/routing.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/routing.md",
+      "sha256": "77ae09542fbc10aa4e8b119d6fd19359908a47c13c30068d6a150bfdb50e3e10",
+      "gitBlob": "21c12a626e7ef084fa6ed5d03b93b91e3eb122ce"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/shape.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/shape.md",
+      "sha256": "a55f016c046cb6a27c55bd7f346375aeb506a755c4fbca19a5f92dbd42309c23",
+      "gitBlob": "90a74ae813331cbce8fff6beb498ced77970fadf"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/typeset.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/typeset.md",
+      "sha256": "c26c5b4524f3ccb650ed0680c10c25fd18083f8ebfd00a54c4d983c4747aab70",
+      "gitBlob": "683175632928ab5566e517ad6128a07166e095e8"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/reference/visualize.md",
+      "path": "vendor/impeccable/skills/impeccable/reference/visualize.md",
+      "sha256": "0c431d0dafbcac7ae8bde70ffa622f9ee542c44ec12e14b48bb44b269bef67eb",
+      "gitBlob": "afb44acced4f2a39de7cbeb200b47d4dcf89486f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/VERSION",
+      "path": "vendor/impeccable/skills/impeccable/scripts/VERSION",
+      "sha256": "447836d46f39c5900faf74ad6a6554b8e1fafeca1f78de0416d5f05c6e09a080",
+      "gitBlob": "f8bc4c6256ab7d4bb54c2ab7af94c4fa5e58ac56"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/command-metadata.json",
+      "path": "vendor/impeccable/skills/impeccable/scripts/command-metadata.json",
+      "sha256": "c6dcbeed7f13152205ca022c8f24d08683770835083f0a7325261c1c2d5f215c",
+      "gitBlob": "4686bb6deea643493198bff1369bc2958b3909a7"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/data/font-index-failures.json",
+      "path": "vendor/impeccable/skills/impeccable/scripts/data/font-index-failures.json",
+      "sha256": "835f19a0a3812f3652dd6979a2ce5597f654fd01f26e1b420b92d5f42b997ce4",
+      "gitBlob": "1aca67220413ef163570c75405b444d7a27a32be"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/data/font-index.json",
+      "path": "vendor/impeccable/skills/impeccable/scripts/data/font-index.json",
+      "sha256": "47edbdfaf27073c47033d1ac7dfee881be49e2dcbda7671d1157300481dde6da",
+      "gitBlob": "9d2029971df232a72ff6584d264c104490521742"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/engine-checksums.txt",
+      "path": "vendor/impeccable/skills/impeccable/scripts/engine-checksums.txt",
+      "sha256": "2f0235179cbc515d7c7ec71a9a08283d0cb88a5238d35ffa5a5f42122e78fe35",
+      "gitBlob": "2e948006a8ac3cb811b775f88b131def849f2237"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/impeccable",
+      "path": "vendor/impeccable/skills/impeccable/scripts/impeccable",
+      "sha256": "137173707b882616104b9d621b53bea37f135de09461add3301b9fcb3d7de461",
+      "gitBlob": "0b31c9e1b9921cdb443aa735a06ac2707259e475"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/impeccable.cmd",
+      "path": "vendor/impeccable/skills/impeccable/scripts/impeccable.cmd",
+      "sha256": "96a9281207f81c6974a552b9538cdd3ac7d5005a3baf7eeddeb3556f86cae9a6",
+      "gitBlob": "6157693b75c837249060089f2240b363d38e8023"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/live-browser-dom.js",
+      "path": "vendor/impeccable/skills/impeccable/scripts/live-browser-dom.js",
+      "sha256": "4b379aff87ce0f485008a2b6a0dc711d00a869f5cf0ec2459279d6364fbf0c9e",
+      "gitBlob": "ef1ca8928111080ddb923da14c7827b7396a9e62"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/live-browser-ignores.js",
+      "path": "vendor/impeccable/skills/impeccable/scripts/live-browser-ignores.js",
+      "sha256": "ba8905ab865fde5162e34fc17eb80eba26cc990b319b14a6eed6ca89fd491897",
+      "gitBlob": "1a2912e57a3b2b10a0d961b5dfe568253133fe53"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/live-browser-session.js",
+      "path": "vendor/impeccable/skills/impeccable/scripts/live-browser-session.js",
+      "sha256": "e042339a54d4521fc47555b602013ed5b51410ec9d7d8878d99a526f5f237f68",
+      "gitBlob": "6871770720d3dd7a284c545e20b97b613635f36f"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/live-browser.js",
+      "path": "vendor/impeccable/skills/impeccable/scripts/live-browser.js",
+      "sha256": "3beaec74d362b64fd32656b22e3bd09f3b983ed2b3068625475dbe46b6867ed9",
+      "gitBlob": "1c140fa0ea49162c4e42c3c96a332f751e0667ca"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": ".agents/skills/impeccable/scripts/modern-screenshot.umd.js",
+      "path": "vendor/impeccable/skills/impeccable/scripts/modern-screenshot.umd.js",
+      "sha256": "bb36665889124a0b6e15f16045265737449c3bdcf2712cdb08af3cfa01563e2b",
+      "gitBlob": "a9c5208f6b141d3bafdb8eb843d6fcbdcf23e370"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": "LICENSE",
+      "path": "vendor/impeccable/LICENSE",
+      "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
+      "gitBlob": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9"
+    },
+    {
+      "source": "impeccable",
+      "upstreamPath": "NOTICE.md",
+      "path": "vendor/impeccable/NOTICE.md",
+      "sha256": "c60a093c2845fd9fb82f9c6f742ece31f379f8190b535309d32d66c45ccffdcb",
+      "gitBlob": "0468271c904ae334cfaf27da6f8df3d5f419a1f0"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/README.md",
+      "path": "vendor/taste-skill/design-taste-frontend/README.md",
+      "sha256": "5e33fd716b3e1ffaca9340f645d44c193f9b446107fa67f0cce498d33025672c",
+      "gitBlob": "a98ba126ce373ba5e639560d8628834d5fa43347"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "LICENSE",
+      "path": "vendor/taste-skill/LICENSE",
+      "sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df",
+      "gitBlob": "48a2f6640b81ff8eca9ce7f6a96337692713ef5b"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/scenes/stage.css",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/scenes/stage.css",
+      "sha256": "b5c587dac45ac6fcc34ae7cb4aa2b3e43797b2ef5d71fd32b48483bda3fca3e0",
+      "gitBlob": "190763d3c1661e7a602bec21fce952dece67bf15"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/base.js",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/base.js",
+      "sha256": "8d50416125596b84c0083d5d5ffba09add57db4b06cbf0eedac2d4999b7653bc",
+      "gitBlob": "86ec0afacba394f64db238c44b8e7b980f2383b3"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/charts.js",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/charts.js",
+      "sha256": "a7e916594729576b7c7e37048a68508a3243fe8fbc9654775cd245232e9f8100",
+      "gitBlob": "8060404d133089930638804830e192218436eaa7"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/base.css",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/base.css",
+      "sha256": "aa6ea21613c79e06e06dea3d33200c78590c89b0346bb976ec07947bb45ceafa",
+      "gitBlob": "75915d3b1ea8780090a365eabfb5c4b697cc6e86"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/app.css",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/app.css",
+      "sha256": "16518c3a999fb81b2698137f1f743128c189272e8b1d411c4b02598c6755b67f",
+      "gitBlob": "865e4ed4804556aaff51897d22bf0c1bcbee9549"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/SKILL.md",
+      "path": "vendor/taste-skill/design-taste-frontend/SKILL.md",
+      "sha256": "3435ed963b15a1b6447746ec8844ab2cd38d8d2e8ead3451937f42df01e408c4",
+      "gitBlob": "d8444f13b76be100b3b088dfdae738e85288d6b6"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/directions.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/directions.json",
+      "sha256": "d71e3824af33a92d9e1ca543e17f80baa5b7a30c815df5125cfe3300a14892c1",
+      "gitBlob": "f7f82e1a921e7009da7ce6f88410d2c8a94cf214"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/motions.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/motions.json",
+      "sha256": "51815dd09a823c829897f99ed9ea7dc5c35bd305ac989b8a0632ea6d42a3f08b",
+      "gitBlob": "ff3818f561f338b15dbe1ff45620729ef0ff8d3b"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/assets/scenes/stage.js",
+      "path": "vendor/taste-skill/design-taste-frontend/assets/scenes/stage.js",
+      "sha256": "9ce782a94406e6a230c49ca5f87e56aff9d436da3f56416b1659421f8976bc2b",
+      "gitBlob": "315b1d9d2ec4b160979a904b13488ea7179b48e9"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/photos.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/photos.json",
+      "sha256": "8fc3b76bca90f44675bd99d99bb4ce95b0756c6c5d4141b7e917d11d90e61520",
+      "gitBlob": "f403b772d3d6ae11ef07cfe44514fb019d918820"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/heroes.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/heroes.json",
+      "sha256": "98d5e01104412a5fb27936f9c686f3bc0a5f76ce0793186d3de46b982c65b172",
+      "gitBlob": "74227d956a049f548d99f7b420ccc6218ae3c40e"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/evals/evals.json",
+      "path": "vendor/taste-skill/design-taste-frontend/evals/evals.json",
+      "sha256": "df0ee2a248cd5445c0e1600eb095dc0d43dd312f5b4bb4316a78471ae0d22a74",
+      "gitBlob": "f6d598008f22d980d135a863a7a151609822bb3f"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/palettes.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/palettes.json",
+      "sha256": "a14be9f45baba848c53436f4aa44eb4f1925ad3e232c5d1dcddf4f565661a525",
+      "gitBlob": "9de29b16db9c9f57b977dd38648a47f866572e54"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/app.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/app.json",
+      "sha256": "3678ccbe1e8d05feff6d4f07fa16a0d610aefeea5e697e842a876713ba763cf5",
+      "gitBlob": "c06fb45f8bb6b09398f19ba35b2f71ae2363a310"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/imagery.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/imagery.md",
+      "sha256": "518def6b2c643b295e13e66b09b66f2e3fc1421d3cf6c7dbb1dc749097ad2ad9",
+      "gitBlob": "ddd88d7a31dd3a5d7f4675ead4524f34d037f665"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/type.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/type.json",
+      "sha256": "dbabf41a468775cf6cc5ea5f3c898b0663293822e167b72b02feba1ef03ebf37",
+      "gitBlob": "f2a9e6ee47774029dd50fa2856cf963d4e69352f"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/app-screens.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/app-screens.md",
+      "sha256": "55e937ec30de605b53a11310b446f328a3ce7403de24fff008920a00be1a5ed4",
+      "gitBlob": "784439ed799484a98958764a5bf3ede2a1d25296"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/colour.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/colour.md",
+      "sha256": "6556bcc7eed48b7bc2d0d281c28bf57c1b75e94d7ca0bde49f5d9df8c6a09351",
+      "gitBlob": "a20a810fa1f080414035a5e0fdc5002977e56ab2"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/copy.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/copy.md",
+      "sha256": "676edbe75d5f3cfd8a793010ea9f730525ae074b231a674c2426264d3398262e",
+      "gitBlob": "69f20af2bff6d40cc07d4dcadaa45440ced550bf"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/sections.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/sections.json",
+      "sha256": "7c2c8a470a22501176948661f803434db8c542a511281752c717252de80c1ad8",
+      "gitBlob": "042b8ab18ef1aa6e67a6f0f2c171fa9357528623"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/critique.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/critique.md",
+      "sha256": "9c2f4392674530b3f02ac529fba53d82ab37b85f401c4c1989fbe98d6217f0b4",
+      "gitBlob": "1989a85c83232e86aec66baf733a843947392b37"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/library/sites.json",
+      "path": "vendor/taste-skill/design-taste-frontend/library/sites.json",
+      "sha256": "a2bc4d0cff8ebff481f0dfd4879c106d5e1e16cb3122f9ab3702184a5e1f3502",
+      "gitBlob": "ef070e3ccdf5cb9c388bab1fd0aacb0371cba413"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/research.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/research.md",
+      "sha256": "83433646a352cae588591e05bc0a75fe1deadff55ede8851bc8dd5dd483adfc5",
+      "gitBlob": "c38364af48f9e95dc90a2e6b47ae75ffdc24731e"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/scenes.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/scenes.md",
+      "sha256": "733ac7258a1a28f2f6ae8205bc36ba66c563594ad0a2e2f829c5eaaba3199a61",
+      "gitBlob": "c2c568b5f1d18128658b28a273e90028fc22bb30"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/type.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/type.md",
+      "sha256": "6353ff1d0ce2f9913628c88fbcb7dad3cc3877e61196848bce99e33a17d20611",
+      "gitBlob": "c1552b700e9bebb2fedf79f82c875615d0f876ac"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/motion.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/motion.md",
+      "sha256": "79f94d8469898d2bf6186c198ad86ddf691a67c6536eaec36a4ec101285d9a37",
+      "gitBlob": "c8f649d4fa45c369c53ce375a00d2f125182f181"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/draw.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/draw.mjs",
+      "sha256": "6c2047d207d2400d3b099956dfe2ac306203b614246e66bc8760212a7f797dbf",
+      "gitBlob": "6db3d89422057902457c97643c13f4b351d1459b"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/layout.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/layout.md",
+      "sha256": "40080640719b07737afb94a8868afef87767a1ab4892814d9b6882e2d283453b",
+      "gitBlob": "dae26af173b4b60f96291f816700f390ffd8e37e"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/assets.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/assets.mjs",
+      "sha256": "b4b4b99b5634735f5a0b4213169cda5240ee6bbed8ed8042ad1bcf2b6607c1fa",
+      "gitBlob": "4f9c5b1c1fcc5a821685c5cea35f326bcf15d75b"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/references/tells.md",
+      "path": "vendor/taste-skill/design-taste-frontend/references/tells.md",
+      "sha256": "8e6de4411c43d3108f832b3f33bb1a2a838148a72b92a176df893b67d99a0da9",
+      "gitBlob": "9cfa4a89e466eb6df81b7a1b776421c378aad840"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/scenes.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/scenes.mjs",
+      "sha256": "234ec582e2b841457c33033feeeba8535f9ac285495a74d08dc533a1566c90d5",
+      "gitBlob": "7bbde8e6bdf27859af0d54db1e1b2756de3a7d56"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lib/rules.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lib/rules.mjs",
+      "sha256": "8244aa9f53e77a59a562410310414e6b1a0f0cf002ce8f5aa792740b7f0149bf",
+      "gitBlob": "daf22a9cd2fe19339796f406aca6aa9a24872a96"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lint.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lint.mjs",
+      "sha256": "05f2fae2f56fc051b539cdbacb43a6f78fbbfb9644bb74aa11be472ff12dcaf5",
+      "gitBlob": "9277761d18222e5fc75c85ed79aa032f3d086598"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/inspect.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/inspect.mjs",
+      "sha256": "c0d7366f789b3f594787b37a525d1d7096104a499aac8a97ae04b405046cf02c",
+      "gitBlob": "f1790ca0f1a7c26221455c4e1e91e69e16363dff"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lib/probe.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lib/probe.mjs",
+      "sha256": "a5a17df891e438f55f196d8233601c3c79c873755f442c1ac5c3568de4e6bb48",
+      "gitBlob": "d45372bc2f594e2ab674889646ca6fc846cec6b8"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lib/app-draw.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lib/app-draw.mjs",
+      "sha256": "aa0802d341d19b53ec14ec21746e428be49a8ec3ed7b30253194105fc18a8df6",
+      "gitBlob": "e246a38f15d4f3b163a3d3aa5378c71462a4c24f"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lib/inspection-files.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lib/inspection-files.mjs",
+      "sha256": "5635c0d5fbe0f5bd012e58534bcd554ff7440a4e5c724a61a61c476c7f42e918",
+      "gitBlob": "d375fcb6b1db149eb11b9ccde3d2f485060b51ca"
+    },
+    {
+      "source": "taste-skill",
+      "upstreamPath": "skills/taste-skill/scripts/lib/cdp.mjs",
+      "path": "vendor/taste-skill/design-taste-frontend/scripts/lib/cdp.mjs",
+      "sha256": "320fb75c6454a97b88458e5c33559a1188042aa0041bd5eff53455900236c88a",
+      "gitBlob": "03ef99c144923d0905ffc6222189bc8901836f4a"
+    },
+    {
+      "source": "anthropic-frontend-design",
+      "upstreamPath": "skills/frontend-design/SKILL.md",
+      "path": "vendor/anthropic-skills/frontend-design/SKILL.md",
+      "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+      "gitBlob": "a5333457c414d20d625f307df945842c0952ecc3"
+    },
+    {
+      "source": "anthropic-frontend-design",
+      "upstreamPath": "skills/frontend-design/LICENSE.txt",
+      "path": "vendor/anthropic-skills/frontend-design/LICENSE.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "gitBlob": "f433b1a53f5b830a205fd2df78e2b34974656c7b"
+    }
+  ],
+  "optionalEngines": [
+    {
+      "version": "engine-v0.1.18",
+      "manifest": "vendor/impeccable/skills/impeccable/scripts/engine-checksums.txt",
+      "distribution": "Install a matching upstream platform release locally; binary excluded from source distribution."
+    }
+  ]
+}

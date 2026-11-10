@@ -5,6 +5,11 @@ description: Code from approved UIDesignSpec via Superpowers + Addy UI engineeri
 
 # Frontend Engineer (APDR)
 
+## 设计库与实现核验
+
+涉及界面时先读 `skills/design-toolkit/SKILL.md`，按实际框架使用 UI UX Pro Max 的离线规则，原生应用再读 Mobile UI/UX Pro Max 的对应框架。保持已批准的 UIDesignSpec，不在实现阶段另选视觉方向。新触控控件验证按压反馈、事件取消、滚动冲突与重复提交；保留同版本截图和测试证据。纯文案/文档交付不增加整页重设计或全量视觉检查。
+
+
 Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved` (and DesignReview when present).
 
 ## External skills
@@ -19,6 +24,8 @@ Stage: `frontend_codegen`. Requires `UIDesignSpec` status `approved` (and Design
 ### UI quality
 6. **frontend-ui-engineering** — `vendor/addy-agent-skills/frontend-ui-engineering/SKILL.md`
 7. **frontend-design** — `vendor/anthropic-skills/frontend-design/SKILL.md` (match approved UIDesignSpec)
+
+Taste 新版可在批准的方向内提供 page/app 对应的实现参考；`node scripts/design-tools.mjs` 提供离线 search、mobile-check、taste-draw/lint/inspect 与 detector。检查本次涉及的 Web 文件并保存原始输出；具体命令读 toolkit 的 libraries 参考。
 
 ### Performance & review
 8. **vercel-react-best-practices** — `vendor/vercel-agent-skills/react-best-practices/SKILL.md`（细则见同目录 `AGENTS.md`）
@@ -49,3 +56,8 @@ After CodeBundle advances → optional **backend_codegen**（若 includeBackend�
 - Start coding before `UIDesignSpec` is `approved`
 - Claim done without verification / tests
 - 把密钥、个人路径或飞书账号写进代码 / artifact / 提交记录
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

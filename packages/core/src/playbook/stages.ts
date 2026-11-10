@@ -69,6 +69,7 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["ProjectBrief"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
       { id: "operator-preference", vendorPath: "skills/operator-preference/SKILL.md" },
       { id: "document-io", vendorPath: "skills/document-io/SKILL.md" },
       { id: "feishu-lark", vendorPath: "skills/feishu-lark/SKILL.md" },
@@ -89,6 +90,7 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Structured problems, JTBD, assumptions, risks from the brief, enriched with market research.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
       "Read `skills/requirements-analyst/SKILL.md` and follow it.",
       "`get_latest_artifact` ProjectBrief; apply operator-preference for question density.",
       "Import Office/飞书 source docs via document-io / feishu-lark when provided.",
@@ -111,6 +113,7 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["RequirementsAnalysis"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
       { id: "spec-driven-development", vendorPath: "vendor/addy-agent-skills/spec-driven-development/SKILL.md" },
       { id: "grill-with-docs", vendorPath: "vendor/mattpocock-skills/grill-with-docs/SKILL.md" },
       { id: "competitive-research", vendorPath: "skills/competitive-research/SKILL.md" },
@@ -124,6 +127,7 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Full PRD with features, priorities, acceptance criteria.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
       "Read `skills/prd-writer/SKILL.md`.",
       "Load approved RequirementsAnalysis.",
       "Apply addy spec-driven-development gated Specify→Plan mindset to PRD structure (product spec, not code).",
@@ -146,11 +150,16 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "optional",
     upstreamArtifacts: ["PRD"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
+      { id: "design-toolkit", vendorPath: "skills/design-toolkit/SKILL.md" },
+      { id: "refero-design-local", vendorPath: "vendor/refero/skills/refero-design/SKILL.md" },
       { id: "baoyu-diagram", slashCommand: "/baoyu-diagram", vendorPath: "vendor/baoyu-skills/skills/baoyu-diagram/SKILL.md" },
       { id: "pm-customer-journey-map", vendorPath: "vendor/pm-skills/pm-market-research/skills/customer-journey-map/SKILL.md" },
     ],
     objective: "Task flows with Mermaid diagrams per core user journey.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
+      "Read skills/design-toolkit/SKILL.md first for UI work: route all five UI skills by device/surface, preserve approved tokens and use the verified local detector for relevant Web code reviews; paid Refero MCP is optional and upstream skills do not override approved design or APDR gates.",
       "Read `skills/ux-flow/SKILL.md`.",
       "Optional: pm customer-journey-map for end-to-end emotion/pain context.",
       "Map PRD features to flows; use baoyu-diagram for visuals.",
@@ -169,10 +178,12 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "optional",
     upstreamArtifacts: ["PRD", "UserFlows"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
       { id: "baoyu-diagram", slashCommand: "/baoyu-diagram", vendorPath: "vendor/baoyu-skills/skills/baoyu-diagram/SKILL.md" },
     ],
     objective: "Sitemap, navigation, URL map, content types.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
       "Read `skills/information-architect/SKILL.md`.",
       "Synthesize PRD + UserFlows into IA tree.",
       "`write_artifact` InformationArchitecture → approve → advance.",
@@ -212,6 +223,12 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["Wireframes"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
+      { id: "design-taste-frontend", vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md" },
+      { id: "design-toolkit", vendorPath: "skills/design-toolkit/SKILL.md" },
+      { id: "refero-design-local", vendorPath: "vendor/refero/skills/refero-design/SKILL.md" },
+      { id: "ui-ux-pro-max", vendorPath: "vendor/ui-ux-pro-max/SKILL.md" },
+      { id: "mobile-uiux-pro-max", vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md" },
       { id: "open-design", vendorPath: "skills/open-design/SKILL.md" },
       { id: "open-design-brief", vendorPath: "vendor/open-design/design-brief/SKILL.md" },
       { id: "frontend-design", vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md" },
@@ -221,6 +238,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Design tokens, components, screen specs (optional concept images).",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
+      "Read skills/design-toolkit/SKILL.md first for UI work: route all five UI skills by device/surface, preserve approved tokens and use the verified local detector for relevant Web code reviews; paid Refero MCP is optional and upstream skills do not override approved design or APDR gates.",
       "Read `skills/visual-designer/SKILL.md` and `skills/open-design/SKILL.md`.",
       "Run OpenDesign design-brief to lock 8 dimensions into tokens (DESIGN.md shape → UIDesignSpec).",
       "Read anthropic frontend-design + theme-factory; pick a design-system skill (agentic/minimal/clean/professional) for token/component rules.",
@@ -241,6 +260,11 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "required",
     upstreamArtifacts: ["UIDesignSpec", "Wireframes"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
+      { id: "design-taste-frontend", vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md" },
+      { id: "design-toolkit", vendorPath: "skills/design-toolkit/SKILL.md" },
+      { id: "impeccable-local-review", vendorPath: "vendor/impeccable/skills/impeccable/SKILL.md" },
+      { id: "mobile-uiux-pro-max", vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md" },
       { id: "open-design", vendorPath: "skills/open-design/SKILL.md" },
       { id: "open-design-critique", vendorPath: "vendor/open-design/design-templates/critique.md" },
       { id: "frontend-design", vendorPath: "vendor/anthropic-skills/frontend-design/SKILL.md" },
@@ -250,6 +274,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Verify design quality: token consistency, component coverage, responsive, accessible.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
+      "Read skills/design-toolkit/SKILL.md first for UI work: route all five UI skills by device/surface, preserve approved tokens and use the verified local detector for relevant Web code reviews; paid Refero MCP is optional and upstream skills do not override approved design or APDR gates.",
       "Read skills/design-reviewer/SKILL.md.",
       "get_latest_artifact UIDesignSpec and Wireframes.",
       "Use OpenDesign critique template + agentic design-system quality gates + frontend-design anti-template checks.",
@@ -271,6 +297,11 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "optional",
     upstreamArtifacts: ["UIDesignSpec", "DesignReviewReport"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
+      { id: "design-taste-frontend", vendorPath: "vendor/taste-skill/design-taste-frontend/SKILL.md" },
+      { id: "design-toolkit", vendorPath: "skills/design-toolkit/SKILL.md" },
+      { id: "ui-ux-pro-max", vendorPath: "vendor/ui-ux-pro-max/SKILL.md" },
+      { id: "mobile-uiux-pro-max", vendorPath: "vendor/mobile-uiux-pro-max/SKILL.md" },
       { id: "writing-plans", vendorPath: "vendor/superpowers/skills/writing-plans/SKILL.md" },
       { id: "planning-and-task-breakdown", vendorPath: "vendor/addy-agent-skills/planning-and-task-breakdown/SKILL.md" },
       { id: "frontend-ui-engineering", vendorPath: "vendor/addy-agent-skills/frontend-ui-engineering/SKILL.md" },
@@ -282,6 +313,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Runnable frontend (React/Vite or HTML) from UI spec.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
+      "Read skills/design-toolkit/SKILL.md first for UI work: route all five UI skills by device/surface, preserve approved tokens and use the verified local detector for relevant Web code reviews; paid Refero MCP is optional and upstream skills do not override approved design or APDR gates.",
       "Read `skills/frontend-engineer/SKILL.md`.",
       "Superpowers writing-plans (+ addy planning-and-task-breakdown) → implement with frontend-ui-engineering + frontend-design.",
       "TDD: Superpowers loop + Matt Pocock `/tdd` seam/discipline; performance pass via vercel-react-best-practices (AGENTS.md).",
@@ -361,12 +394,14 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "optional",
     upstreamArtifacts: ["CodeBundle", "CodeIntelligenceReport"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
       { id: "documentation-and-adrs", vendorPath: "vendor/addy-agent-skills/documentation-and-adrs/SKILL.md" },
       { id: "document-io", vendorPath: "skills/document-io/SKILL.md" },
       { id: "feishu-lark", vendorPath: "skills/feishu-lark/SKILL.md" },
     ],
     objective: "Generate component docs, build instructions, API contracts, deployment guide.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
       "Read skills/handoff/SKILL.md.",
       "get_latest_artifact CodeBundle, CodeIntelligenceReport, UIDesignSpec, PRD.",
       "Apply documentation-and-adrs patterns; collect projects/{id}/decisions ADRs.",
@@ -388,6 +423,9 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     humanGate: "optional",
     upstreamArtifacts: ["HandoffDoc", "CodeIntelligenceReport"],
     externalSkills: [
+      { id: "product-quality", vendorPath: "skills/product-quality/SKILL.md" },
+      { id: "design-toolkit", vendorPath: "skills/design-toolkit/SKILL.md" },
+      { id: "impeccable-local-review", vendorPath: "vendor/impeccable/skills/impeccable/SKILL.md" },
       { id: "verification-before-completion", vendorPath: "vendor/superpowers/skills/verification-before-completion/SKILL.md" },
       { id: "browser-testing-with-devtools", vendorPath: "vendor/addy-agent-skills/browser-testing-with-devtools/SKILL.md" },
       { id: "webapp-testing", vendorPath: "vendor/anthropic-skills/webapp-testing/SKILL.md" },
@@ -397,6 +435,8 @@ export const STAGE_PLAYBOOKS: Record<PipelineStage, StagePlaybook> = {
     ],
     objective: "Final quality gate: artifact quality assessment and feature-flow coverage validation.",
     steps: [
+      "Read skills/product-quality/SKILL.md and apply only the product, UI and evidence rules relevant to this stage; do not import private project records.",
+      "Read skills/design-toolkit/SKILL.md first for UI work: route all five UI skills by device/surface, preserve approved tokens and use the verified local detector for relevant Web code reviews; paid Refero MCP is optional and upstream skills do not override approved design or APDR gates.",
       "Read skills/quality-evaluator/SKILL.md.",
       "Invoke verification-before-completion before claiming pass.",
       "get_latest_artifact all project artifacts for quality checks.",

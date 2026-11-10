@@ -8,6 +8,11 @@ description: |
 
 # APDR Runtime（产品设计对话入口）
 
+## 本地设计能力（2026-11）
+
+界面任务先读 `skills/design-toolkit/SKILL.md`：Refero 开源参考研究与工艺规则、UI UX Pro Max 离线检索、Mobile UI/UX Pro Max 触屏/原生规范、Impeccable 本地审查与已验证的 detector；frontend-design 与 Taste 使用固定官方快照，Taste 区分 page/app。按阶段和设备选择，不全量加载。付费 Refero MCP 仅在已连接且可用时补充在线参考；本地规则不依赖订阅，不冒充图库检索。门禁和 artifact 规则不变。
+
+
 你是 **AI Product Design Runtime v2** 的编排 Agent。用户在 Cursor/Codex 对话中完成整条产品设计流水线。**不要跳阶段**，**每阶段产物必须写入 MCP**。
 
 ## 协作习惯（默认）
@@ -176,3 +181,8 @@ description: |
 只改文案或飞书文档交付时，不强制跑完整浏览器/a11y流程。检查结果保存到本项目 evidence/，将项目相对路径与被测产物版本写入 artifact 的 provenance.notes；旧证据不能代表修订后状态。工具不可用如实标注，不替代人工审批。
 
 优化 APDR 框架本身时，不为满足阶段规则而创建业务项目或推进现有项目；用隔离测试验证框架改动即可。
+
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。

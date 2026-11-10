@@ -114,7 +114,11 @@ export interface ExternalSkillRef {
     | "marketing-skills"
     | "tavily"
     | "firecrawl"
-    | "open-design";
+    | "open-design"
+    | "refero"
+    | "ui-ux-pro-max"
+    | "mobile-uiux-pro-max"
+    | "impeccable";
   /** Repo-relative path to upstream SKILL.md when vendored */
   vendorPath?: string;
   /** Cursor slash command if plugin installed */

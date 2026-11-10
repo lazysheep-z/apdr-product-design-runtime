@@ -15,6 +15,8 @@ export function localToolGuidance(stage: PipelineStage, prefs?: OperatorPreferen
   return tools;
 }
 export const localEvidenceRules = [
+  "产品与UI变更按skills/product-quality/SKILL.md核对当前范围的验收条件；检查完成、修复、复测、人工批准和上线分别记录。",
+  "保存须核对刷新与日志；导出须校验实际文件；菜单/缓存返回和共用组件须覆盖受影响状态。演示反馈不等于业务成功。",
   "证据应对应当前产物版本与页面状态，写入artifact provenance.notes（项目相对路径）；上游变更后旧证据不得充当本轮结果。",
   "区分已执行、失败、未执行和不适用；没有真实证据不能称通过。工具不自行批准、不跳阶段、不改人工门禁。",
   "已有APDR stage skill优先；外部技能按实际任务选用，不要求逐一执行全部方法论，不重复询问已确认信息。",

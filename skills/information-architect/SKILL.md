@@ -36,3 +36,7 @@ Stage: `information_architecture`. Requires `PRD` + `UserFlows`.
 ## References
 - [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw) 126k★ — structural diagram reference
 - [tldraw/tldraw](https://github.com/tldraw/tldraw) 48k★ — IA visualization patterns
+
+## 通用产品、UI 与验收规则
+
+读取 `skills/product-quality/SKILL.md`，仅加载本任务相关参考；将适用规则写入本阶段产物，独立审查不补造审批。不得将原始项目记录或真实身份沉淀到框架。
